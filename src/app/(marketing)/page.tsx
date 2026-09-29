@@ -8,6 +8,9 @@ import { DesignProcessSection } from "@/components/sections/home/design-process-
 import { AiPoweredDesignSection } from "@/components/sections/home/ai-powered-design-section";
 import { WhyChooseUsSection } from "@/components/sections/home/why-choose-us-section";
 import { WorkMarqueeSection } from "@/components/sections/home/work-marquee-section";
+import { PricingPlansSection } from "@/components/sections/home/pricing-plans-section";
+import { InteractiveOrbitCtaSection } from "@/components/sections/home/interactive-orbit-cta-section";
+import { TeamSpecialistsSection } from "@/components/sections/home/team-specialists-section";
 import { SectionContainer } from "@/components/ui/section-container";
 
 export default function MarketingPage() {
@@ -40,6 +43,16 @@ export default function MarketingPage() {
       </SectionContainer>
 
       <WorkMarqueeSection />
+
+      <SectionContainer extendTopBorder={false} noPadding={true}>
+        <PricingPlansSection />
+      </SectionContainer>
+
+      <InteractiveOrbitCtaSection />
+
+      <SectionContainer extendTopBorder={false}>
+        <TeamSpecialistsSection />
+      </SectionContainer>
     </div>
   );
 }
