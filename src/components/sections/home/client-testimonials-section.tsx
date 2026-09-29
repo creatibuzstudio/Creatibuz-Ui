@@ -55,33 +55,17 @@ export function ClientTestimonialsSection() {
       id="testimonials"
       className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32 select-none"
     >
-      {/* Top divider line */}
-      <div className="w-full h-px bg-white/[0.12] absolute top-0 inset-x-0 pointer-events-none z-0" />
-
       {/* Background Grid Lines & Cross Markers */}
       <div className="absolute inset-0 max-w-7xl mx-auto pointer-events-none z-0">
         <div className="absolute left-0 top-0 bottom-0 w-px bg-white/[0.12]" />
         <div className="absolute right-0 top-0 bottom-0 w-px bg-white/[0.12]" />
-
-        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-10">
-          <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text" />
-        </div>
-        <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-10">
-          <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text" />
-        </div>
-        <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 z-10">
-          <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text" />
-        </div>
-        <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 z-10">
-          <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text" />
-        </div>
       </div>
 
       {/* Header Container */}
       <div className="max-w-4xl w-full mx-auto px-6 flex flex-col items-center text-center mb-14 md:mb-16 relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-white tracking-tight leading-tight flex flex-col items-center gap-2">
+        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-header-text tracking-tight leading-tight flex flex-col items-center gap-2">
           <span>What SaaS Teams Say About Working</span>
-          <span className="font-serif italic font-normal text-white mt-1 text-3xl md:text-4xl lg:text-[42px]">
+          <span className="font-serif italic font-normal text-header-text mt-1 text-3xl md:text-4xl lg:text-[42px]">
             with Creatibuz Studio
           </span>
         </h2>
@@ -113,9 +97,6 @@ export function ClientTestimonialsSection() {
           </div>
         </div>
       )}
-
-      {/* Bottom divider line */}
-      <div className="w-full h-px bg-white/[0.12] absolute bottom-0 inset-x-0 pointer-events-none z-0" />
 
       {/* Video Modal */}
       <VideoModal

@@ -55,14 +55,13 @@ export function BlogInsightsSection() {
         transition={{ duration: 0.6 }}
         className="text-center max-w-3xl mx-auto"
       >
-        <span className="text-primary text-sm md:text-[20px] text-center mb-3 block">
+        <span className="text-primary text-sm md:text-[20px] text-center mb-3 font-sans">
           [ Our Latest Blog ]
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-header-text text-center tracking-tight">
-          Where Creativity Meets
-          <span className="font-serif italic font-normal text-foreground text-center text-3xl sm:text-4xl md:text-5xl mt-1 block">
-            Intelligent Design.
-          </span>
+        <h2 className="text-3xl md:text-4xl lg:text-[40px] text-header-text text-center tracking-tight">
+          <span className="font-bold">Where Creativity Meets</span>
+          <br />
+          <span className="font-serif italic">Intelligent Design.</span>
         </h2>
       </motion.div>
 

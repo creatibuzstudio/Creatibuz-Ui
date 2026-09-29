@@ -21,7 +21,7 @@ export function UnlimitedRevisionCard() {
 
         {/* Chat Box Widget */}
         <div className="relative">
-          <div className="absolute -bottom-8 -right-8 z-10 bg-[#1A1A1A] border border-primary rounded-tl-xl scale-x-105 scale-y-103 flex flex-col gap-3 shadow-[0_0_20px_rgba(254,90,0,0.5)]">
+          <div className="absolute -bottom-9 -right-8 z-10 bg-[#1A1A1A] border border-primary rounded-tl-xl scale-x-105 scale-y-105 flex flex-col gap-3 shadow-[0_0_20px_rgba(254,90,0,0.25)]">
             {/* Header */}
             <div className="flex items-center justify-between bg-[#0F1013] border-b border-white/[0.08] rounded-tl-xl p-4">
               <span className="text-xs sm:text-sm font-semibold text-primary-text font-sans flex items-center gap-1.5">
@@ -70,7 +70,7 @@ export function UnlimitedRevisionCard() {
             {/* Messages */}
             <div className="space-y-4 font-sans p-4">
               {feedbackChatMessages.map((msg, i) => (
-                <div key={i} className="flex items-start gap-2.5">
+                <div key={i} className="flex items-start gap-6">
                   <Image
                     src={msg.avatar}
                     alt={msg.name}
@@ -78,7 +78,7 @@ export function UnlimitedRevisionCard() {
                     height={32}
                     className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/10 shrink-0 object-cover mt-0.5"
                   />
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 pb-2">
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-xs font-semibold text-primary-text">
                         {msg.name}

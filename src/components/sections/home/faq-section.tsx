@@ -14,12 +14,11 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faq" className="w-full">
-      <div className="w-full max-w-[95%] lg:max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="faq" className="w-full lg:px-16">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left Column: Titles & CTA */}
           <div className="w-full lg:w-4/12 flex flex-col items-start pt-2">
-            <span className="text-primary text-sm md:text-[20px] mb-6">
+            <span className="text-primary text-sm md:text-[20px] mb-6 font-sans">
               [ Ask Anything ]
             </span>
 
@@ -57,7 +56,6 @@ export function FaqSection() {
             ))}
           </div>
         </div>
-      </div>
     </section>
   );
 }

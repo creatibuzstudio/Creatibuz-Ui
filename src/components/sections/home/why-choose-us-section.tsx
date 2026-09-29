@@ -12,21 +12,21 @@ export function WhyChooseUsSection() {
     <div id="why-choose-us" className="w-full flex flex-col items-center">
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-12 md:mb-16">
-        <span className="text-primary text-base md:text-xl text-center mb-3 font-mono">
+        <span className="text-primary text-base md:text-xl text-center mb-3 font-sans">
           [ Why Choose Us ]
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-foreground tracking-tight leading-[1.15] text-center">
-          Creatibuz Studio Alternative?
+        <h2 className="text-3xl md:text-4xl lg:text-[40px] text-header-text tracking-tight leading-[1.15] text-center">
+          <span className="font-bold">Creatibuz Studio Alternative?</span>
           <br />
-          <span>Think </span>
-          <span className="italic font-normal text-foreground">
+          <span className="font-bold">Think </span>
+          <span className="italic font-serif text-header-text">
             One More Time!
           </span>
         </h2>
       </div>
 
       {/* Bento Grid: 8-Column Layout */}
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-8 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-6 items-stretch">
         {/* CARD 1: Flexible Payment Plans */}
         <FlexiblePlansCard />
 

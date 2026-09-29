@@ -6,8 +6,7 @@ import { ContactForm } from "./contact/contact-form";
 
 export function ContactCtaSection() {
   return (
-    <section id="contact" className="w-full flex justify-center">
-      <div className="w-full max-w-[95%] lg:max-w-6xl mx-auto px-2 sm:px-4 md:px-6">
+    <section id="contact" className="w-full lg:px-16 flex justify-center">
         {/* Dark Floating Card Container */}
         <div className="w-full bg-card text-foreground rounded-2xl p-8 sm:p-10 md:p-12 shadow-2xl flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-16 relative overflow-hidden border border-[#FF6B00]/40 shadow-[0_0_35px_rgba(255,107,0,0.12)]">
           {/* Subtle Orange Glow */}
@@ -15,10 +14,10 @@ export function ContactCtaSection() {
 
           {/* Left Column: Headline, Photo, Profile Info */}
           <div className="w-full lg:w-5/12 flex flex-col items-start relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.2] mb-8 text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.2] mb-8 text-header-text">
               Enhance Your Brand <br className="hidden sm:inline" />
               Potential{" "}
-              <span className="italic font-medium text-primary">
+              <span className="italic font-serif font-medium text-primary">
                 At No Cost!
               </span>
             </h2>
@@ -26,7 +25,7 @@ export function ContactCtaSection() {
             {/* Founder Photo */}
             <div className="w-full max-w-[320px] aspect-[4/4.5] rounded-[16px] overflow-hidden relative mb-8 shadow-2xl bg-gray-900 border border-white/5">
               <Image
-                src="/hakim.png"
+                src="/founder.jpg"
                 alt="Md Abdul Hakim"
                 fill
                 sizes="(max-width: 640px) 100vw, 320px"
@@ -38,7 +37,7 @@ export function ContactCtaSection() {
             <h3 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">
               Md Abdul Hakim
             </h3>
-            <p className="text-[15px] md:text-[20px] text-foreground font-normal leading-snug mb-8">
+            <p className="text-[15px] md:text-[20px] text-header-text font-normal leading-snug mb-8">
               Founder & CEO -<br />
               Creatibuz Studio - Agency
             </p>
@@ -71,7 +70,6 @@ export function ContactCtaSection() {
             <ContactForm />
           </div>
         </div>
-      </div>
     </section>
   );
 }

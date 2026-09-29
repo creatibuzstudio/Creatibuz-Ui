@@ -41,7 +41,7 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
       }`}
     >
       {isPopular && (
-        <div className="bg-primary text-foreground text-xs font-semibold px-4 py-1 rounded-full absolute -top-3.5 left-1/2 -translate-x-1/2 shadow-lg shadow-[#F85800]/30 tracking-wide">
+        <div className="bg-primary text-foreground text-xs font-semibold px-4 py-1 rounded-full absolute -top-3.5 left-2/3 -translate-x-1/2 shadow-lg shadow-[#F85800]/30 tracking-wide">
           Most Popular
         </div>
       )}
@@ -64,7 +64,7 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
           </span>
         </div>
 
-        <div className="bg-black/40 rounded-2xl p-5 border border-white/5 space-y-3.5 mb-8">
+        <div className={`${isPopular ? "bg-[#2F2F33]" : "bg-[#181818]"} rounded-2xl p-5 border border-white/5 space-y-3.5 mb-8`}>
           {plan.features.map((feature, fIdx) => (
             <div key={fIdx} className="flex items-center gap-3">
               <div
@@ -76,7 +76,7 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
               >
                 <Check className="w-3 h-3 stroke-[2.5]" />
               </div>
-              <span className="text-sm text-zinc-300 font-normal font-sans">
+              <span className="text-sm text-zinc-300 tracking-wide font-display">
                 {feature}
               </span>
             </div>

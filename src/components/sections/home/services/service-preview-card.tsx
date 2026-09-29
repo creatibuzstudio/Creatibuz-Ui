@@ -26,7 +26,7 @@ export function ServicePreviewCard({ current }: ServicePreviewCardProps) {
             style={{
               aspectRatio: `${current.width || 4} / ${current.height || 3}`,
             }}
-            className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-[#101012] shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+            className="relative w-full overflow-hidden border border-white/10 bg-[#101012] shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
           >
             <Image
               src={current.img}
@@ -53,7 +53,7 @@ export function ServicePreviewCard({ current }: ServicePreviewCardProps) {
             {current.tags.map((tag) => (
               <span
                 key={tag}
-                className="bg-card text-primary-text text-xs px-3.5 py-1.5 rounded-full font-medium font-sans"
+                className="bg-card text-primary-text text-xs md:text-[13px] px-4 py-2 rounded-full font-medium font-sans"
               >
                 {tag}
               </span>
