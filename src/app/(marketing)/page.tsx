@@ -10,7 +10,12 @@ import { WhyChooseUsSection } from "@/components/sections/home/why-choose-us-sec
 import { WorkMarqueeSection } from "@/components/sections/home/work-marquee-section";
 import { PricingPlansSection } from "@/components/sections/home/pricing-plans-section";
 import { InteractiveOrbitCtaSection } from "@/components/sections/home/interactive-orbit-cta-section";
+import { BlogInsightsSection } from "@/components/sections/home/blog-insights-section";
 import { TeamSpecialistsSection } from "@/components/sections/home/team-specialists-section";
+import { FaqSection } from "@/components/sections/home/faq-section";
+import { ContactCtaSection } from "@/components/sections/home/contact-cta-section";
+import { ClientTestimonialsSection } from "@/components/sections/home/client-testimonials-section";
+import { PlatformFeaturesSection } from "@/components/sections/home/platform-features-section";
 import { SectionContainer } from "@/components/ui/section-container";
 
 export default function MarketingPage() {
@@ -51,7 +56,25 @@ export default function MarketingPage() {
       <InteractiveOrbitCtaSection />
 
       <SectionContainer extendTopBorder={false}>
+        <BlogInsightsSection />
+      </SectionContainer>
+
+      <SectionContainer extendTopBorder={false}>
         <TeamSpecialistsSection />
+      </SectionContainer>
+
+      <SectionContainer extendTopBorder={false}>
+        <FaqSection />
+      </SectionContainer>
+
+      <SectionContainer extendTopBorder={false}>
+        <ContactCtaSection />
+      </SectionContainer>
+
+      <ClientTestimonialsSection />
+
+      <SectionContainer extendTopBorder={false}>
+        <PlatformFeaturesSection />
       </SectionContainer>
     </div>
   );

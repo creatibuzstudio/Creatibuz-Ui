@@ -1,7 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  turbopack: {
+    root: __dirname,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.api.jevxo.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.jevxo.com",
+      },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
