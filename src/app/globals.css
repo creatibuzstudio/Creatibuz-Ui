@@ -47,11 +47,10 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-bricolage), "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --font-display: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-serif: var(--font-dm-serif), "DM Serif Display", Georgia, serif;
   --font-dm: var(--font-dm-serif), "DM Serif Display", Georgia, serif;
   --font-mono: var(--font-geist-mono);
-  --font-helvetica: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
   --font-manrope: var(--font-manrope), "Manrope", sans-serif;
 }
 

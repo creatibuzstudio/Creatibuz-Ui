@@ -136,16 +136,16 @@ export function HeroSection() {
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 className="relative group inline-flex items-center justify-center"
               >
-                <div className="absolute -inset-3 sm:-inset-4 bg-[#F85800]/50 rounded-full blur-2xl group-hover:bg-[#F85800]/75 group-hover:blur-3xl transition-all duration-500 pointer-events-none" />
+                <div className="absolute -inset-3 sm:-inset-4 bg-primary/50 rounded-full blur-2xl group-hover:bg-primary/75 group-hover:blur-3xl transition-all duration-500 pointer-events-none" />
 
                 <Link
                   href="https://calendly.com/jevxo-info/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative z-10 inline-flex items-center gap-3.5 bg-[#F85800] hover:bg-[#ff6814] text-white pl-6 sm:pl-7 pr-2 sm:pr-2.5 py-2 sm:py-2.5 rounded-full font-medium text-[15px] sm:text-[16px] shadow-[0_0_30px_rgba(248,88,0,0.35)] transition-all duration-300 font-sans"
+                  className="relative z-10 inline-flex items-center gap-5 bg-primary hover:bg-[#ff6814] text-white pl-6 sm:pl-8 pr-2 sm:pr-2.5 py-2 sm:py-2 rounded-full font-medium text-[15px] sm:text-[20px] shadow-[0_0_30px_rgba(248,88,0,0.35)] transition-all duration-300 font-display"
                 >
                   <span className="tracking-tight">Schedule a Meeting</span>
-                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center text-[#F85800] shrink-0 shadow-sm group-hover:rotate-45 transition-transform duration-300">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm group-hover:rotate-45 transition-transform duration-300">
                     <ArrowUpRight className="w-4 h-4 sm:w-8 sm:h-8 stroke-2" />
                   </div>
                 </Link>
