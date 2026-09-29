@@ -8,9 +8,14 @@ export interface StatsData {
 }
 
 export const statsService = {
-  getStats: async (): Promise<StatsData> => {
-    const response = await apiClient.get("/stats");
-    return response.data;
+  getStats: async (): Promise<StatsData | null> => {
+    try {
+      const response = await apiClient.get("/stats");
+      return response.data || null;
+    } catch {
+      // Graceful offline fallback
+      return null;
+    }
   },
 };
 

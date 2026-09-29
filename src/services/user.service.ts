@@ -14,13 +14,21 @@ export interface User {
 
 export const userService = {
   getAllUsers: async (): Promise<User[]> => {
-    const response = await apiClient.get("/users");
-    return Array.isArray(response.data) ? response.data : response.data?.data || [];
+    try {
+      const response = await apiClient.get("/users");
+      return Array.isArray(response.data) ? response.data : response.data?.data || [];
+    } catch {
+      return [];
+    }
   },
 
-  getUserById: async (id: string): Promise<User> => {
-    const response = await apiClient.get(`/users/${id}`);
-    return response.data;
+  getUserById: async (id: string): Promise<User | null> => {
+    try {
+      const response = await apiClient.get(`/users/${id}`);
+      return response.data;
+    } catch {
+      return null;
+    }
   },
 
   createUser: async (userData: Partial<User>): Promise<User> => {

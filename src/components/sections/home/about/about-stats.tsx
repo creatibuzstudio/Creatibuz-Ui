@@ -29,7 +29,9 @@ export function AboutStats({ statsRef }: AboutStatsProps) {
       .then((data) => {
         if (data) setTargetStats(data);
       })
-      .catch((err) => console.error("Error loading stats:", err));
+      .catch(() => {
+        // Silently preserve defaultStats
+      });
   }, []);
 
   useEffect(() => {

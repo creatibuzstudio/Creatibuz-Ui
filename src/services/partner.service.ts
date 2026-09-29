@@ -11,11 +11,16 @@ export interface Partner {
 
 export const partnerService = {
   getAllPartners: async (): Promise<Partner[]> => {
-    const response = await apiClient.get("/partners");
-    const data = response.data;
-    if (Array.isArray(data)) return data;
-    if (data && Array.isArray(data.data)) return data.data;
-    return [];
+    try {
+      const response = await apiClient.get("/partners");
+      const data = response.data;
+      if (Array.isArray(data)) return data;
+      if (data && Array.isArray(data.data)) return data.data;
+      return [];
+    } catch {
+      // Graceful offline fallback
+      return [];
+    }
   },
 };
 

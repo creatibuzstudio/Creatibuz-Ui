@@ -21,7 +21,7 @@ export function HeroSection() {
     const fetchBanners = async () => {
       try {
         const banners = await bannerService.getAllBanners();
-        if (banners.length > 0) {
+        if (banners && banners.length > 0) {
           const sorted = [...banners].sort((a, b) => (a.order || 0) - (b.order || 0));
           const active = sorted.filter((b) => b.isActive !== false);
           const urls = active.map((b) => b.photoUrl).filter(Boolean);
@@ -32,8 +32,8 @@ export function HeroSection() {
             setRow2(urls.slice(half));
           }
         }
-      } catch (error) {
-        console.error("Error fetching banners:", error);
+      } catch {
+        // Silently preserve default mockups
       }
     };
     fetchBanners();

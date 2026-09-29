@@ -17,8 +17,8 @@ export function PartnerLogosSection() {
         if (partners && partners.length > 0) {
           setDynamicPartners(partners);
         }
-      } catch (error) {
-        console.error("Error fetching partners:", error);
+      } catch {
+        // Silently preserve static partner logos
       }
     };
     fetchPartners();

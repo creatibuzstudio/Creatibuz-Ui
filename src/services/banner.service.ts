@@ -11,11 +11,16 @@ export interface Banner {
 
 export const bannerService = {
   getAllBanners: async (): Promise<Banner[]> => {
-    const response = await apiClient.get("/banner");
-    const data = response.data;
-    if (Array.isArray(data)) return data;
-    if (data && Array.isArray(data.data)) return data.data;
-    return [];
+    try {
+      const response = await apiClient.get("/banner");
+      const data = response.data;
+      if (Array.isArray(data)) return data;
+      if (data && Array.isArray(data.data)) return data.data;
+      return [];
+    } catch {
+      // Graceful offline fallback
+      return [];
+    }
   },
 };
 

@@ -22,13 +22,21 @@ export interface Review {
 
 export const reviewService = {
   getAllReviews: async (): Promise<Review[]> => {
-    const response = await apiClient.get("/review");
-    return Array.isArray(response.data) ? response.data : response.data?.data || [];
+    try {
+      const response = await apiClient.get("/review");
+      return Array.isArray(response.data) ? response.data : response.data?.data || [];
+    } catch {
+      return [];
+    }
   },
 
-  getReviewById: async (id: string): Promise<Review> => {
-    const response = await apiClient.get(`/review/${id}`);
-    return response.data;
+  getReviewById: async (id: string): Promise<Review | null> => {
+    try {
+      const response = await apiClient.get(`/review/${id}`);
+      return response.data;
+    } catch {
+      return null;
+    }
   },
 
   createReview: async (data: Partial<Review>): Promise<Review> => {

@@ -14,13 +14,21 @@ export interface BlogItem {
 
 export const blogService = {
   getAllBlogs: async (): Promise<BlogItem[]> => {
-    const response = await apiClient.get("/blog");
-    return Array.isArray(response.data) ? response.data : response.data?.data || [];
+    try {
+      const response = await apiClient.get("/blog");
+      return Array.isArray(response.data) ? response.data : response.data?.data || [];
+    } catch {
+      return [];
+    }
   },
 
-  getBlogById: async (id: string): Promise<BlogItem> => {
-    const response = await apiClient.get(`/blog/${id}`);
-    return response.data;
+  getBlogById: async (id: string): Promise<BlogItem | null> => {
+    try {
+      const response = await apiClient.get(`/blog/${id}`);
+      return response.data;
+    } catch {
+      return null;
+    }
   },
 
   createBlog: async (data: Partial<BlogItem>): Promise<BlogItem> => {
