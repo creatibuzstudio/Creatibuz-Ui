@@ -4,6 +4,9 @@ import { PartnerLogosSection } from "@/components/sections/home/partner-logos-se
 import { AboutIntroSection } from "@/components/sections/home/about-intro-section";
 import { ServicesShowcaseSection } from "@/components/sections/home/services-showcase-section";
 import { FeaturedWorksSection } from "@/components/sections/home/featured-works-section";
+import { DesignProcessSection } from "@/components/sections/home/design-process-section";
+import { AiPoweredDesignSection } from "@/components/sections/home/ai-powered-design-section";
+import { WhyChooseUsSection } from "@/components/sections/home/why-choose-us-section";
 import { WorkMarqueeSection } from "@/components/sections/home/work-marquee-section";
 import { SectionContainer } from "@/components/ui/section-container";
 
@@ -25,6 +28,16 @@ export default function MarketingPage() {
       </SectionContainer>
 
       <FeaturedWorksSection />
+
+      <DesignProcessSection />
+
+      <SectionContainer extendTopBorder={false}>
+        <AiPoweredDesignSection />
+      </SectionContainer>
+
+      <SectionContainer extendTopBorder={false}>
+        <WhyChooseUsSection />
+      </SectionContainer>
 
       <WorkMarqueeSection />
     </div>
