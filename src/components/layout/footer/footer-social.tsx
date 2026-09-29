@@ -61,7 +61,7 @@ export function FooterSocial() {
           aria-label={social.name}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative group w-10 h-10 sm:w-11 sm:h-11 rounded-[14px] overflow-hidden border border-white/20 hover:border-white/25 flex items-center justify-center transition-colors duration-300 shadow-sm"
+          className="relative group w-10 h-10 sm:w-11 sm:h-11 rounded-lg overflow-hidden border border-white/20 hover:border-white/25 flex items-center justify-center transition-colors duration-300 shadow-sm"
         >
           <div className="absolute -inset-3 bg-gradient-to-br from-black via-[#2a0e00] to-[#FE5A00] transition-transform duration-500 ease-out group-hover:rotate-180 pointer-events-none" />
           <span className="relative z-10 text-foreground group-hover:scale-115 transition-transform duration-300 flex items-center justify-center">

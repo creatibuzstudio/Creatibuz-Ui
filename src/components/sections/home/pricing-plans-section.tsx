@@ -20,7 +20,10 @@ export function PricingPlansSection() {
   };
 
   return (
-    <section id="pricing" className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32">
+    <section
+      id="pricing"
+      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32"
+    >
       {/* Figma Grid Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
         <Image
@@ -38,18 +41,18 @@ export function PricingPlansSection() {
       <div className="absolute bottom-0 inset-x-0 h-px bg-white/[0.12] pointer-events-none z-10" />
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className="relative z-10 lg:px-16 flex flex-col items-center">
         <span className="text-primary text-sm md:text-[20px] text-center mb-3 block font-sans">
           [ Pricing Plan ]
         </span>
 
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-foreground text-center tracking-tight leading-[1.18] max-w-3xl mx-auto font-sans mb-8">
+        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-header-text text-center tracking-tight leading-[1.18] max-w-3xl mx-auto font-sans mb-8">
           Customize your plan to{" "}
-          <span className="font-serif italic font-normal text-foreground">
+          <span className="font-serif italic font-normal text-header-text">
             match your
           </span>
           <br className="hidden sm:inline" />{" "}
-          <span className="font-serif italic font-normal text-foreground">
+          <span className="font-serif italic font-normal text-header-text">
             goals,
           </span>{" "}
           scale, and business needs.

@@ -61,12 +61,12 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
       </div>
 
       {/* Bottom Gradient Scrim */}
-      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-primary to-transparent pointer-events-none z-10" />
 
       {/* Dynamic Info & Social Icons Container */}
       <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-20">
         {/* Name & Designation Text Block */}
-        <div className="transition-transform duration-300 ease-out group-hover:-translate-y-9">
+        <div className="transition-transform duration-300 ease-out group-hover:-translate-y-2">
           <h3 className="text-foreground font-bold text-lg md:text-xl tracking-tight font-sans">
             {specialist.name}
           </h3>
@@ -75,7 +75,7 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
           </p>
         </div>
 
-        {/* Social Links Row */}
+        {/* Social Links Row
         <div className="absolute inset-x-5 bottom-4 opacity-0 translate-y-4 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
           <div className="flex items-center justify-between w-full pt-3 mt-1 border-t border-white/20">
             {specialist.socials.map((social, sIdx) => (
@@ -93,7 +93,7 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

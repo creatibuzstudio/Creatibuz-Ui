@@ -25,7 +25,7 @@ export function PartnerLogosSection() {
   }, []);
 
   return (
-    <div id="collaborators" className="lg:px-24">
+    <div id="collaborators" className="lg:px-16">
       {/* Top Flex Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-4">
         {/* Left Side: Collaborated Text */}
@@ -83,7 +83,7 @@ export function PartnerLogosSection() {
             <span className="text-[11px] sm:text-xs text-[#D9D9D9] font-medium tracking-tight">
               90% Client Satisfactions
             </span>
-            <div className="flex items-center gap-1 mt-0.5 text-[#F85800]">
+            <div className="flex items-center gap-2 mt-0.5 text-[#F85800]">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}

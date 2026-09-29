@@ -163,7 +163,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="relative inline-flex items-center gap-3.5 bg-gradient-to-r from-[#FF5500] to-[#FF4500] hover:from-[#FF6000] hover:to-[#FF5000] text-white rounded-full pl-7 pr-1.5 py-1.5 text-[15px] sm:text-[16px] font-semibold tracking-wide transition-all cursor-pointer shadow-[0_10px_35px_rgba(255,85,0,0.5)] disabled:opacity-70 disabled:cursor-not-allowed"
+            className="relative inline-flex items-center gap-3.5 bg-gradient-to-r from-[#FF5500] to-[#FF4500] hover:from-[#FF6000] hover:to-[#FF5000] text-white rounded-full pl-7 pr-1.5 py-1.5 text-[15px] sm:text-[16px] font-semibold tracking-wide transition-all cursor-pointer shadow-[0_10px_35px_rgba(255,85,0,0.5)] disabled:opacity-70 disabled:cursor-not-allowed font-display"
           >
             <span>{isSubmitting ? "Submitting..." : "Free Booking"}</span>
             <div className="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center font-bold group-hover:-rotate-12 transition-transform duration-300">

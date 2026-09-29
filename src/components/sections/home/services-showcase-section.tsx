@@ -12,7 +12,7 @@ export function ServicesShowcaseSection() {
   return (
     <div id="service" className="relative w-full">
       {/* Middle Vertical Divider Line */}
-      <div className="hidden lg:block absolute left-[35%] top-0 bottom-0 w-px bg-white/[0.12] pointer-events-none z-10">
+      <div className="hidden lg:block absolute left-[35%] -top-36 -bottom-36 w-px bg-white/[0.12] pointer-events-none z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
           <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-zinc-500 hover:text-[#F85800] transition-colors" />
         </div>
@@ -45,7 +45,7 @@ export function ServicesShowcaseSection() {
                   onClick={() => setActiveService(index)}
                   className="group cursor-pointer py-2 md:py-4 transition-colors duration-200"
                 >
-                  <div className="flex items-baseline gap-3.5 sm:gap-5">
+                  <div className="flex items-center gap-3.5 sm:gap-5">
                     <span
                       className={`text-sm sm:text-base md:text-lg font-medium transition-colors duration-200 shrink-0 ${
                         isActive

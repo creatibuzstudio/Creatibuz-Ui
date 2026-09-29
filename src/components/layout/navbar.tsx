@@ -30,12 +30,12 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-4 sm:top-6 inset-x-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
+    <header className="fixed top-4 sm:top-6 inset-x-0 z-50 max-w-7xl mx-auto flex justify-center px-4 sm:px-6 md:px-8 pointer-events-none">
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto w-full max-w-7xl rounded-full transition-all duration-300 flex items-center justify-between px-3 sm:px-5 py-2 sm:py-2.5 ${
+        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-3 sm:px-5 py-2 sm:py-2.5 ${
           isScrolled
             ? "bg-[#191919] backdrop-blur-xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
             : "bg-[#191919] backdrop-blur-lg border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
@@ -74,10 +74,10 @@ export function Navbar() {
             href="https://calendly.com/jevxo-info/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 bg-white/[0.06] hover:bg-white/[0.1] border border-white/10 rounded-full p-1 md:py-1 md:pl-4.5 md:pr-1 transition-all duration-300 group"
+            className="flex items-center gap-2.5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-1 md:pl-4.5 md:pr-1 transition-all duration-300 group"
           >
-            <span className="hidden md:inline text-white text-[13px] sm:text-[14px] font-medium tracking-tight whitespace-nowrap">
-              Free Audit
+            <span className="hidden md:inline text-white text-[13px] sm:text-[14px] font-medium tracking-tight whitespace-nowrap group-hover:text-primary">
+              Request Free Audit
             </span>
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary group-hover:bg-[#ff6914] flex items-center justify-center text-white shrink-0 animate-heartbeat-glow transition-all duration-300">
               <ArrowUpRight className="w-4 h-4 text-white stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />

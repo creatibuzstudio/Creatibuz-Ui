@@ -12,7 +12,7 @@ import { ImageMarqueeRow } from "./work-marquee/image-marquee-row";
 
 export function WorkMarqueeSection() {
   return (
-    <section className="relative w-full bg-black overflow-hidden sm:py-8 flex flex-col gap-5 sm:gap-6 py-16 md:py-24 lg:py-32 select-none">
+    <section className="relative w-full bg-black overflow-hidden sm:py-8 flex flex-col gap-2 py-16 md:py-24 lg:py-32 select-none">
       <style>{`
         @keyframes marqueeLeft {
           0% { transform: translate3d(0, 0, 0); }

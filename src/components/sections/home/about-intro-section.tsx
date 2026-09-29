@@ -61,8 +61,8 @@ export function AboutIntroSection() {
 
   return (
     <div ref={sectionRef} className="w-full bg-background flex justify-center">
-      <div className="w-full max-w-[95%] lg:max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 flex flex-col items-start">
-        <h2 className="text-primary text-2xl mb-8 font-mono">[About Us]</h2>
+      <div className="w-full lg:px-16 flex flex-col items-start">
+        <h2 className="text-primary text-2xl mb-8 font-sans">[ About Us ]</h2>
 
         {/* Scroll Reveal Main Paragraph */}
         <p

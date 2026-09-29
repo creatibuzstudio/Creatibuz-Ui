@@ -21,7 +21,7 @@ export function DesignProcessSection() {
       if (cards.length === 0) return;
 
       const cardWidth = cards[0].offsetWidth;
-      const gap = -25;
+      const gap = 25;
       const visibleWidth = Math.max(130, Math.round(cardWidth * 0.46));
       const stepDistance = cardWidth + gap - visibleWidth;
 
@@ -79,13 +79,13 @@ export function DesignProcessSection() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-[95%] lg:max-w-7xl mx-auto flex flex-col px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
         {/* Header Area */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 md:mb-16 w-full">
+        <span className="text-[#F85800] text-base md:text-xl mb-8 font-sans">
+          [ Design Process ]
+        </span>
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-12 md:mb-16 w-full">
           <div className="flex flex-col items-start lg:w-1/2">
-            <span className="text-[#F85800] text-base md:text-xl mb-4 font-mono">
-              [ Design Process ]
-            </span>
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-foreground tracking-tight leading-[1.15] font-sans max-w-lg">
               A Faster Way To Design <br className="hidden sm:block" />
               And Build{" "}
@@ -95,7 +95,7 @@ export function DesignProcessSection() {
             </h2>
           </div>
 
-          <div className="lg:w-[45%] flex items-end">
+          <div className="lg:w-[45%] flex items-center">
             <p className="text-foreground text-sm md:text-base leading-relaxed font-sans max-w-md lg:ml-auto">
               We simplify the product creation process for SaaS companies by
               combining strategy, design, &amp; development into one efficient
@@ -108,7 +108,7 @@ export function DesignProcessSection() {
         <div className="w-full py-4">
           <div
             ref={trackRef}
-            className="flex flex-nowrap -space-x-[25px] w-max min-w-full"
+            className="flex flex-nowrap space-x-4 w-max min-w-full"
           >
             {processSteps.map((item, index) => (
               <ProcessCard key={item.step} item={item} index={index} />

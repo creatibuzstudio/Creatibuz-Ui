@@ -79,12 +79,12 @@ export function AiPoweredDesignSection() {
     <div id="ai-section" className="w-full flex flex-col items-center">
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-14 md:mb-20">
-        <span className="text-primary text-base md:text-xl mb-3 font-mono">
+        <span className="text-primary text-base md:text-xl mb-3 font-sans">
           [ AI Powered Design ]
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-header-text tracking-tight leading-[1.15] text-center">
-          Smarter Design,{" "}
-          <span className="italic font-normal text-foreground">
+        <h2 className="text-3xl md:text-4xl lg:text-[40px] text-header-text tracking-tight leading-[1.15] text-center">
+          <span className="font-bold"> Smarter Design, </span>
+          <span className="italic font-serif text-header-text">
             Supercharged by AI.
           </span>
         </h2>
@@ -95,7 +95,7 @@ export function AiPoweredDesignSection() {
       </div>
 
       {/* Relative Canvas Area */}
-      <div ref={containerRef} className="relative w-full max-w-6xl mx-auto">
+      <div ref={containerRef} className="relative">
         <AiCircuitOverlay paths={paths} junctions={junctions} />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 items-center">

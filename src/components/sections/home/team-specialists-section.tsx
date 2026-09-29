@@ -50,7 +50,7 @@ export function TeamSpecialistsSection() {
         transition={{ duration: 0.6 }}
         className="text-center max-w-3xl mx-auto"
       >
-        <span className="text-primary text-sm md:text-[20px] text-center">
+        <span className="text-primary text-sm md:text-[20px] text-center font-sans">
           [ Our Expertize ]
         </span>
         <h2 className="font-bold text-header-text text-3xl md:text-4xl lg:text-[40px] text-center tracking-tight">

@@ -18,14 +18,14 @@ export function FlexiblePlansCard() {
           </p>
 
           {/* Switcher pills */}
-          <div className="flex items-center gap-2 mb-4">
-            <div className="bg-card text-primary-text rounded-sm py-1.5 px-3.5 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 mb-8">
+            <div className="bg-card text-primary-text rounded-sm py-1.5 px-3 text-xs">
               Monthly
             </div>
-            <div className="bg-card text-primary-text rounded-sm py-1.5 px-3.5 text-xs sm:text-sm">
+            <div className="bg-card text-primary-text rounded-sm py-1.5 px-3.5 text-xs">
               Quarterly
             </div>
-            <div className="bg-card text-primary-text rounded-sm py-1.5 px-3.5 text-xs sm:text-sm">
+            <div className="bg-card text-primary-text rounded-sm py-1.5 px-3.5 text-xs">
               Annually
             </div>
           </div>
