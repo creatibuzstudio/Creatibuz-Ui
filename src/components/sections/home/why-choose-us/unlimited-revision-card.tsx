@@ -21,7 +21,7 @@ export function UnlimitedRevisionCard() {
 
         {/* Chat Box Widget */}
         <div className="relative">
-          <div className="absolute -bottom-9 -right-8 z-10 bg-[#1A1A1A] border border-primary rounded-tl-xl scale-x-105 scale-y-105 flex flex-col gap-3 shadow-[0_0_20px_rgba(254,90,0,0.25)]">
+          <div className="absolute -bottom-9 -right-8 z-10 bg-[#1A1A1A] border border-white/10 rounded-tl-xl scale-x-105 scale-y-105 flex flex-col gap-3">
             {/* Header */}
             <div className="flex items-center justify-between bg-[#0F1013] border-b border-white/[0.08] rounded-tl-xl p-4">
               <span className="text-xs sm:text-sm font-semibold text-primary-text font-sans flex items-center gap-1.5">

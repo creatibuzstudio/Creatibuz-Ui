@@ -19,7 +19,7 @@ export const DEFAULT_BLOGS: BlogCardItem[] = [
   {
     id: "2",
     slug: "the-future-of-branding-why-design-quality-matters-more-than-ever-2",
-    title: "The Future of Branding Why Design Quality Matters More Than Ever.",
+    title: "Why Startups Should Invest in UX Early — Not Later.",
     date: "July 31, 2025",
     image: "/blogInsight/second.png",
     alt: "Digital data and binary depth perspective",
@@ -27,7 +27,7 @@ export const DEFAULT_BLOGS: BlogCardItem[] = [
   {
     id: "3",
     slug: "the-future-of-branding-why-design-quality-matters-more-than-ever-3",
-    title: "The Future of Branding Why Design Quality Matters More Than Ever.",
+    title: "How Design Systems Transform Businesses — A Complete Guide.",
     date: "July 31, 2025",
     image: "/blogInsight/thired.png",
     alt: "Pack mockup packaging and branding design",

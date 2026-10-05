@@ -53,10 +53,10 @@ export function BlogCard({ card, index, isActive, onHover }: BlogCardProps) {
           className={`rounded-full px-4 pr-2 py-2 flex items-center justify-between w-fit gap-3 transition-all duration-300 group/btn ${
             isActive
               ? "bg-primary text-foreground text-sm md:text-base font-semibold shadow-[0_0_30px_rgba(248,88,0,0.45)]"
-              : "bg-[#202020] text-header-text text-sm md:text-base font-medium border border-white/10 hover:bg-zinc-800"
+              : "bg-[#202020] text-primary-text text-sm md:text-base font-medium border border-white/10 hover:bg-zinc-800"
           }`}
         >
-          <span>Open Article</span>
+          <span>Read Article</span>
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-transform duration-300 group-hover/btn:rotate-45 ${
               isActive

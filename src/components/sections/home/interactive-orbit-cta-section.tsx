@@ -2,11 +2,20 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useMotionValue } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/ui/section-container";
 import { JELLY_ICONS } from "@/data/orbit-icons.data";
 import { JellyIconItem } from "./cta/jelly-icon-item";
+
+// =========================================================================
+// ⚙️ CUSTOM EDIT: Orbit Dashed Border Size & Gap
+// Dash length (dash size) and Gap size (gap between dashes) change korte
+// nicher variable gulo edit korun (pixels):
+// =========================================================================
+export const ORBIT_DASH_SIZE = 12; // Length of each dash line (default: 12px)
+export const ORBIT_DASH_GAP = 10;  // Gap between dash lines (default: 10px)
 
 export function InteractiveOrbitCtaSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,21 +55,16 @@ export function InteractiveOrbitCtaSection() {
         onMouseLeave={handleMouseLeave}
         className="relative w-full h-[520px] sm:h-[580px] md:h-[640px] bg-black flex items-center justify-center overflow-hidden cursor-default"
       >
-        {/* Atmospheric Glow Background */}
-        <div
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 68% 54% at 50% 50%, #FD5A00 0%, rgba(253, 90, 0, 0.8) 18%, rgba(215, 75, 0, 0.5) 38%, rgba(130, 42, 0, 0.22) 60%, rgba(40, 12, 0, 0.06) 80%, transparent 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(255, 120, 20, 0.22) 0%, transparent 45%)",
-          }}
-        />
+        {/* Background Image */}
+        <div className="absolute inset-0 pointer-events-none select-none z-0">
+          <Image
+            src="/cta-bg.png"
+            alt="CTA Background"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
 
         {/* Static Concentric Dashed Orbit Rings */}
         <div
@@ -74,20 +78,53 @@ export function InteractiveOrbitCtaSection() {
           }}
         >
           {/* Inner Ring (700px diameter) */}
-          <div
-            className="absolute rounded-full border border-dashed border-white/[0.12] pointer-events-none"
+          <svg
+            className="absolute pointer-events-none"
             style={{ width: "700px", height: "700px" }}
-          />
+            viewBox="0 0 700 700"
+          >
+            <circle
+              cx="350"
+              cy="350"
+              r="349"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.14)"
+              strokeWidth="1"
+              strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
+            />
+          </svg>
           {/* Middle Ring (900px diameter) */}
-          <div
-            className="absolute rounded-full border border-dashed border-white/[0.12] pointer-events-none"
+          <svg
+            className="absolute pointer-events-none"
             style={{ width: "900px", height: "900px" }}
-          />
+            viewBox="0 0 900 900"
+          >
+            <circle
+              cx="450"
+              cy="450"
+              r="449"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.14)"
+              strokeWidth="1"
+              strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
+            />
+          </svg>
           {/* Outer Ring (1100px diameter) */}
-          <div
-            className="absolute rounded-full border border-dashed border-white/[0.12] pointer-events-none"
+          <svg
+            className="absolute pointer-events-none"
             style={{ width: "1100px", height: "1100px" }}
-          />
+            viewBox="0 0 1100 1100"
+          >
+            <circle
+              cx="550"
+              cy="550"
+              r="549"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.14)"
+              strokeWidth="1"
+              strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
+            />
+          </svg>
 
           {/* Jelly Floating Icons on Orbits */}
           <div className="absolute inset-0 pointer-events-none scale-[0.62] sm:scale-[0.80] md:scale-[0.92] lg:scale-100 origin-center">
@@ -136,7 +173,7 @@ export function InteractiveOrbitCtaSection() {
           >
             <Link
               href="#contact"
-              className="group inline-flex items-center gap-5 rounded-full bg-white text-black font-semibold text-sm sm:text-base px-6 pr-1.5 py-1.5 hover:bg-zinc-100 transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl"
+              className="group inline-flex items-center gap-5 rounded-full bg-white hover:bg-primary text-black hover:text-foreground font-display text-base md:text-lg px-6 pr-1.5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl"
             >
               <span>Request Free Audit</span>
               <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">

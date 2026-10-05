@@ -10,7 +10,7 @@ export function ServicesShowcaseSection() {
   const current = servicesData[activeService];
 
   return (
-    <div id="service" className="relative w-full">
+    <div id="services" className="relative w-full">
       {/* Middle Vertical Divider Line */}
       <div className="hidden lg:block absolute left-[35%] -top-36 -bottom-36 w-px bg-white/[0.12] pointer-events-none z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">

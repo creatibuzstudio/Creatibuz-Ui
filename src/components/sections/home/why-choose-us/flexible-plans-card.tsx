@@ -4,7 +4,7 @@ import Image from "next/image";
 export function FlexiblePlansCard() {
   return (
     <div className="md:col-span-3 relative p-[1px] rounded-2xl overflow-hidden bg-gradient-to-br from-[#FE5A00]/85 via-white/10 to-white/[0.04] shadow-sm flex flex-col">
-      <div className="w-full h-full rounded-2xl overflow-hidden p-6 sm:p-7 relative flex flex-col justify-start min-h-[380px] md:min-h-[400px] bg-gradient-to-br from-[#191919] via-[#090909] to-primary">
+      <div className="w-full h-full rounded-2xl overflow-hidden p-6 sm:p-7 relative flex flex-col justify-start min-h-[380px] md:min-h-[400px] bg-gradient-to-br from-[#191919] via-[#090909] to-[#252525]">
         {/* Ambient warm glow at bottom right */}
         <div className="absolute -bottom-14 -right-14 w-72 h-72 rounded-full bg-[#FE5A00]/25 blur-[75px] pointer-events-none" />
 

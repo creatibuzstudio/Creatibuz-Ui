@@ -16,6 +16,8 @@ export interface Review {
   videoUrl?: string;
   reviewText: string;
   rating: number;
+  satisfactionRate?: string;
+  stats?: { value: string; label: string }[];
   createdAt: string;
   updatedAt: string;
 }

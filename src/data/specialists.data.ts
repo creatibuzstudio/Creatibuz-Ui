@@ -16,9 +16,9 @@ export interface SpecialistItem {
 export const DEFAULT_SPECIALISTS: SpecialistItem[] = [
   {
     id: "1",
-    name: "Andriani Monlio",
-    role: "UI UX Designer",
-    image: "/specialist/specialist-1.png",
+    name: "Md Abdul Hakim",
+    role: "Founder & CEO",
+    image: "/specialist/Team 01.png",
     bgTint: "bg-[#FAE297]",
     socials: [
       { name: "Facebook", href: "https://facebook.com", type: "facebook" },
@@ -29,9 +29,9 @@ export const DEFAULT_SPECIALISTS: SpecialistItem[] = [
   },
   {
     id: "2",
-    name: "Andriani Monlio",
-    role: "Full Stack Developer",
-    image: "/specialist/specialist-2.png",
+    name: "Ashikur Rahman Ovi",
+    role: "Co-Founder & COO",
+    image: "/specialist/Team 02.png",
     bgTint: "bg-[#BDFDEB]",
     socials: [
       { name: "Facebook", href: "https://facebook.com", type: "facebook" },
@@ -42,9 +42,9 @@ export const DEFAULT_SPECIALISTS: SpecialistItem[] = [
   },
   {
     id: "3",
-    name: "Andriani Monlio",
-    role: "Branding Designer",
-    image: "/specialist/specialist-3.png",
+    name: "Md. Ibrahim",
+    role: "Product Designer",
+    image: "/specialist/Team 03.png",
     bgTint: "bg-[#DFF6FF]",
     socials: [
       { name: "Facebook", href: "https://facebook.com", type: "facebook" },
@@ -55,10 +55,36 @@ export const DEFAULT_SPECIALISTS: SpecialistItem[] = [
   },
   {
     id: "4",
-    name: "Andriani Monlio",
-    role: "Marketing Executive",
-    image: "/specialist/specialist-4.png",
+    name: "Md Abdur Rahman",
+    role: "Senior Full Stack Developer",
+    image: "/specialist/Team 04.png",
     bgTint: "bg-[#A0C599]",
+    socials: [
+      { name: "Facebook", href: "https://facebook.com", type: "facebook" },
+      { name: "LinkedIn", href: "https://linkedin.com", type: "linkedin" },
+      { name: "GitHub", href: "https://github.com", type: "github" },
+      { name: "Portfolio", href: "https://creatibuz.com", type: "portfolio" },
+    ],
+  },
+  {
+    id: "5",
+    name: "Anjuman Ara Ayshe",
+    role: "Marketing Executive",
+    image: "/specialist/Team 05.png",
+    bgTint: "bg-[#FAE297]",
+    socials: [
+      { name: "Facebook", href: "https://facebook.com", type: "facebook" },
+      { name: "LinkedIn", href: "https://linkedin.com", type: "linkedin" },
+      { name: "GitHub", href: "https://github.com", type: "github" },
+      { name: "Portfolio", href: "https://creatibuz.com", type: "portfolio" },
+    ],
+  },
+  {
+    id: "6",
+    name: "Hossain Ahmend",
+    role: "Branding Designer",
+    image: "/specialist/Team 06.png",
+    bgTint: "bg-[#BDFDEB]",
     socials: [
       { name: "Facebook", href: "https://facebook.com", type: "facebook" },
       { name: "LinkedIn", href: "https://linkedin.com", type: "linkedin" },

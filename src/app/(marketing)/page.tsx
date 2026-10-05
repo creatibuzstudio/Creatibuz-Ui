@@ -39,6 +39,12 @@ export default function MarketingPage() {
 
       <DesignProcessSection />
 
+      <SectionContainer extendTopBorder={false} noPadding={true}>
+        <PricingPlansSection />
+      </SectionContainer>
+
+      <WorkMarqueeSection />
+
       <SectionContainer extendTopBorder={false}>
         <AiPoweredDesignSection />
       </SectionContainer>
@@ -46,18 +52,8 @@ export default function MarketingPage() {
       <SectionContainer extendTopBorder={false}>
         <WhyChooseUsSection />
       </SectionContainer>
-
-      <WorkMarqueeSection />
-
-      <SectionContainer extendTopBorder={false} noPadding={true}>
-        <PricingPlansSection />
-      </SectionContainer>
-
+      
       <InteractiveOrbitCtaSection />
-
-      <SectionContainer extendTopBorder={false}>
-        <BlogInsightsSection />
-      </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
         <TeamSpecialistsSection />
@@ -72,6 +68,10 @@ export default function MarketingPage() {
       </SectionContainer>
 
       <ClientTestimonialsSection />
+
+      <SectionContainer extendTopBorder={false}>
+        <BlogInsightsSection />
+      </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
         <PlatformFeaturesSection />

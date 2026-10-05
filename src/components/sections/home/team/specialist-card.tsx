@@ -47,7 +47,7 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative rounded-xl overflow-hidden group cursor-pointer aspect-[3/4] bg-zinc-900 border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg hover:shadow-2xl select-none"
+      className="relative rounded-2xl overflow-hidden group cursor-pointer aspect-[4/5] bg-zinc-900 border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg select-none"
     >
       {/* Portrait Image */}
       <div className="w-full h-full relative">
@@ -55,45 +55,22 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
           src={specialist.image}
           alt={specialist.name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
 
-      {/* Bottom Gradient Scrim */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-primary to-transparent pointer-events-none z-10" />
+      {/* Primary to Transparent Background Scrim for Name & Designation */}
+      <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-primary to-transparent pointer-events-none z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 ease-out" />
 
-      {/* Dynamic Info & Social Icons Container */}
-      <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-20">
-        {/* Name & Designation Text Block */}
-        <div className="transition-transform duration-300 ease-out group-hover:-translate-y-2">
-          <h3 className="text-foreground font-bold text-lg md:text-xl tracking-tight font-sans">
-            {specialist.name}
-          </h3>
-          <p className="text-foreground/90 text-xs md:text-sm font-medium mt-0.5 font-sans">
-            {specialist.role}
-          </p>
-        </div>
-
-        {/* Social Links Row
-        <div className="absolute inset-x-5 bottom-4 opacity-0 translate-y-4 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-          <div className="flex items-center justify-between w-full pt-3 mt-1 border-t border-white/20">
-            {specialist.socials.map((social, sIdx) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${specialist.name}'s ${social.name}`}
-                style={{ transitionDelay: `${sIdx * 50}ms` }}
-                className="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-foreground hover:text-primary flex items-center justify-center backdrop-blur-sm transition-all duration-200 shadow-md transform hover:scale-110 active:scale-95"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {renderSocialIcon(social.type)}
-              </a>
-            ))}
-          </div>
-        </div> */}
+      {/* Dynamic Name & Designation Container */}
+      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end z-20 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 ease-out">
+        <h3 className="text-white font-bold text-lg md:text-xl tracking-tight font-sans">
+          {specialist.name}
+        </h3>
+        <p className="text-white/90 text-xs md:text-sm font-medium mt-0.5 font-sans">
+          {specialist.role}
+        </p>
       </div>
     </motion.div>
   );

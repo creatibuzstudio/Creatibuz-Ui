@@ -66,19 +66,25 @@ export function HeroSection() {
               animate="visible"
               custom={0}
               whileHover={{ scale: 1.04 }}
-              className="relative p-[1px] inline-flex items-center justify-center overflow-hidden rounded-full mb-8 sm:mb-10 cursor-pointer group transition-all duration-300 shadow-[0_0_15px_rgba(254,90,0,0.05)] hover:shadow-[0_0_25px_rgba(254,90,0,0.35)]"
+              className="relative p-[1px] inline-flex items-center justify-center overflow-hidden rounded-full mb-8 sm:mb-10 cursor-pointer group transition-all duration-300 bg-white/10 shadow-[0_0_15px_rgba(254,90,0,0.05)]"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3.5,
-                  ease: "linear",
-                }}
-                className="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] origin-center bg-[conic-gradient(from_0deg,transparent_30%,#FE5A00_50%,transparent_70%,#FE5A00_100%)] opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-              />
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 3.5,
+                    ease: "linear",
+                  }}
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, transparent 0%, transparent 75%, #FE5A00 95%, transparent 100%)",
+                  }}
+                  className="w-[500px] h-[500px] shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+              </div>
 
-              <div className="relative z-10 flex items-center gap-2.5 sm:gap-3 bg-[#1F1F1F] hover:bg-[#141414] px-2.5 pr-4 py-2 rounded-full transition-colors duration-300">
+              <div className="relative z-10 flex items-center gap-2.5 sm:gap-3 bg-[#141414] px-2.5 pr-4 py-2 rounded-full transition-colors duration-300">
                 <Image
                   src="/hero1.png"
                   alt="SaaS Tool Stack"

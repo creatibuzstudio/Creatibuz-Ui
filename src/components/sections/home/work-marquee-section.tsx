@@ -12,7 +12,10 @@ import { ImageMarqueeRow } from "./work-marquee/image-marquee-row";
 
 export function WorkMarqueeSection() {
   return (
-    <section className="relative w-full bg-black overflow-hidden sm:py-8 flex flex-col gap-2 py-16 md:py-24 lg:py-32 select-none">
+    <section className="relative w-full overflow-hidden py-16 md:py-20 lg:py-24 flex flex-col gap-4 select-none">
+      {/* Full width top horizontal divider line */}
+      <div className="w-full h-px bg-white/[0.12] absolute top-0 inset-x-0 pointer-events-none z-10" />
+
       <style>{`
         @keyframes marqueeLeft {
           0% { transform: translate3d(0, 0, 0); }
@@ -48,6 +51,9 @@ export function WorkMarqueeSection() {
 
       {/* 4. Bottom Orange Text Marquee (Left to Right) */}
       <TextMarqueeRow items={marqueeTextRow2} direction="right" />
+
+      {/* Full width bottom horizontal divider line */}
+      <div className="w-full h-px bg-white/[0.12] absolute bottom-0 inset-x-0 pointer-events-none z-10" />
     </section>
   );
 }

@@ -30,7 +30,7 @@ export function FeaturedWorksSection({
         bottomOffset={60}
       >
         {projects.map((project, index) => {
-          const bgColor = cardBgColors[index % cardBgColors.length];
+          const bgColor = project.bgColor || cardBgColors[index % cardBgColors.length];
 
           return (
             <ScrollStackItem

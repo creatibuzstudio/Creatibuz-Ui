@@ -10,7 +10,7 @@ interface AiCenterHubProps {
 
 export function AiCenterHub({ hubRef }: AiCenterHubProps) {
   return (
-    <div className="lg:col-span-4 flex items-center justify-center py-8 lg:py-0 z-30">
+    <div className="hidden lg:col-span-4 lg:flex items-center justify-center py-8 lg:py-0 z-30">
       <div ref={hubRef} className="relative flex items-center justify-center">
         {/* Outward Expanding Energy Ripple Ring */}
         <motion.div

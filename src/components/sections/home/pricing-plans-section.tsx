@@ -41,7 +41,7 @@ export function PricingPlansSection() {
       <div className="absolute bottom-0 inset-x-0 h-px bg-white/[0.12] pointer-events-none z-10" />
 
       {/* Main Content */}
-      <div className="relative z-10 lg:px-16 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center">
         <span className="text-primary text-sm md:text-[20px] text-center mb-3 block font-sans">
           [ Pricing Plan ]
         </span>

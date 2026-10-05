@@ -19,7 +19,7 @@ export function TextMarqueeRow({
         {repeated.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center text-white text-sm sm:text-base tracking-wide shrink-0"
+            className="flex items-center text-white text-base md:text-xl lg:text-2xl tracking-wide shrink-0"
           >
             <span>{item}</span>
             <span className="mx-4 sm:mx-6 text-white/90 text-sm font-black">

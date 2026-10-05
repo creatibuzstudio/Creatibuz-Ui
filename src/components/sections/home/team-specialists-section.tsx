@@ -40,7 +40,7 @@ export function TeamSpecialistsSection() {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full lg:px-16">
       {/* Section Header */}
       <motion.div
         id="specialist"
@@ -59,7 +59,7 @@ export function TeamSpecialistsSection() {
       </motion.div>
 
       {/* Specialist Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 w-full">
         {specialists.map((specialist, idx) => (
           <SpecialistCard
             key={specialist.id}

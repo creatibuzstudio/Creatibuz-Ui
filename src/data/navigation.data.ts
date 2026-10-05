@@ -15,14 +15,14 @@ export interface NavLinkItem {
 
 export const navLinks: NavLinkItem[] = [
   {
-    name: "Service",
-    href: "#service",
+    name: "Services",
+    href: "#services",
     desc: "UI/UX, Next.js & Full-Stack Development",
     icon: Code2,
   },
   {
-    name: "Case Study",
-    href: "#case-study",
+    name: "Feature Works",
+    href: "#feature-works",
     desc: "50+ Shipped Web & Mobile Apps",
     icon: Layers,
   },
@@ -40,7 +40,7 @@ export const navLinks: NavLinkItem[] = [
   },
   {
     name: "Portfolio",
-    href: "#case-study",
+    href: "https://www.behance.net/uidesignerhakim",
     desc: "Explore Featured Case Studies & Builds",
     icon: Layers,
   },

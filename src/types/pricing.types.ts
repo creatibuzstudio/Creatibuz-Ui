@@ -1,7 +1,8 @@
 export interface PlanItem {
   id: string;
   name: string;
-  subtitle: string;
+  subtitle?: string;
+  highlightFeature: string;
   price: number;
   period: string;
   isPopular: boolean;

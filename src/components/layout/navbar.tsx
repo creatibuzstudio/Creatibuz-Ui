@@ -8,6 +8,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { navLinks } from "@/data/navigation.data";
 import { handleSectionScroll } from "@/lib/scroll-utils";
 import { MobileMenu } from "./navbar/mobile-menu";
+import DynamicWhatsApp from "./navbar/dynamic-whatsapp";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,10 +36,10 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-3 sm:px-5 py-2 sm:py-2.5 ${
+        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-2.5 sm:pl-4 sm:pr-1.5 py-1 ${
           isScrolled
-            ? "bg-[#191919] backdrop-blur-xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
-            : "bg-[#191919] backdrop-blur-lg border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+            ? "bg-[#191919] backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
+            : "bg-[#191919] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
         }`}
       >
         {/* Left: Creatibuz Studio Logo */}
@@ -69,6 +70,7 @@ export function Navbar() {
         </nav>
 
         {/* Right: Free Audit CTA & Mobile Toggle */}
+        <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="https://calendly.com/jevxo-info/30min"
@@ -84,6 +86,7 @@ export function Navbar() {
             </div>
           </Link>
 
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -96,6 +99,8 @@ export function Navbar() {
               <Menu className="w-4.5 h-4.5 text-white" />
             )}
           </button>
+        </div>
+          <DynamicWhatsApp />
         </div>
       </motion.div>
 

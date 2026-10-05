@@ -51,18 +51,15 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
           {plan.name}
         </h3>
 
-        <p className="text-primary-text text-sm font-normal min-h-[42px] leading-relaxed font-sans mb-6">
-          {plan.subtitle}
-        </p>
-
-        <div className="flex items-baseline gap-2 mb-8">
-          <span className="text-4xl md:text-5xl font-bold text-foreground tracking-tight font-sans">
+        <div className="mt-2 mb-1">
+          <span className="text-3xl sm:text-4xl font-bold text-primary tracking-tight font-sans">
             <AnimatedPrice value={plan.price} />
           </span>
-          <span className="text-primary-text text-sm font-normal font-sans">
-            {plan.period}
-          </span>
         </div>
+
+        <p className="text-zinc-400 text-sm font-normal font-sans mb-6">
+          {plan.highlightFeature}
+        </p>
 
         <div className={`${isPopular ? "bg-[#2F2F33]" : "bg-[#181818]"} rounded-2xl p-5 border border-white/5 space-y-3.5 mb-8`}>
           {plan.features.map((feature, fIdx) => (

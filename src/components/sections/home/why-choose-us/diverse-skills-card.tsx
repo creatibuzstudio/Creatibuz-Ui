@@ -5,13 +5,13 @@ import { diverseTeamMembers, aiLogosGrid } from "@/data/team.data";
 export function DiverseSkillsCard() {
   return (
     <div className="md:col-span-5 relative p-[1px] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/85 via-white/10 to-white/[0.04] shadow-sm flex flex-col">
-      <div className="w-full h-full rounded-2xl overflow-hidden relative min-h-[380px] md:min-h-[400px] bg-gradient-to-br from-[#191919] via-[#1a0c03] to-[#FE5A00]/65">
-        <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-primary/45 blur-[85px] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/20 blur-[70px] pointer-events-none" />
+      <div className="w-full h-full rounded-2xl overflow-hidden relative min-h-[380px] md:min-h-[400px] bg-gradient-to-br from-[#191919] via-[#090909] to-[#252525]">
+        <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-[#252525] blur-[85px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#252525] blur-[70px] pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 p-5 sm:p-6 relative z-10 h-full items-stretch">
           {/* Left Pane: Diverse Skill Set */}
-          <div className="lg:col-span-6 relative p-[1.25px] bg-gradient-to-br from-white/10 to-primary rounded-xl overflow-hidden shadow-2xl">
+          <div className="lg:col-span-6 relative p-[0.5px] bg-gradient-to-br from-white/10 to-white/25 rounded-xl overflow-hidden shadow-2xl">
             <div className="w-full h-full bg-[#171717] rounded-xl flex flex-col justify-center">
               <div className="px-4 md:px-6 pt-7 pb-2">
                 <h4 className="text-primary-text text-xl sm:text-2xl font-semibold tracking-tight">
