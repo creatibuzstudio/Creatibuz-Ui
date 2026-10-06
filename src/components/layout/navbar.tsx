@@ -62,7 +62,7 @@ export function Navbar() {
               key={link.name}
               href={link.href}
               onClick={(e) => handleSectionScroll(e, link.href)}
-              className="text-[#9CA3AF] hover:text-primary transition-colors duration-200 font-normal text-[14px] xl:text-[15px] tracking-tight relative py-1"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-normal text-[14px] xl:text-[15px] tracking-tight relative py-1"
             >
               {link.name}
             </Link>
@@ -78,11 +78,11 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="flex items-center gap-2.5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-1 md:pl-4.5 md:pr-1 transition-all duration-300 group"
           >
-            <span className="hidden md:inline text-white text-[13px] sm:text-[14px] font-medium tracking-tight whitespace-nowrap group-hover:text-primary">
+            <span className="hidden md:inline text-foreground text-[13px] sm:text-[14px] font-medium tracking-tight whitespace-nowrap group-hover:text-primary">
               Request Free Audit
             </span>
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary group-hover:bg-[#ff6914] flex items-center justify-center text-white shrink-0 animate-heartbeat-glow transition-all duration-300">
-              <ArrowUpRight className="w-4 h-4 text-white stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
+              <ArrowUpRight className="w-4 h-4 text-foreground stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
             </div>
           </Link>
 

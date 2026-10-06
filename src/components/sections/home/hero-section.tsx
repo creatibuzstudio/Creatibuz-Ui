@@ -65,8 +65,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0}
-              whileHover={{ scale: 1.04 }}
-              className="relative p-[1px] inline-flex items-center justify-center overflow-hidden rounded-full mb-8 sm:mb-10 cursor-pointer group transition-all duration-300 bg-white/10 shadow-[0_0_15px_rgba(254,90,0,0.05)]"
+              className="relative p-[1px] inline-flex items-center justify-center overflow-hidden rounded-full mb-8 sm:mb-10 group transition-all duration-300 bg-white/10 shadow-[0_0_15px_rgba(254,90,0,0.05)]"
             >
               <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
                 <motion.div
