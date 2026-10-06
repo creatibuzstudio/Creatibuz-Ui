@@ -43,7 +43,9 @@ export default function MarketingPage() {
         <PricingPlansSection />
       </SectionContainer>
 
-      <WorkMarqueeSection />
+      <SectionContainer extendTopBorder={false} noPadding={true}>
+        <WorkMarqueeSection />
+      </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
         <AiPoweredDesignSection />

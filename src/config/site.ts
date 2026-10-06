@@ -12,8 +12,8 @@ export const siteViewport: Viewport = {
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Creatibuz Studio | B2B SaaS & Web Development",
-    template: "%s | Creatibuz Studio - Digital Product Studio",
+    default: "Creatibuz Studio | Global UI/UX Design & Web Development Agency",
+    template: "%s | Creatibuz Studio - Global UI/UX Design & Web Development Agency",
   },
   description:
     "Creatibuz Studio is a premier AI-native software studio. We design, train, and ship intelligent digital products, Next.js web applications, and B2B SaaS platforms in days, not months.",
@@ -54,7 +54,7 @@ export const siteMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Creatibuz Studio - AI Software & Digital Product Studio",
+    title: "Creatibuz Studio | Global UI/UX Design & Web Development Agency",
     description:
       "Full-service UI/UX and development agency helping startups and businesses create fast, scalable, and user-focused digital products.",
     siteName: "Creatibuz Studio",
@@ -69,7 +69,7 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creatibuz Studio - AI Software & Digital Product Studio",
+    title: "Creatibuz Studio | Global UI/UX Design & Web Development Agency",
     description:
       "Full-service UI/UX and development agency helping startups and businesses create fast, scalable, and user-focused digital products.",
     images: ["/logo.png"],

@@ -5,8 +5,8 @@ export interface FooterLink {
 
 export const quickLinks: FooterLink[] = [
   { name: "Services", href: "#services" },
-  { name: "Feature Works", href: "#future-works" },
-  { name: "Meet our Team", href: "#specialists" },
+  { name: "Feature Works", href: "#feature-works" },
+  { name: "Meet our Team", href: "#specialist" },
   { name: "Pricing Plan", href: "#pricing" },
   { name: "Latest Blog", href: "#blog" },
   { name: "Career", href: "#contact" },

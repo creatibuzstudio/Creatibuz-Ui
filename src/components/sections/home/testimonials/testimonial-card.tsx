@@ -99,13 +99,13 @@ export function TestimonialCard({ item, onPlayVideo }: TestimonialCardProps) {
           {/* Glowing Orange Badge */}
           <div className="relative shrink-0 flex items-center justify-center">
             <div className="absolute -inset-2 bg-primary/45 rounded-full blur-xl pointer-events-none animate-pulse" />
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-primary flex items-center justify-center shadow-[0_0_25px_rgba(254,90,0,0.55)]">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_25px_rgba(254,90,0,0.55)]">
               <Image
                 src="/creatibuz-symbol.png"
                 alt="Creatibuz"
-                width={26}
-                height={26}
-                className="w-5.5 h-5.5 sm:w-6 sm:h-6 object-contain brightness-200"
+                width={36}
+                height={36}
+                className="w-7 h-7 sm:w-8.5 sm:h-8.5 object-contain brightness-200"
               />
             </div>
           </div>

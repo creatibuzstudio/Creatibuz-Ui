@@ -91,7 +91,7 @@ export const marqueeImagesRow1: ShowcaseItem[] = [
   { src: "/marquee/row1-2.png", alt: "Fitness Activity Mobile App", width: 370, height: 273 },
   { src: "/mockups/Mockup 15.png", alt: "MacBook Pro Product Showcase", width: 1398, height: 1047 },
   { src: "/marquee/row2-2.png", alt: "Job Board Analytics Dashboard", width: 347, height: 273 },
-  { src: "/marquee/row1-1.png", alt: "Ashray Campaign Dashboard", width: 290, height: 273 },
+  { src: "/mockups/ChatGPT Image Aug 23, 2026, 06_06_54 PM 1.png", alt: "SaaS Analytics Platform", width: 1389, height: 1041 },
   { src: "/mockups/Jul 21, 2026, 03_47_59 PM 1.png", alt: "Humanitarian Dashboard", width: 1374, height: 1029 },
 ];
 
@@ -99,7 +99,7 @@ export const marqueeImagesRow2: ShowcaseItem[] = [
   { src: "/marquee/row2-1.png", alt: "Villa House Laptop Mockup", width: 370, height: 273 },
   { src: "/marquee/row2-2.png", alt: "Job Board Dashboard Platform", width: 347, height: 273 },
   { src: "/mockups/Mobile app 04 1.png", alt: "Headset eCommerce Mobile App", width: 1401, height: 1038 },
-  { src: "/marquee/row1-3.png", alt: "Finestra Dashboard Platform", width: 212, height: 273 },
+  { src: "/mockups/ChatGPT Image Aug 22, 2026, 08_54_48 PM 1.png", alt: "Fintech Dashboard Platform", width: 1389, height: 1041 },
   { src: "/mockups/ChatGPT Image Aug 22, 2026, 10_11_18 PM 1.png", alt: "Finance Planner UI", width: 1377, height: 1029 },
   { src: "/marquee/ashray-dashboard.png", alt: "Ashray Foundation OS", width: 1100, height: 730 },
 ];

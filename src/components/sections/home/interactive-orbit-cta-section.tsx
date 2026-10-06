@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useMotionValue } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { SectionContainer } from "@/components/ui/section-container";
 import { JELLY_ICONS } from "@/data/orbit-icons.data";
 import { JellyIconItem } from "./cta/jelly-icon-item";
 
@@ -41,14 +40,7 @@ export function InteractiveOrbitCtaSection() {
   };
 
   return (
-    <SectionContainer
-      id="cta"
-      showTopBorder={false}
-      showBottomBorder={false}
-      crossMarkers={false}
-      className="!p-0 !py-0 !px-0 w-full"
-      containerClassName="relative w-full overflow-hidden bg-black"
-    >
+    <section id="cta" className="relative w-full overflow-hidden bg-black">
       <div
         ref={containerRef}
         onMouseMove={handleMouseMove}
@@ -183,6 +175,6 @@ export function InteractiveOrbitCtaSection() {
           </motion.div>
         </div>
       </div>
-    </SectionContainer>
+    </section>
   );
 }

@@ -10,6 +10,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "starter-web",
         name: "Starter Plan",
+        subtitle: "Essential design foundation designed to validate your ideas and launch fast with high impact.",
         highlightFeature: "Design only",
         price: 1800,
         period: "/ project",
@@ -31,6 +32,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "growth-web",
         name: "Growth Plan",
+        subtitle: "Complete design and development package built to grow your product and convert users.",
         highlightFeature: "Design + Development",
         price: 4999,
         period: "/ project",
@@ -52,6 +54,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "business-web",
         name: "Business Plan",
+        subtitle: "Full-scale solution combining advanced design, dev and cohesive branding for market leaders.",
         highlightFeature: "Design + Dev + Branding",
         price: 7999,
         period: "/ project",
@@ -79,6 +82,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "starter-mobile",
         name: "Starter Plan",
+        subtitle: "Essential design foundation designed to validate your ideas and launch fast with high impact.",
         highlightFeature: "Design only",
         price: 2500,
         period: "/ project",
@@ -100,6 +104,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "growth-mobile",
         name: "Growth Plan",
+        subtitle: "Complete design and development package built to grow your product and convert users.",
         highlightFeature: "Design + Development",
         price: 6999,
         period: "/ project",
@@ -121,6 +126,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "business-mobile",
         name: "Business Plan",
+        subtitle: "Full-scale solution combining advanced design, dev and cohesive branding for market leaders.",
         highlightFeature: "Design + Dev + Branding",
         price: 9999,
         period: "/ project",
@@ -148,6 +154,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "starter-webapp",
         name: "Starter Plan",
+        subtitle: "Essential design foundation designed to validate your ideas and launch fast with high impact.",
         highlightFeature: "Design only",
         price: 3999,
         period: "/ project",
@@ -169,6 +176,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "growth-webapp",
         name: "Growth Plan",
+        subtitle: "Complete design and development package built to grow your product and convert users.",
         highlightFeature: "Design + Development",
         price: 9999,
         period: "/ project",
@@ -190,6 +198,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
       {
         id: "business-webapp",
         name: "Business Plan",
+        subtitle: "Full-scale solution combining advanced design, dev and cohesive branding for market leaders.",
         highlightFeature: "Design + Dev + Branding",
         price: 15999,
         period: "/ project",

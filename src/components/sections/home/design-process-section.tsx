@@ -139,7 +139,7 @@ export function DesignProcessSection() {
           </div>
 
           <div className="lg:w-[45%] flex items-center">
-            <p className="text-foreground text-xs sm:text-sm md:text-base leading-relaxed font-sans max-w-md lg:ml-auto">
+            <p className="text-foreground text-sm md:text-base leading-relaxed font-display max-w-md lg:ml-auto">
               We simplify the product creation process for SaaS companies by
               combining strategy, design, &amp; development into one efficient
               workflow focused on faster launches.

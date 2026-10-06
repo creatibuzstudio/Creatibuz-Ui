@@ -19,7 +19,14 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-14">
           {/* Column 1: Brand Info & Social Icons */}
           <div className="lg:col-span-4 flex flex-col items-start space-y-7">
-            <Link href="/" className="inline-flex flex-row items-center gap-3.5">
+            <Link
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="inline-flex flex-row items-center gap-3.5 cursor-pointer"
+            >
               <Image
                 src="/logo.png"
                 alt="Creatibuz Logo"
@@ -51,7 +58,16 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary transition-colors duration-200"
+                    onClick={(e) => {
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        const target = document.querySelector(link.href);
+                        if (target) {
+                          target.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }
+                    }}
+                    className="hover:text-primary transition-colors duration-200 cursor-pointer"
                   >
                     {link.name}
                   </Link>
@@ -70,7 +86,16 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-primary transition-colors duration-200"
+                    onClick={(e) => {
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        const target = document.querySelector(link.href);
+                        if (target) {
+                          target.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }
+                    }}
+                    className="hover:text-primary transition-colors duration-200 cursor-pointer"
                   >
                     {link.name}
                   </Link>

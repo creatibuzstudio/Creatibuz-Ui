@@ -63,15 +63,15 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
         <div className="absolute inset-0 bg-black/25 pointer-events-none transition-colors duration-300 group-hover:bg-black/15" />
       </div>
 
-      {/* Primary to Transparent Background Scrim for Name & Designation */}
-      <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-primary to-transparent pointer-events-none z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 ease-out" />
+      {/* Dynamic Background Scrim for Name & Designation: Black/Gray on mobile for clear text readability, Primary orange on desktop hover */}
+      <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-zinc-950/95 via-black/70 to-transparent lg:from-primary lg:via-primary/70 lg:to-transparent pointer-events-none z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 ease-out" />
 
       {/* Dynamic Name & Designation Container */}
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end z-20 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 ease-out">
-        <h3 className="text-white font-bold text-lg md:text-xl tracking-tight font-sans">
+        <h3 className="text-white font-bold text-xl md:text-2xl tracking-tight font-sans">
           {specialist.name}
         </h3>
-        <p className="text-white/90 text-xs md:text-sm font-medium mt-0.5 font-sans">
+        <p className="text-white/90 text-base md:text-lg font-medium mt-0.5 font-sans">
           {specialist.role}
         </p>
       </div>

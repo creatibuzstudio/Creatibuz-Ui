@@ -51,15 +51,20 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
           {plan.name}
         </h3>
 
-        <div className="mt-2 mb-1">
-          <span className="text-3xl sm:text-4xl font-bold text-primary tracking-tight font-sans">
+        {plan.subtitle && (
+          <p className="text-zinc-400 text-sm font-normal font-sans leading-relaxed min-h-[42px] mb-4">
+            {plan.subtitle}
+          </p>
+        )}
+
+        <div className="flex items-baseline gap-2 mt-2 mb-6 flex-wrap">
+          <span className="text-3xl md:text-[40px] font-bold text-primary tracking-tight font-sans">
             <AnimatedPrice value={plan.price} />
           </span>
+          <span className="text-zinc-400 text-sm font-normal font-sans">
+            / {plan.highlightFeature}
+          </span>
         </div>
-
-        <p className="text-zinc-400 text-sm font-normal font-sans mb-6">
-          {plan.highlightFeature}
-        </p>
 
         <div className={`${isPopular ? "bg-[#2F2F33]" : "bg-[#181818]"} rounded-2xl p-5 border border-white/5 space-y-3.5 mb-8`}>
           {plan.features.map((feature, fIdx) => (

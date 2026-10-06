@@ -104,11 +104,11 @@ export function FeaturedWorkCard({
 
           {/* Project Info & CTA Row */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mt-10 md:mt-14 lg:mt-16 w-full">
-            <div className="flex flex-col max-w-4xl">
-              <h3 className="text-2xl md:text-3xl lg:text-[40px] font-bold text-[#ADADAD] tracking-tight leading-[1.2] font-sans whitespace-pre-line">
+            <div className="flex flex-col">
+              <h3 className="text-2xl md:text-3xl lg:text-[40px] max-w-3xl font-bold text-[#ADADAD] tracking-tight leading-[1.2] font-sans whitespace-pre-line">
                 {project.title}
               </h3>
-              <p className="text-base md:text-xl text-[#ADADAD] leading-relaxed mt-4 md:mt-6">
+              <p className="text-base md:text-xl max-w-5xl text-[#ADADAD] leading-relaxed mt-4 md:mt-6">
                 {project.description}
               </p>
             </div>
