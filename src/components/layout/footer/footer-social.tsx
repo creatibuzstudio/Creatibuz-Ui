@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const socialLinks = [
   {
@@ -32,6 +33,11 @@ export const socialLinks = [
     ),
   },
   {
+    name: "X",
+    href: "https://x.com/creatibuzstudio",
+    icon: "/x-logo.png",
+  },
+  {
     name: "Behance",
     href: "https://behance.net/creatibuzstudio",
     icon: "/behance-logo.png",
@@ -39,7 +45,7 @@ export const socialLinks = [
   {
     name: "Dribbble",
     href: "https://dribbble.com/creatibuzstudio",
-    icon: "/dribble-logo.png"
+    icon: "/dribble-logo.png",
   },
 ];
 
@@ -57,7 +63,17 @@ export function FooterSocial() {
         >
           <div className="absolute -inset-3 bg-gradient-to-br from-black via-[#2a0e00] to-[#FE5A00] transition-transform duration-500 ease-out group-hover:rotate-180 pointer-events-none" />
           <span className="relative z-10 text-foreground group-hover:scale-115 transition-transform duration-300 flex items-center justify-center">
-            {social.icon}
+            {typeof social.icon === "string" ? (
+              <Image
+                src={social.icon}
+                alt={social.name}
+                width={16}
+                height={16}
+                className="w-4 h-4 object-contain"
+              />
+            ) : (
+              social.icon
+            )}
           </span>
         </Link>
       ))}

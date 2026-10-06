@@ -42,8 +42,12 @@ export const siteMetadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: [{ url: "/fav.jpg", type: "image/jpeg" }],
-    shortcut: "/fav.jpg",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/fav.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/fav.jpg",
   },
   openGraph: {

@@ -113,7 +113,7 @@ export function FeaturedWorkCard({
               </p>
             </div>
 
-            <div className="shrink-0 pt-1">
+            {/* <div className="shrink-0 pt-1">
               <Link
                 href={project.link}
                 target={project.link.startsWith("http") ? "_blank" : undefined}
@@ -131,7 +131,7 @@ export function FeaturedWorkCard({
                   <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2]" />
                 </div>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Metrics Row */}

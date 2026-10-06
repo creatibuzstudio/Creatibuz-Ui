@@ -114,7 +114,7 @@ export function DesignProcessSection() {
       {/* Background Image Asset */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <Image
-          src="/designprocess/designProcess-bg.png"
+          src="/designProcess/designProcess-bg.png"
           alt="Design Process Background"
           fill
           priority
