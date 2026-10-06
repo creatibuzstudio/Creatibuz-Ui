@@ -6,19 +6,20 @@ export interface FooterLink {
 export const quickLinks: FooterLink[] = [
   { name: "Services", href: "#services" },
   { name: "Feature Works", href: "#future-works" },
-  { name: "Design Process", href: "#process" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Meet our Team", href: "#specialists" },
+  { name: "Pricing Plan", href: "#pricing" },
   { name: "Latest Blog", href: "#blog" },
   { name: "Career", href: "#contact" },
 ];
 
 export const serviceLinks: FooterLink[] = [
-  { name: "Product Design", href: "#service" },
-  { name: "Web & App Design", href: "#service" },
-  { name: "Web Development", href: "#service" },
-  { name: "App Development", href: "#service" },
-  { name: "SaaS Development", href: "#service" },
-  { name: "Branding Design", href: "#service" },
+  { name: "Branding Design", href: "#services" },
+  { name: "UI/UX Design", href: "#services" },
+  { name: "SaaS Product Development", href: "#services" },
+  { name: "Website Development", href: "#services" },
+  { name: "Mobile App Development", href: "#services" },
+  { name: "Wordpress Development", href: "#services" },
+  { name: "Search Engine Optimization", href: "#services" },
 ];
 
 export const legalLinks: FooterLink[] = [

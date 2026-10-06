@@ -4,8 +4,8 @@ import { Gem } from "lucide-react";
 
 export function PlatformFeaturesSection() {
   return (
-    <div className="w-full">
-      <div className="relative rounded-3xl md:rounded-[28px] overflow-hidden flex flex-col lg:flex-row items-stretch lg:items-center justify-between px-6 sm:px-10 lg:px-14 pt-10 sm:pt-14 pb-0 min-h-[440px] shadow-2xl bg-primary">
+    <div className="w-full overflow-visible">
+      <div className="relative rounded-3xl overflow-hidden flex flex-col lg:flex-row items-stretch lg:items-center justify-between px-6 sm:px-10 lg:px-14 pt-10 sm:pt-14 pb-0 min-h-[440px] shadow-2xl bg-primary">
         {/* Background Image */}
         <Image
           src="/newsletter-bg.png"

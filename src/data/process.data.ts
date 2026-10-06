@@ -39,13 +39,13 @@ export const processSteps: ProcessStep[] = [
   {
     step: "Step 06",
     title: "Approval",
-    description: "Submission, Asset preparation, exports.",
+    description: "Submission, Asset preparation, exports & Presentation",
     icon: "/designprocess/Approval.png",
   },
   {
     step: "Step 07",
     title: "Final Delivery",
-    description: "Dev handoff, documentation, organize Figma file.",
+    description: "Development handoff, documentation, organize Figma file.",
     icon: "/designprocess/Final Delivery.png",
   },
 ];

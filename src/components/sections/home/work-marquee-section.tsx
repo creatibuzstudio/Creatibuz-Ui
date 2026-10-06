@@ -12,7 +12,7 @@ import { ImageMarqueeRow } from "./work-marquee/image-marquee-row";
 
 export function WorkMarqueeSection() {
   return (
-    <section className="relative w-full overflow-hidden py-16 md:py-20 lg:py-24 flex flex-col gap-4 select-none">
+    <section className="relative w-full overflow-hidden py-20 md:py-32 lg:py-36 flex flex-col gap-4 select-none">
       {/* Full width top horizontal divider line */}
       <div className="w-full h-px bg-white/[0.12] absolute top-0 inset-x-0 pointer-events-none z-10" />
 

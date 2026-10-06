@@ -21,10 +21,10 @@ export function ServicePreviewCard({ current }: ServicePreviewCardProps) {
           transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col"
         >
-          {/* Image Container */}
+          {/* Image Container: designated preview space matching service 01 */}
           <div
             style={{
-              aspectRatio: `${current.width || 4} / ${current.height || 3}`,
+              aspectRatio: `${current.width || 1854} / ${current.height || 1284}`,
             }}
             className="relative w-full overflow-hidden border border-white/10 bg-[#101012] shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
           >
@@ -34,7 +34,7 @@ export function ServicePreviewCard({ current }: ServicePreviewCardProps) {
               fill
               unoptimized
               priority
-              className="object-contain"
+              className={`object-cover ${current.objectPosition || "object-center"}`}
             />
           </div>
 

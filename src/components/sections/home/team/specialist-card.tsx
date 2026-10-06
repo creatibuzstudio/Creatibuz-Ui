@@ -58,6 +58,9 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
+
+        {/* Subtle Black Shade Overlay to soften bright white background */}
+        <div className="absolute inset-0 bg-black/25 pointer-events-none transition-colors duration-300 group-hover:bg-black/15" />
       </div>
 
       {/* Primary to Transparent Background Scrim for Name & Designation */}

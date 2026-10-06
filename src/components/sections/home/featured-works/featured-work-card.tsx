@@ -46,48 +46,61 @@ export function FeaturedWorkCard({
             </div>
           )}
 
-          {/* Visual Showcase Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6 w-full items-stretch">
-            {/* Left Column: Hero Mockup (8 cols) */}
-            <div className="lg:col-span-8 flex flex-col justify-center">
-              <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-2xl group/hero">
-                <Image
-                  src={project.images.hero.src}
-                  alt="Main Project Display"
-                  width={project.images.hero.width}
-                  height={project.images.hero.height}
-                  priority={isFirstCard}
-                  className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/hero:scale-[1.01]"
-                  sizes="(max-width: 1024px) 100vw, 850px"
-                />
-              </div>
-            </div>
-
-            {/* Right Column: 2 Stacked Secondary Mockups (4 cols) */}
-            <div className="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col lg:justify-between gap-4 sm:gap-5 lg:gap-6">
-              <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-xl group/top">
-                <Image
-                  src={project.images.rightTop.src}
-                  alt="Secondary Preview Top"
-                  width={project.images.rightTop.width}
-                  height={project.images.rightTop.height}
-                  className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/top:scale-[1.02]"
-                  sizes="(max-width: 1024px) 50vw, 420px"
-                />
-              </div>
-
-              <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-xl group/bot">
-                <Image
-                  src={project.images.rightBottom.src}
-                  alt="Secondary Preview Bottom"
-                  width={project.images.rightBottom.width}
-                  height={project.images.rightBottom.height}
-                  className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/bot:scale-[1.02]"
-                  sizes="(max-width: 1024px) 50vw, 420px"
-                />
-              </div>
-            </div>
+          {/* Stack Image Showcase (Single 3-in-1 composite project set) */}
+          <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-2xl group/showcase">
+            <Image
+              src={project.image || project.images.hero.src}
+              alt={project.title}
+              width={project.images.hero.width || 3120}
+              height={project.images.hero.height || 1560}
+              priority={isFirstCard}
+              className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/showcase:scale-[1.01]"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
           </div>
+
+          {/* 
+            PREVIOUS MULTI-COLUMN GRID SYSTEM (Commented out for future use):
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6 w-full items-stretch">
+              <div className="lg:col-span-8 flex flex-col justify-center">
+                <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-2xl group/hero">
+                  <Image
+                    src={project.images.hero.src}
+                    alt="Main Project Display"
+                    width={project.images.hero.width}
+                    height={project.images.hero.height}
+                    priority={isFirstCard}
+                    className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/hero:scale-[1.01]"
+                    sizes="(max-width: 1024px) 100vw, 850px"
+                  />
+                </div>
+              </div>
+
+              <div className="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col lg:justify-between gap-4 sm:gap-5 lg:gap-6">
+                <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-xl group/top">
+                  <Image
+                    src={project.images.rightTop.src}
+                    alt="Secondary Preview Top"
+                    width={project.images.rightTop.width}
+                    height={project.images.rightTop.height}
+                    className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/top:scale-[1.02]"
+                    sizes="(max-width: 1024px) 50vw, 420px"
+                  />
+                </div>
+
+                <div className="relative w-full overflow-hidden border border-white/[0.08] shadow-xl group/bot">
+                  <Image
+                    src={project.images.rightBottom.src}
+                    alt="Secondary Preview Bottom"
+                    width={project.images.rightBottom.width}
+                    height={project.images.rightBottom.height}
+                    className="w-full h-auto block object-contain select-none transition-transform duration-700 ease-out group-hover/bot:scale-[1.02]"
+                    sizes="(max-width: 1024px) 50vw, 420px"
+                  />
+                </div>
+              </div>
+            </div>
+          */}
 
           {/* Project Info & CTA Row */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mt-10 md:mt-14 lg:mt-16 w-full">

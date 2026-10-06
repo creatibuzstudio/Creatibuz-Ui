@@ -83,7 +83,7 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
 
       <button
         onClick={() => onSelect(plan)}
-        className={`w-full py-3.5 rounded-full font-medium text-center text-sm transition-all duration-300 cursor-pointer ${
+        className={`w-full py-3.5 rounded-full font-medium text-center text-sm md:text-base transition-all duration-300 cursor-pointer ${
           isPopular
             ? "bg-primary text-foreground font-semibold shadow-[0_0_35px_rgba(248,88,0,0.8)] hover:brightness-110 active:scale-[0.98]"
             : "bg-zinc-800/80 hover:bg-zinc-700/80 text-foreground font-medium border border-white/10 active:scale-[0.98]"

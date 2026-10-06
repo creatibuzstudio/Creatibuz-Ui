@@ -32,7 +32,7 @@ export function Footer() {
               />
             </Link>
 
-            <p className="text-primary-text text-[14px] leading-relaxed max-w-[320px] font-normal">
+            <p className="text-primary-text text-[14px] md:text-base leading-relaxed max-w-[350px] font-normal">
               A full-service UI/UX and development agency helping startups and
               businesses create fast, scalable, and user-focused digital
               products.
@@ -43,10 +43,10 @@ export function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-[16px] font-semibold text-header-text mb-6 tracking-tight">
+            <h4 className="text-base md:text-[18px] font-semibold text-header-text mb-6 tracking-tight">
               Quick Link
             </h4>
-            <ul className="space-y-3.5 text-[14px] text-primary-text font-normal">
+            <ul className="space-y-3.5 text-[14px] md:text-base text-primary-text">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -62,10 +62,10 @@ export function Footer() {
 
           {/* Column 3: Services */}
           <div className="lg:col-span-3">
-            <h4 className="text-[16px] font-semibold text-header-text mb-6 tracking-tight">
+            <h4 className="text-base md:text-[18px] font-semibold text-header-text mb-6 tracking-tight">
               Service
             </h4>
-            <ul className="space-y-3.5 text-[14px] text-primary-text font-normal">
+            <ul className="space-y-3.5 text-[14px] md:text-base text-primary-text font-normal">
               {serviceLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -81,10 +81,10 @@ export function Footer() {
 
           {/* Column 4: Contact Details */}
           <div className="lg:col-span-3">
-            <h4 className="text-[16px] font-semibold text-header-text mb-6 tracking-tight">
+            <h4 className="text-base md:text-[18px] font-semibold text-header-text mb-6 tracking-tight">
               Contact Us
             </h4>
-            <div className="space-y-5 text-[14px] text-primary-text">
+            <div className="space-y-5 text-[14px] md:text-base text-primary-text">
               <div className="flex items-start gap-3.5">
                 <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-green-500/15 flex items-center justify-center">
                   <svg className="w-5 h-5 text-[#25D366] fill-current" viewBox="0 0 24 24">
@@ -92,24 +92,24 @@ export function Footer() {
                   </svg>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <div className="text-header-text font-medium text-[14px]">WhatsApp</div>
-                  <div className="text-primary-text text-[14px]">{contactDetails.whatsapp}</div>
+                  <div className="text-header-text font-medium text-[14px] md:text-base">WhatsApp</div>
+                  <div className="text-primary-text text-[14px] md:text-base">{contactDetails.whatsapp}</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5">
                 <Mail className="w-5 h-5 text-gray-400 mt-0.5 shrink-0" />
                 <div className="flex flex-col gap-0.5">
-                  <div className="text-header-text font-medium text-[14px]">Email Address</div>
-                  <div className="text-primary-text text-[14px]">{contactDetails.email}</div>
+                  <div className="text-header-text font-medium text-[14px] md:text-base">Email Address</div>
+                  <div className="text-primary-text text-[14px] md:text-base">{contactDetails.email}</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5">
                 <Clock className="w-5 h-5 text-gray-400 mt-0.5 shrink-0" />
                 <div className="flex flex-col gap-0.5">
-                  <div className="text-header-text font-medium text-[14px]">Working Hour :</div>
-                  <div className="text-primary-text text-[14px] whitespace-pre-line leading-relaxed">
+                  <div className="text-header-text font-medium text-[14px] md:text-base">Working Hour :</div>
+                  <div className="text-primary-text text-[14px] md:text-base whitespace-pre-line leading-relaxed">
                     {contactDetails.workingHours}
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Copyright & Legal Links */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-primary-text font-normal pt-4 pb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] md:text-[15px] text-primary-text font-normal pt-4 pb-8">
           <p>© {new Date().getFullYear()} Copyright By - Creatibuz Studio</p>
           <div className="flex items-center gap-6">
             {legalLinks.map((link) => (
