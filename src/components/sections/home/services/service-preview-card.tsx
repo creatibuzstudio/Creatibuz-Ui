@@ -26,7 +26,7 @@ export function ServicePreviewCard({ current }: ServicePreviewCardProps) {
             style={{
               aspectRatio: `${current.width || 1854} / ${current.height || 1284}`,
             }}
-            className="relative w-full overflow-hidden border border-white/10 bg-[#101012] shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+            className="relative w-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.75)]"
           >
             <Image
               src={current.img}

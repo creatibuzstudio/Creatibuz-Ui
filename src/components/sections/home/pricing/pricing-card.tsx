@@ -58,7 +58,11 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
         )}
 
         <div className="flex items-baseline gap-2 mt-2 mb-6 flex-wrap">
-          <span className="text-3xl md:text-[40px] font-bold text-primary tracking-tight font-sans">
+          <span
+            className={`text-4xl md:text-[40px] font-bold tracking-tight font-sans ${
+              isPopular ? "text-primary" : "text-foreground"
+            }`}
+          >
             <AnimatedPrice value={plan.price} />
           </span>
           <span className="text-zinc-400 text-sm font-normal font-sans">

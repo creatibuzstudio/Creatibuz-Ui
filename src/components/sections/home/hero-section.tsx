@@ -65,7 +65,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={0}
-              className="relative p-[1px] inline-flex items-center justify-center overflow-hidden rounded-full mb-8 sm:mb-10 group transition-all duration-300 bg-white/10 shadow-[0_0_15px_rgba(254,90,0,0.05)]"
+              className="relative p-[1px] inline-flex items-center justify-center overflow-hidden rounded-full mb-6 sm:mb-10 group transition-all duration-300 bg-white/10 shadow-[0_0_15px_rgba(254,90,0,0.05)]"
             >
               <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
                 <motion.div
@@ -104,13 +104,13 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={1}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal md:font-medium font-sans text-white text-center leading-[1.12] sm:leading-[1.14] tracking-[-0.03em] max-w-5xl mx-auto"
+              className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal md:font-medium font-sans text-white text-center leading-[1.18] sm:leading-[1.14] tracking-[-0.03em] max-w-5xl mx-auto text-balance"
             >
               We Are UI/UX Design{" "}
-              <span className="font-serif italic font-normal text-white">&amp;</span>
-              <br />
-              Development Partner For SaaS
-              <br />
+              <span className="font-serif italic font-normal text-white">&amp;</span>{" "}
+              <br className="hidden md:block" />
+              Development Partner For SaaS{" "}
+              <br className="hidden md:block" />
               Founders{" "}
               <span className="font-serif italic font-normal text-white">&amp;</span> Startups
             </motion.h1>
@@ -121,7 +121,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={2}
-              className="mt-6 text-zinc-400 text-center font-normal text-base sm:text-lg md:text-[18px] lg:text-[19px] leading-[1.6] max-w-2xl mx-auto font-sans"
+              className="mt-5 sm:mt-6 text-zinc-400 text-center font-normal text-[15px] sm:text-lg md:text-[18px] lg:text-[19px] leading-[1.6] max-w-2xl mx-auto font-sans text-balance px-2 sm:px-0"
             >
               A full-service UI/UX and development agency helping startups and
               businesses create fast, scalable, and user-focused digital products.
@@ -133,7 +133,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={3}
-              className="mt-12 sm:mt-16 flex justify-center w-full"
+              className="mt-8 sm:mt-12 md:mt-16 flex justify-center w-full"
             >
               <motion.div
                 whileHover={{ scale: 1.04 }}

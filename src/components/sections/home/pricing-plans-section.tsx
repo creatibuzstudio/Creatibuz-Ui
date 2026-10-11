@@ -68,8 +68,8 @@ export function PricingPlansSection() {
                 onClick={() => setActiveTabId(tab.id)}
                 className={`transition-all duration-300 rounded-full text-sm font-medium cursor-pointer ${
                   isActive
-                    ? "bg-primary text-foreground px-6 py-2 shadow-md shadow-[#F85800]/25"
-                    : "text-primary-text hover:text-foreground px-5 py-2"
+                    ? "bg-primary text-foreground px-3 py-2 shadow-md shadow-[#F85800]/25"
+                    : "text-primary-text hover:text-foreground px-1.5 py-2"
                 }`}
               >
                 {tab.name}

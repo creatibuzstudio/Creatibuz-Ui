@@ -21,14 +21,14 @@ export function ServicesShowcaseSection() {
         </div>
       </div>
 
-      <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start">
-        {/* Left Column: Interactive Sticky Preview Area */}
-        <div className="relative lg:col-span-4 lg:pr-5">
+      <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-0 items-start">
+        {/* Left Column on Desktop / Bottom Preview on Mobile */}
+        <div className="order-2 lg:order-1 relative lg:col-span-4 lg:pr-5">
           <ServicePreviewCard current={current} />
         </div>
 
-        {/* Right Column: Section Header & Service List */}
-        <div className="lg:col-span-8 lg:pl-10 xl:pl-14 flex flex-col justify-center">
+        {/* Right Column on Desktop / Top List on Mobile */}
+        <div className="order-1 lg:order-2 lg:col-span-8 lg:pl-10 xl:pl-14 flex flex-col justify-center">
           <div className="mb-6 sm:mb-8">
             <span className="text-primary text-lg md:text-xl lg:text-2xl tracking-wide font-sans inline-block">
               [ Our Services ]

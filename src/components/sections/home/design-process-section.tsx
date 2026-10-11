@@ -24,7 +24,7 @@ export function DesignProcessSection() {
       if (cards.length === 0) return;
 
       const cardWidth = cards[0].offsetWidth;
-      const gap = 25;
+      const gap = 16;
       const visibleWidth = Math.max(130, Math.round(cardWidth * 0.46));
       const stepDistance = cardWidth + gap - visibleWidth;
 
@@ -33,9 +33,9 @@ export function DesignProcessSection() {
           trigger: sectionRef.current,
           pin: true,
           pinSpacing: true,
-          scrub: 2.5,
+          scrub: 0.8,
           start: "top top",
-          end: () => `+=${(cards.length - 1) * 700}`,
+          end: () => `+=${(cards.length - 1) * 360}`,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -122,7 +122,7 @@ export function DesignProcessSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col px-4 sm:px-6 md:px-8 pt-8 pb-14 sm:py-16 md:py-24 lg:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
         {/* Header Area */}
         <span className="text-[#F85800] text-base md:text-xl mb-3 md:mb-8 font-sans">
           [ Design Process ]
@@ -151,7 +151,7 @@ export function DesignProcessSection() {
         <div className="w-full py-2 md:py-4 flex justify-center">
           <div
             ref={trackRef}
-            className="relative flex flex-col md:flex-row md:flex-nowrap items-center md:items-start md:space-x-4 w-full md:w-max md:min-w-full min-h-[340px] md:min-h-0"
+            className="relative flex flex-col md:flex-row md:flex-nowrap items-center md:items-start md:gap-4 w-full md:w-max md:min-w-full min-h-[340px] md:min-h-0"
           >
             {processSteps.map((item, index) => (
               <ProcessCard key={item.step} item={item} index={index} />

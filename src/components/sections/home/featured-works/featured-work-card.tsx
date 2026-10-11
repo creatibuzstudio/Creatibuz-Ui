@@ -108,7 +108,7 @@ export function FeaturedWorkCard({
               <h3 className="text-2xl md:text-3xl lg:text-[40px] max-w-3xl font-bold text-[#ADADAD] tracking-tight leading-[1.2] font-sans whitespace-pre-line">
                 {project.title}
               </h3>
-              <p className="text-base md:text-xl max-w-5xl text-[#ADADAD] leading-relaxed mt-4 md:mt-6">
+              <p className="text-base md:text-xl max-w-5xl text-[#ADADAD] leading-relaxed mt-4 md:mt-6 font-display">
                 {project.description}
               </p>
             </div>

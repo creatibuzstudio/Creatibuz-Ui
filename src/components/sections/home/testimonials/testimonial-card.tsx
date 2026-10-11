@@ -103,9 +103,9 @@ export function TestimonialCard({ item, onPlayVideo }: TestimonialCardProps) {
               <Image
                 src="/creatibuz-symbol.png"
                 alt="Creatibuz"
-                width={36}
-                height={36}
-                className="w-7 h-7 sm:w-8.5 sm:h-8.5 object-contain brightness-200"
+                width={40}
+                height={40}
+                className="w-8 h-8 sm:w-9 sm:h-9 object-contain brightness-200"
               />
             </div>
           </div>

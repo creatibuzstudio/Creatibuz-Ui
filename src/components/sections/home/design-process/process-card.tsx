@@ -17,7 +17,7 @@ export function ProcessCard({ item, index }: ProcessCardProps) {
         isFirst
           ? "relative mx-auto md:mx-0"
           : "absolute top-0 left-0 right-0 mx-auto md:relative md:top-auto md:left-auto md:right-auto md:mx-0"
-      } flex w-80 max-w-[calc(100vw-2.5rem)] shrink-0 flex-col items-start overflow-hidden rounded-2xl bg-white px-6 py-6 sm:py-8 text-left transition-all duration-300 will-change-transform shadow-[0_-8px_20px_-4px_rgba(0,0,0,0.12),0_12px_24px_-6px_rgba(0,0,0,0.08)] md:shadow-[-16px_0_35px_-10px_rgba(0,0,0,0.12),-20px_0_45px_-15px_rgba(0,0,0,0.22)] hover:shadow-[-20px_0_40px_rgba(0,0,0,0.16),0_30px_60px_rgba(0,0,0,0.3)] md:px-8 md:py-12 after:absolute after:-bottom-16 after:-left-16 after:-z-10 after:h-50 after:w-50 after:rounded-full after:bg-primary after:opacity-0 after:blur-3xl after:transition-all after:duration-500 hover:after:opacity-50 hover:after:scale-110`}
+      } flex w-80 max-w-[calc(100vw-2.5rem)] shrink-0 flex-col items-start overflow-hidden rounded-2xl bg-white px-6 py-6 sm:py-8 text-left transition-shadow duration-300 will-change-transform shadow-[0_-8px_20px_-4px_rgba(0,0,0,0.12),0_12px_24px_-6px_rgba(0,0,0,0.08)] md:shadow-[-16px_0_35px_-10px_rgba(0,0,0,0.12),-20px_0_45px_-15px_rgba(0,0,0,0.22)] hover:shadow-[-20px_0_40px_rgba(0,0,0,0.16),0_30px_60px_rgba(0,0,0,0.3)] md:px-8 md:py-12 after:absolute after:-bottom-16 after:-left-16 after:-z-10 after:h-50 after:w-50 after:rounded-full after:bg-primary after:opacity-0 after:blur-3xl after:transition-all after:duration-500 hover:after:opacity-50 hover:after:scale-110`}
     >
       <div className="relative z-10 w-full flex flex-col items-start">
         {/* Icon Box */}

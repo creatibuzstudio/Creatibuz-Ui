@@ -39,7 +39,7 @@ export function FlexiblePlansCard() {
         </div>
 
         {/* Payment Cards visual */}
-        <div className="absolute -bottom-12 -right-28 sm:-right-24 md:-right-36 w-[340px] sm:w-[380px] md:w-[450px] h-[240px] sm:h-[300px] md:h-[400px] pointer-events-none z-10">
+        <div className="absolute -bottom-16 -right-32 sm:-right-24 md:-right-36 w-[450px] h-[400px] pointer-events-none z-10">
           <Image
             src="/whyChooseUs/Card Image.png"
             alt="Payment Cards"

@@ -58,34 +58,12 @@ export function InteractiveOrbitCtaSection() {
           />
         </div>
 
-        {/* Static Concentric Dashed Orbit Rings */}
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
-          style={{
-            overflow: "hidden",
-            maskImage:
-              "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-          }}
-        >
-          {/* Inner Ring (700px diameter) */}
-          <svg
-            className="absolute pointer-events-none"
-            style={{ width: "700px", height: "700px" }}
-            viewBox="0 0 700 700"
-          >
-            <circle
-              cx="350"
-              cy="350"
-              r="349"
-              fill="none"
-              stroke="rgba(255, 255, 255, 0.14)"
-              strokeWidth="1"
-              strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
-            />
-          </svg>
-          {/* Middle Ring (900px diameter) */}
+        {/* Center ambient glow for mobile depth */}
+        <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_600px_400px_at_50%_50%,rgba(254,90,0,0.22)_0%,rgba(254,90,0,0.06)_50%,transparent_80%)]" />
+
+        {/* Static Concentric Dashed Orbit Rings & Icons Container */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px] h-[1300px] flex items-center justify-center pointer-events-none z-10 scale-[0.38] sm:scale-[0.65] md:scale-[0.88] lg:scale-100 origin-center transition-transform duration-500">
+          {/* Inner Ring (900px diameter) */}
           <svg
             className="absolute pointer-events-none"
             style={{ width: "900px", height: "900px" }}
@@ -96,12 +74,12 @@ export function InteractiveOrbitCtaSection() {
               cy="450"
               r="449"
               fill="none"
-              stroke="rgba(255, 255, 255, 0.14)"
-              strokeWidth="1"
+              stroke="rgba(255, 255, 255, 0.22)"
+              strokeWidth="1.5"
               strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
             />
           </svg>
-          {/* Outer Ring (1100px diameter) */}
+          {/* Middle Ring (1100px diameter) */}
           <svg
             className="absolute pointer-events-none"
             style={{ width: "1100px", height: "1100px" }}
@@ -112,14 +90,30 @@ export function InteractiveOrbitCtaSection() {
               cy="550"
               r="549"
               fill="none"
-              stroke="rgba(255, 255, 255, 0.14)"
-              strokeWidth="1"
+              stroke="rgba(255, 255, 255, 0.18)"
+              strokeWidth="1.5"
+              strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
+            />
+          </svg>
+          {/* Outer Ring (1300px diameter) */}
+          <svg
+            className="absolute pointer-events-none"
+            style={{ width: "1300px", height: "1300px" }}
+            viewBox="0 0 1300 1300"
+          >
+            <circle
+              cx="650"
+              cy="650"
+              r="649"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.15)"
+              strokeWidth="1.5"
               strokeDasharray={`${ORBIT_DASH_SIZE} ${ORBIT_DASH_GAP}`}
             />
           </svg>
 
           {/* Jelly Floating Icons on Orbits */}
-          <div className="absolute inset-0 pointer-events-none scale-[0.62] sm:scale-[0.80] md:scale-[0.92] lg:scale-100 origin-center">
+          <div className="absolute inset-0 pointer-events-none">
             {JELLY_ICONS.map((icon) => (
               <JellyIconItem
                 key={icon.name}
@@ -132,16 +126,16 @@ export function InteractiveOrbitCtaSection() {
         </div>
 
         {/* Center Stationary CTA Content */}
-        <div className="relative z-20 max-w-2xl mx-auto px-4 text-center pointer-events-auto flex flex-col items-center">
+        <div className="relative z-20 max-w-2xl mx-auto px-4 sm:px-6 text-center pointer-events-auto flex flex-col items-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-bold text-white text-3xl md:text-4xl lg:text-[42px] text-center leading-[1.18] tracking-tight max-w-3xl mx-auto"
+            className="font-bold text-white text-[24px] sm:text-3xl md:text-4xl lg:text-[42px] text-center leading-[1.2] sm:leading-[1.18] tracking-tight max-w-[500px] mx-auto text-balance"
           >
-            Ready to build something
-            <br className="hidden sm:inline" /> that actually converts?
+            Ready to build something{" "}
+            <br className="hidden sm:inline" />that actually converts?
           </motion.h2>
 
           <motion.p
@@ -149,7 +143,7 @@ export function InteractiveOrbitCtaSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-zinc-300/90 text-sm sm:text-base text-center max-w-lg mx-auto mt-4 leading-relaxed font-normal"
+            className="text-zinc-300/90 text-[13px] sm:text-base text-center max-w-[450px] mx-auto mt-3 sm:mt-4 leading-relaxed font-normal text-balance"
           >
             Stop waiting weeks for design feedback. Get your first draft in 48
             hours and launch your product before your competitors even finish
@@ -161,11 +155,11 @@ export function InteractiveOrbitCtaSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8"
+            className="mt-6 sm:mt-8"
           >
             <Link
               href="#contact"
-              className="group inline-flex items-center gap-5 rounded-full bg-white hover:bg-primary text-black hover:text-foreground font-display text-base md:text-lg px-6 pr-1.5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl"
+              className="group inline-flex items-center gap-4 sm:gap-5 rounded-full bg-white hover:bg-primary text-black hover:text-foreground font-display text-[15px] sm:text-base md:text-lg pl-5 sm:pl-6 pr-1.5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl"
             >
               <span>Request Free Audit</span>
               <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
