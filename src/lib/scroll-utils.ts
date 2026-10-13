@@ -30,6 +30,9 @@ export function handleSectionScroll(
   onComplete?: () => void
 ): void {
   if (href.startsWith("#")) {
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      return;
+    }
     e.preventDefault();
     const targetId = href.replace(/.*#/, "");
     const elem = document.getElementById(targetId);

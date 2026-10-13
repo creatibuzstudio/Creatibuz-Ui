@@ -101,7 +101,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             <div className="pt-2 border-t border-white/10 flex flex-col gap-2.5">
               <Link
-                href="https://calendly.com/jevxo-info/30min"
+                href="https://calendly.com/creatibuzstudio/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}

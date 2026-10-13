@@ -57,13 +57,15 @@ export function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                     onClick={(e) => {
                       if (link.href.startsWith("#")) {
-                        e.preventDefault();
-                        const target = document.querySelector(link.href);
-                        if (target) {
-                          target.scrollIntoView({ behavior: "smooth" });
+                        if (typeof window !== "undefined" && window.location.pathname === "/") {
+                          e.preventDefault();
+                          const target = document.querySelector(link.href);
+                          if (target) {
+                            target.scrollIntoView({ behavior: "smooth" });
+                          }
                         }
                       }
                     }}
@@ -85,13 +87,15 @@ export function Footer() {
               {serviceLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                     onClick={(e) => {
                       if (link.href.startsWith("#")) {
-                        e.preventDefault();
-                        const target = document.querySelector(link.href);
-                        if (target) {
-                          target.scrollIntoView({ behavior: "smooth" });
+                        if (typeof window !== "undefined" && window.location.pathname === "/") {
+                          e.preventDefault();
+                          const target = document.querySelector(link.href);
+                          if (target) {
+                            target.scrollIntoView({ behavior: "smooth" });
+                          }
                         }
                       }
                     }}

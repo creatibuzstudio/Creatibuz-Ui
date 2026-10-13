@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://www.api.jevxo.com",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://api.creatibuzstudio.com",
   timeout: 4000,
   headers: {
     "Content-Type": "application/json",

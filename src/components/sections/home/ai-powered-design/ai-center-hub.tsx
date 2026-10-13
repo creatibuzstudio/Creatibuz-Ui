@@ -45,14 +45,14 @@ export function AiCenterHub({ hubRef }: AiCenterHubProps) {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="relative w-[150px] h-[150px] rounded-full bg-primary flex items-center justify-center shadow-[0_0_60px_rgba(248,88,0,0.55)] cursor-pointer select-none"
+          className="relative w-[150px] h-[150px] rounded-full bg-primary flex items-center justify-center cursor-pointer select-none"
         >
           <Image
             src="/creatibuz-symbol.png"
             alt="Creatibuz Studio"
-            width={100}
-            height={100}
-            className="w-[130px] h-[130px] object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+            width={150}
+            height={150}
+            className="w-[150px] h-[150px] object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
             priority
           />
         </motion.div>

@@ -73,7 +73,7 @@ export function Navbar() {
         <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
-            href="https://calendly.com/jevxo-info/30min"
+            href="https://calendly.com/creatibuzstudio/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-1 md:pl-4.5 md:pr-1 transition-all duration-300 group"

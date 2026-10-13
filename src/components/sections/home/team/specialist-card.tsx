@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
@@ -41,6 +42,8 @@ function renderSocialIcon(type: string) {
 }
 
 export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
+  const [imgSrc, setImgSrc] = useState(specialist.image);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
@@ -52,11 +55,12 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
       {/* Portrait Image */}
       <div className="w-full h-full relative">
         <Image
-          src={specialist.image}
+          src={imgSrc}
           alt={specialist.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          onError={() => setImgSrc("/specialist/Team 01.png")}
         />
 
         {/* Subtle Black Shade Overlay to soften bright white background */}

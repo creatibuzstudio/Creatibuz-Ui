@@ -9,7 +9,7 @@ export const quickLinks: FooterLink[] = [
   { name: "Meet our Team", href: "#specialist" },
   { name: "Pricing Plan", href: "#pricing" },
   { name: "Latest Blog", href: "#blog" },
-  { name: "Career", href: "#contact" },
+  { name: "Career", href: "/career" },
 ];
 
 export const serviceLinks: FooterLink[] = [

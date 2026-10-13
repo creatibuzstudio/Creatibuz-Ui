@@ -144,7 +144,7 @@ export function HeroSection() {
                 <div className="absolute -inset-3 sm:-inset-4 bg-primary/50 rounded-full blur-2xl group-hover:bg-primary/75 group-hover:blur-3xl transition-all duration-500 pointer-events-none" />
 
                 <Link
-                  href="https://calendly.com/jevxo-info/30min"
+                  href="https://calendly.com/creatibuzstudio/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative z-10 inline-flex items-center gap-5 bg-primary hover:bg-[#ff6814] text-white pl-6 sm:pl-8 pr-2 sm:pr-2.5 py-2 sm:py-2 rounded-full font-medium text-[15px] sm:text-[20px] shadow-[0_0_30px_rgba(248,88,0,0.35)] transition-all duration-300 font-display"

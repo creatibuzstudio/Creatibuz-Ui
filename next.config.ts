@@ -8,6 +8,18 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "i.ibb.co",
+      },
+      {
+        protocol: "https",
+        hostname: "**.ibb.co",
+      },
+      {
+        protocol: "https",
+        hostname: "api.creatibuzstudio.com",
+      },
+      {
+        protocol: "https",
         hostname: "www.api.jevxo.com",
       },
       {
