@@ -145,7 +145,7 @@ export const EMPLOYEE_BENEFITS: EmployeeBenefit[] = [
     id: "benefit-1",
     title: "Remote Work Freedom",
     description:
-      "Stop being worried about missing your bus to the office, we've been remote since day one.",
+      "Stop being worried about missing your bus and being late to the office for the traffic jam, we've been remote since day one.",
     iconName: "remote",
   },
   {

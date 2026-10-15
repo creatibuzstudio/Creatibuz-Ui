@@ -81,7 +81,7 @@ export function FaqSection({
           {showViewAll && items.length > displayedFaqs.length && (
             <div className="pt-2 flex justify-start sm:justify-end">
               <Link
-                href="/faq"
+                href="https://calendly.com/creatibuzstudio/30min"
                 className="inline-flex items-center gap-2 text-[14px] md:text-[15px] font-medium text-primary hover:text-white transition-colors group"
               >
                 <span>Have more questions? View more FAQs</span>

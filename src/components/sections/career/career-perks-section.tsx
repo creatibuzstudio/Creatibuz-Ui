@@ -24,7 +24,7 @@ function renderBenefitIcon(iconName: string) {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="w-8 h-8 text-black"
+          className="w-12 h-12 text-black"
         >
           {/* Finger touch circle */}
           <ellipse cx="14" cy="7" rx="3.5" ry="3.5" />
@@ -85,9 +85,9 @@ export function CareerPerksSection() {
           <span className="text-primary text-sm sm:text-base font-semibold tracking-wider font-sans uppercase mb-3 inline-block">
             [ Employee Benefits ]
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.2] font-sans">
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-header-text tracking-tight font-sans">
             Perks of being a{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic text-header-text">
               Creatibuz Studio!
             </span>
           </h2>
@@ -112,11 +112,11 @@ export function CareerPerksSection() {
                 {renderBenefitIcon(benefit.iconName)}
               </div>
 
-              <h3 className="text-[20px] sm:text-[22px] font-bold text-black tracking-tight leading-snug mb-3 font-sans">
+              <h3 className="text-[20px] sm:text-[22px] font-semibold text-black tracking-tight leading-snug mb-3 font-sans">
                 {benefit.title}
               </h3>
 
-              <p className="text-zinc-600 text-[13.5px] sm:text-[14px] leading-relaxed font-normal">
+              <p className="text-zinc-600 text-[13.5px] sm:text-base leading-relaxed font-display">
                 {benefit.description}
               </p>
             </motion.div>

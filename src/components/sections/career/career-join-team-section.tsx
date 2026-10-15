@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, HeartIcon } from "lucide-react";
 import { FooterSocial } from "@/components/layout/footer/footer-social";
 
 export function CareerJoinTeamSection() {
@@ -29,14 +29,14 @@ export function CareerJoinTeamSection() {
               className="object-cover object-right sm:object-right-top"
             />
             {/* Left dark-orange gradient to ensure text contrast on smaller screens */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#6e2200]/95 via-[#a53600]/80 to-transparent sm:via-transparent pointer-events-none" />
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-[#6e2200]/95 via-[#a53600]/80 to-transparent sm:via-transparent pointer-events-none" /> */}
           </div>
 
           {/* Left Text & Call to Action Container */}
           <div className="relative z-10 p-7 sm:p-12 md:p-16 max-w-2xl flex flex-col items-start justify-center">
             {/* Career Pill Tag */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EA4C00] border border-white/20 text-white text-[12px] font-semibold mb-5 sm:mb-6 shadow-sm">
-              <MapPin className="w-3.5 h-3.5 text-white fill-white" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e0570d] text-foreground text-[12px] font-semibold mb-5 sm:mb-6 shadow-sm">
+              <HeartIcon className="w-3.5 h-3.5 text-white fill-white" />
               <span>Career</span>
             </div>
 

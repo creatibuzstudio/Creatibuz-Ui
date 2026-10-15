@@ -37,7 +37,7 @@ export function FaqAccordionItem({
             <span
               className={`shrink-0 text-xs sm:text-sm font-mono font-semibold px-2 sm:px-2.5 py-1 rounded-md transition-colors ${
                 isOpen
-                  ? "bg-primary text-white"
+                  ? "text-primary bg-primary/10"
                   : "bg-white/5 text-primary-text group-hover:text-primary group-hover:bg-primary/10"
               }`}
             >

@@ -8,10 +8,10 @@ interface AboutStatsProps {
 }
 
 const defaultStats: StatsData = {
-  projectDeliveries: 700,
+  projectDeliveries: 400,
   inHouseExperts: 15,
   satisfiedClients: 90,
-  businessPartners: 50,
+  businessPartners: 40,
 };
 
 export function AboutStats({ statsRef }: AboutStatsProps) {

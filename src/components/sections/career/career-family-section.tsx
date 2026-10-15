@@ -34,7 +34,7 @@ export function CareerFamilySection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold text-white tracking-tight leading-[1.14] font-sans">
+          <h1 className="text-3xl md:text-4xl lg:text-[42px] text-foreground/90 font-bold tracking-tight leading-[1.14] font-sans">
             Our Talented Creatibuz
             <br />
             Studio Family

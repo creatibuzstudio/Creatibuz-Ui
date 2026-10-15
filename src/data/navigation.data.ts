@@ -40,7 +40,7 @@ export const navLinks: NavLinkItem[] = [
   },
   {
     name: "Portfolio",
-    href: "https://www.behance.net/uidesignerhakim",
+    href: "https://dribbble.com/uidesignerhakim",
     desc: "Explore Featured Case Studies & Builds",
     icon: Layers,
   },

@@ -158,7 +158,7 @@ export function InteractiveOrbitCtaSection() {
             className="mt-6 sm:mt-8"
           >
             <Link
-              href="#contact"
+              href="https://calendly.com/creatibuzstudio/30min"
               className="group inline-flex items-center gap-4 sm:gap-5 rounded-full bg-white hover:bg-primary text-black hover:text-foreground font-display text-[15px] sm:text-base md:text-lg pl-5 sm:pl-6 pr-1.5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl"
             >
               <span>Request Free Audit</span>
