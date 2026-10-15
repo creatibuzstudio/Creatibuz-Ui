@@ -62,7 +62,7 @@ export default function MarketingPage() {
       </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
-        <FaqSection />
+        <FaqSection limit={5} showViewAll={true} />
       </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>

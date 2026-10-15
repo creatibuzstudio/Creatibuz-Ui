@@ -54,7 +54,7 @@ export function TeamSpecialistsSection() {
           [ Our Expertize ]
         </span>
         <h2 className="font-bold text-header-text text-3xl md:text-4xl lg:text-[40px] text-center tracking-tight">
-          Meet Our Specialist
+          Meet Our Specialists
         </h2>
       </motion.div>
 

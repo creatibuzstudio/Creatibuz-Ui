@@ -18,7 +18,7 @@ export const DEFAULT_SPECIALISTS: SpecialistItem[] = [
     id: "1",
     name: "Md Abdul Hakim",
     role: "Founder & CEO",
-    image: "/specialist/Team 01.png",
+    image: "/specialist/ceo.png",
     bgTint: "bg-[#FAE297]",
     socials: [
       { name: "Facebook", href: "https://facebook.com", type: "facebook" },

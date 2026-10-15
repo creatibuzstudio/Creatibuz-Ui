@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { siteUrl } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/blog"].map((route) => ({
+  const routes = ["", "/faq", "/career", "/blog"].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: "weekly" as const,
