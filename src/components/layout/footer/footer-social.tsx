@@ -67,9 +67,9 @@ export function FooterSocial() {
               <Image
                 src={social.icon}
                 alt={social.name}
-                width={16}
-                height={16}
-                className="w-4 h-4 object-contain"
+                width={20}
+                height={20}
+                className="w-5 h-5 object-contain"
               />
             ) : (
               social.icon
