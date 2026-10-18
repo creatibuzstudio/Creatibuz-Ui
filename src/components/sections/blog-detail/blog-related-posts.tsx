@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { BlogPost } from "@/types/blogs.types";
+import { SectionContainer } from "@/components/ui/section-container";
 
 interface BlogRelatedPostsProps {
   currentSlug: string;
@@ -13,14 +14,20 @@ interface BlogRelatedPostsProps {
 }
 
 export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) {
-  // Filter out current post and take up to 2 related articles
-  const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 2);
+  // Filter out current post and take up to 3 related articles
+  const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
 
   if (related.length === 0) return null;
 
   return (
-    <section className="relative w-full py-16 border-t border-white/10 bg-[#0C0E12]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionContainer
+      showTopBorder={true}
+      showBottomBorder={true}
+      crossMarkers={true}
+      noPadding={true}
+      containerClassName="bg-[#0C0E12]"
+    >
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
           <div>
             <span className="text-primary text-xs font-semibold uppercase tracking-wider">
@@ -39,7 +46,7 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {related.map((post, idx) => (
             <motion.div
               key={post.id}
@@ -55,7 +62,7 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
                     src={post.image}
                     alt={post.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 540px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -63,7 +70,7 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
                   <span className="text-xs text-primary font-semibold">
                     {post.category} • {post.readingTime}
                   </span>
-                  <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-2 mt-1">
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-2 mt-1">
                     {post.title}
                   </h3>
                 </div>
@@ -72,7 +79,7 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
           ))}
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
 

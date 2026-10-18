@@ -29,4 +29,8 @@ export interface BlogPost {
   views?: number;
   tags?: string[];
   keyTakeaways?: string[];
+  metaTitle?: string;
+  metaDescription?: string;
+  focusKeyword?: string;
+  secondaryKeywords?: string[];
 }

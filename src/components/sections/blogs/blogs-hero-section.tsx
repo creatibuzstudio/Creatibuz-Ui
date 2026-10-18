@@ -8,6 +8,8 @@ import { BlogsSearchBar } from "./blogs-search-bar";
 import { BlogGridCard } from "./blog-grid-card";
 import { BlogsPagination } from "./blogs-pagination";
 
+import { SectionContainer } from "@/components/ui/section-container";
+
 interface BlogsHeroSectionProps {
   initialBlogs: BlogPost[];
 }
@@ -46,9 +48,9 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
   }, [filteredBlogs, currentPage]);
 
   return (
-    <section className="relative w-full pt-36 sm:pt-40 md:pt-44 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
+    <section className="relative w-full pt-32 lg:pt-40 overflow-hidden">
       {/* Dynamic Ribbon Wave Graphic Backdrop starting from absolute top-0 behind navbar */}
-      <div className="absolute top-0 inset-x-0 w-full h-[650px] sm:h-[800px] md:h-[920px] pointer-events-none z-0 overflow-hidden select-none">
+      <div className="absolute top-0 inset-x-0 w-full h-[520px] sm:h-[580px] md:h-[640px] pointer-events-none z-0 overflow-hidden select-none">
         <Image
           src="/Team/team-bg.jpg"
           alt="Creative Waves Background"
@@ -62,6 +64,7 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/20 via-[#0C0E12]/60 to-[#0C0E12]" />
       </div>
 
+      {/* Top Header & Search Bar (Outside SectionContainer, on the background image) */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <motion.div
@@ -70,7 +73,7 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-8 sm:mb-10"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold text-white tracking-tight leading-[1.14] font-sans">
+          <h1 className="text-4xl md:text-5xl lg:text-[64px] text-foreground/80 font-semibold tracking-tight leading-[1.14] font-sans">
             Your Go-To Source:
             <br />
             Blog Highlights & More
@@ -89,36 +92,46 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
             onChange={handleSearchChange}
           />
         </motion.div>
-
-        {/* 4 Blog Cards (2 Columns x 2 Rows) */}
-        {paginatedBlogs.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 lg:gap-10 mb-12 sm:mb-14">
-            {paginatedBlogs.map((post, idx) => (
-              <BlogGridCard key={post.id} post={post} index={idx} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16 px-4 bg-white/[0.02] border border-white/5 rounded-2xl mb-12">
-            <p className="text-zinc-400 text-base mb-3">
-              No blogs found matching &quot;{searchQuery}&quot;
-            </p>
-            <button
-              type="button"
-              onClick={() => handleSearchChange("")}
-              className="text-primary text-sm font-semibold hover:underline"
-            >
-              Clear search query
-            </button>
-          </div>
-        )}
-
-        {/* Pagination Bar */}
-        <BlogsPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
       </div>
+
+      {/* SectionContainer: starts below the background image/search bar, side lines visible from here downwards */}
+      <SectionContainer
+        showTopBorder={false}
+        showBottomBorder={false}
+        crossMarkers={false}
+        noPadding={true}
+      >
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
+          {/* 4 Blog Cards (2 Columns x 2 Rows) */}
+          {paginatedBlogs.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 lg:gap-10 mb-12 sm:mb-14">
+              {paginatedBlogs.map((post, idx) => (
+                <BlogGridCard key={post.id} post={post} index={idx} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 px-4 bg-white/[0.02] border border-white/5 rounded-2xl mb-12">
+              <p className="text-zinc-400 text-base mb-3">
+                No blogs found matching &quot;{searchQuery}&quot;
+              </p>
+              <button
+                type="button"
+                onClick={() => handleSearchChange("")}
+                className="text-primary text-sm font-semibold hover:underline"
+              >
+                Clear search query
+              </button>
+            </div>
+          )}
+
+          {/* Pagination Bar */}
+          <BlogsPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      </SectionContainer>
     </section>
   );
 }

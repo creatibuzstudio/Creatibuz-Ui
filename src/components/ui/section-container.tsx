@@ -25,6 +25,7 @@ export interface SectionContainerProps {
   crossMarkers?: boolean;
   showTopBorder?: boolean;
   showBottomBorder?: boolean;
+  showVerticalBorders?: boolean;
   extendTopBorder?: boolean;
   noPadding?: boolean;
   backgroundContent?: React.ReactNode;
@@ -38,6 +39,7 @@ export function SectionContainer({
   crossMarkers = true,
   showTopBorder = true,
   showBottomBorder = true,
+  showVerticalBorders = true,
   extendTopBorder = false,
   noPadding = false,
   backgroundContent,
@@ -45,7 +47,9 @@ export function SectionContainer({
   return (
     <section
       id={id}
-      className={`relative w-full overflow-visible ${containerClassName}`}
+      className={`relative w-full ${
+        containerClassName.includes("overflow-") ? "" : "overflow-visible"
+      } ${containerClassName}`}
     >
       {/* Background content layer (e.g. grid images, ambient glows) */}
       {backgroundContent}
@@ -58,28 +62,32 @@ export function SectionContainer({
       {/* Main max-w-7xl container without default border-x */}
       <div className="relative w-full max-w-7xl mx-auto">
         {/* Left vertical border line: extends up into marquee if extendTopBorder is true */}
-        <div
-          className={`absolute left-0 w-px bg-white/[0.12] pointer-events-none z-10 ${
-            extendTopBorder
-              ? "-top-36 sm:-top-44 md:-top-52 bottom-0"
-              : "top-0 bottom-0"
-          }`}
-        />
+        {showVerticalBorders && (
+          <div
+            className={`absolute left-0 w-px bg-white/[0.12] pointer-events-none z-10 ${
+              extendTopBorder
+                ? "-top-36 sm:-top-44 md:-top-52 bottom-0"
+                : "top-0 bottom-0"
+            }`}
+          />
+        )}
 
         {/* Right vertical border line: extends up into marquee if extendTopBorder is true */}
-        <div
-          className={`absolute right-0 w-px bg-white/[0.12] pointer-events-none z-10 ${
-            extendTopBorder ? "-top-36 bottom-0" : "top-0 bottom-0"
-          }`}
-        />
+        {showVerticalBorders && (
+          <div
+            className={`absolute right-0 w-px bg-white/[0.12] pointer-events-none z-10 ${
+              extendTopBorder ? "-top-36 bottom-0" : "top-0 bottom-0"
+            }`}
+          />
+        )}
 
         {/* Corner 4-point concave diamond sparks at the top intersections */}
         {crossMarkers && showTopBorder && (
           <>
-            <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-20">
+            <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-30">
               <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text hover:text-primary transition-colors" />
             </div>
-            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-20">
+            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-30">
               <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text hover:text-primary transition-colors" />
             </div>
           </>
@@ -97,10 +105,10 @@ export function SectionContainer({
         {/* Corner 4-point concave diamond sparks at the bottom intersections */}
         {crossMarkers && showBottomBorder && (
           <>
-            <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 z-20">
+            <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 z-30">
               <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text hover:text-primary transition-colors" />
             </div>
-            <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 z-20">
+            <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 z-30">
               <GridSpark className="w-5 h-5 sm:w-6 sm:h-6 text-primary-text hover:text-primary transition-colors" />
             </div>
           </>

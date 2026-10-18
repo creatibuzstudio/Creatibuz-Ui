@@ -31,7 +31,7 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     id: "author-rabbi",
     name: "Md Golam Rabbi",
     role: "SEO Specialist",
-    image: "/Team/rabbi.png",
+    image: "/blogs/author-golamRabbi.png",
     badgeIcon: "/creatibuz-symbol.png",
     badgeAlt: "SEO Specialist Badge",
     bio: "SEO & Growth Specialist at Creatibuz Studio. Driving search visibility, technical performance optimizations, and content marketing architectures.",

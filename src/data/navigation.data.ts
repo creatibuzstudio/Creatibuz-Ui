@@ -16,25 +16,25 @@ export interface NavLinkItem {
 export const navLinks: NavLinkItem[] = [
   {
     name: "Services",
-    href: "#services",
+    href: "/#services",
     desc: "UI/UX, Next.js & Full-Stack Development",
     icon: Code2,
   },
   {
     name: "Feature Works",
-    href: "#feature-works",
+    href: "/#feature-works",
     desc: "50+ Shipped Web & Mobile Apps",
     icon: Layers,
   },
   {
     name: "Design Process",
-    href: "#process",
+    href: "/#process",
     desc: "Agile 6-Step Engineering Workflow",
     icon: Cpu,
   },
   {
     name: "Pricing",
-    href: "#pricing",
+    href: "/#pricing",
     desc: "Flexible Retainer & Build Plans",
     icon: CreditCard,
   },

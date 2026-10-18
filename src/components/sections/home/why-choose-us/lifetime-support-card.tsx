@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
+import StackAvatar from "@/components/ui/stack-avatar";
 
 export function LifetimeSupportCard() {
   const supportFeatures = [
@@ -27,37 +28,8 @@ export function LifetimeSupportCard() {
           <div className="absolute -top-1 right-0 left-0 bg-[#191919] border-2 border-white/15 rounded-2xl flex flex-col gap-2.5 shadow-xl">
             {/* Header Avatar Stack */}
             <div className="flex items-center bg-[#0F1013] px-8 py-4 rounded-t-2xl gap-1.5 mb-0.5">
-              <div className="flex items-center">
-                <Image
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="Avatar 1"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 rounded-full border-2 border-[#121212] object-cover"
-                />
-                <Image
-                  src="https://randomuser.me/api/portraits/women/44.jpg"
-                  alt="Avatar 2"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 rounded-full border-2 border-[#121212] object-cover -ml-2"
-                />
-                <Image
-                  src="https://randomuser.me/api/portraits/men/45.jpg"
-                  alt="Avatar 3"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 rounded-full border-2 border-[#121212] object-cover -ml-2"
-                />
-                <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center -ml-1.5 shrink-0 shadow-[0_0_30px_rgba(248,88,0,1)]">
-                  <Image
-                    src="/creatibuz-symbol.png"
-                    alt="Creatibuz"
-                    width={15}
-                    height={15}
-                    className="w-5 h-5 object-contain"
-                  />
-                </div>
+              <div className="">
+                <StackAvatar size="sm" />
               </div>
               <span className="text-xs font-bold text-primary-text ml-1">5+</span>
             </div>

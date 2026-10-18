@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Check, Loader2 } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/primary-button";
 import { BUDGET_OPTIONS } from "@/data/contact.data";
 import { contactService } from "@/services/contact.service";
 
@@ -155,27 +156,18 @@ export function ContactForm() {
         />
       </div>
 
-      {/* Free Booking Button */}
-      <div className="pt-6 flex justify-start relative">
-        <div className="relative group inline-block">
-          <div className="absolute inset-0 bg-primary blur-xl opacity-60 rounded-full scale-105 pointer-events-none group-hover:opacity-85 group-hover:scale-110 transition-all duration-300" />
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="relative inline-flex items-center gap-3.5 bg-gradient-to-r from-[#FF5500] to-[#FF4500] hover:from-[#FF6000] hover:to-[#FF5000] text-white rounded-full pl-7 pr-1.5 py-1.5 text-[15px] sm:text-[16px] font-semibold tracking-wide transition-all cursor-pointer shadow-[0_5px_10px_rgba(255,85,0,0.1)] disabled:opacity-70 disabled:cursor-not-allowed font-display"
-          >
-            <span>{isSubmitting ? "Submitting..." : "Book Free Consultation"}</span>
-            <div className="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center font-bold group-hover:-rotate-12 transition-transform duration-300">
-              {isSubmitting ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <ArrowUpRight className="w-5 h-5 stroke-[2]" />
-              )}
-            </div>
-          </button>
-        </div>
-      </div>
+        <PrimaryButton
+          type="submit"
+          disabled={isSubmitting}
+          text={isSubmitting ? "Submitting..." : "Book Free Consultation"}
+          size="md"
+          glow="md"
+          customArrow={
+            isSubmitting ? (
+              <Loader2 className="w-4 h-4 animate-spin text-primary" />
+            ) : undefined
+          }
+        />
     </form>
   );
 }

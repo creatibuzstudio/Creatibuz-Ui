@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Sparkles, MapPin, Briefcase, Mail } from "lucide-react";
+import { Sparkles, MapPin, Briefcase, Mail } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/primary-button";
 import { CAREER_OPENINGS } from "@/data/career.data";
 
 export function CareerCtaSection() {
@@ -68,14 +69,12 @@ export function CareerCtaSection() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Link
+              <PrimaryButton
+                text="Send Your Resume"
+                icon={<Mail className="w-4 h-4" />}
                 href="mailto:Info@creatibuzstudio.com?subject=Job%20Application%20at%20Creatibuz%20Studio"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-primary hover:bg-[#ff6a14] text-white font-semibold text-sm sm:text-base shadow-[0_0_25px_rgba(254,90,0,0.35)] transition-all duration-300 group"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Send Your Resume</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-              </Link>
+                size="md"
+              />
 
               <Link
                 href="https://wa.me/+8801968657353"

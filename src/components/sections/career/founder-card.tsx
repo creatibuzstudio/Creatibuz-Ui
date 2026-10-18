@@ -46,13 +46,13 @@ export function FounderCard({ member, index }: FounderCardProps) {
         </div>
 
         {/* Orange Brand Badge with Creatibuz Symbol */}
-        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(254,90,0,0.35)] group-hover:bg-[#ff6a14] group-hover:scale-105 transition-all duration-300">
+        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-primary flex items-center justify-center group-hover:bg-[#ff6a14] group-hover:scale-105 transition-all duration-300">
           <Image
             src={member.badgeIcon}
             alt={member.badgeAlt || "Creatibuz Badge"}
             width={22}
             height={22}
-            className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
+            className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
           />
         </div>
       </div>

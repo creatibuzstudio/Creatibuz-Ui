@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BlogAuthor } from "@/types/blogs.types";
 import { Globe } from "lucide-react";
+import { SectionContainer } from "@/components/ui/section-container";
 
 interface BlogAuthorBioProps {
   author: BlogAuthor;
@@ -12,7 +13,14 @@ interface BlogAuthorBioProps {
 
 export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 my-8 sm:my-12">
+    <SectionContainer
+      showTopBorder={false}
+      showBottomBorder={false}
+      crossMarkers={false}
+      noPadding={true}
+      containerClassName="bg-[#0C0E12]"
+    >
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
       <div className="p-6 sm:p-8 rounded-2xl bg-[#14161C] border border-white/10 shadow-lg flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
         {/* Author Avatar */}
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-primary/40 shrink-0 bg-[#0C0E12] shadow-md">
@@ -83,6 +91,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
         </div>
       </div>
     </div>
+    </SectionContainer>
   );
 }
 

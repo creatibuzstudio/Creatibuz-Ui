@@ -4,7 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, HeartIcon } from "lucide-react";
+import { HeartIcon } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/primary-button";
 import { FooterSocial } from "@/components/layout/footer/footer-social";
 import { AvatarStack } from "@/components/sections/blogs/avatar-stack";
 
@@ -18,23 +19,26 @@ export function CareerJoinTeamSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full rounded-[24px] sm:rounded-[32px] overflow-hidden min-h-[460px] sm:min-h-[500px] md:min-h-[520px] flex items-center bg-[#ea4c00]"
+          className="relative w-full rounded-[24px] sm:rounded-[32px] overflow-hidden flex flex-col md:flex-row md:items-end justify-between bg-[#ea4c00] min-h-[auto] md:min-h-[480px] lg:min-h-[520px]"
         >
-          {/* Background Graphic with Founders */}
-          <div className="absolute inset-0 w-full h-full select-none pointer-events-none">
+          {/* Background Graphic: newsletter-bg.png */}
+          <div className="absolute inset-0 w-full h-full select-none pointer-events-none z-0">
             <Image
-              src="/Team/Newsletter Section.png"
-              alt="Want to be a Creatibuz Studio Team like us?"
+              src="/newsletter-bg.png"
+              alt="Creatibuz Newsletter Background"
               fill
               priority
-              className="object-cover object-[75%_center] sm:object-right-top md:object-right"
+              className="object-cover object-center"
             />
           </div>
 
-          {/* Left Text & Call to Action Container */}
-          <div className="relative z-10 p-6 sm:p-10 md:p-14 lg:p-16 max-w-xl lg:max-w-2xl flex flex-col items-start justify-center">
+          {/* Desktop Bottom-Right Dark Glow / Vignette */}
+          <div className="hidden md:block absolute -bottom-55 -right-25 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-black/80 rounded-full blur-2xl pointer-events-none z-0" />
+
+          {/* Left Text & Call to Action Container (Top on Mobile, Left on Desktop) */}
+          <div className="relative z-10 p-6 sm:p-10 md:p-12 lg:p-16 w-full md:w-[54%] lg:w-[56%] flex flex-col items-start justify-center self-center">
             {/* Career Pill Tag */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[12px] font-semibold mb-4 sm:mb-5 shadow-sm">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[12px] font-semibold mb-4 sm:mb-5 shadow-sm">
               <HeartIcon className="w-3.5 h-3.5 text-white fill-white" />
               <span>Career</span>
             </div>
@@ -48,23 +52,33 @@ export function CareerJoinTeamSection() {
             {/* Description Paragraph */}
             <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 max-w-md font-normal">
               Are you a talented and self-motivated person with a positive vibe?
-              If yes, you can be the next member of our Monks family.
+              If yes, you can be the next member of our Creatibuz Studio family.
             </p>
 
             {/* Join Our Team Button & Avatar Stack */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-              <Link
+              <PrimaryButton
+                text="Join Our Team"
                 href="mailto:Info@creatibuzstudio.com?subject=Job%20Application%20at%20Creatibuz%20Studio"
-                className="inline-flex items-center gap-3 bg-white hover:bg-zinc-100 text-black pl-5 sm:pl-6 pr-2 py-2 rounded-full font-semibold text-xs sm:text-sm md:text-base shadow-[0_10px_25px_rgba(0,0,0,0.3)] transition-all duration-300 group cursor-pointer shrink-0"
-              >
-                <span>Join Our Team</span>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-sm">
-                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
-                </div>
-              </Link>
+                variant="white"
+                size="md"
+              />
 
               {/* Overlapping Circle Avatars */}
               <AvatarStack />
+            </div>
+          </div>
+
+          {/* Right Branding Image (Bottom on Mobile, Right on Desktop) */}
+          <div className="relative z-10 w-full md:w-[46%] lg:w-[44%] flex items-end justify-center md:justify-end self-end px-4 sm:px-6 md:px-0 md:pr-4 lg:pr-8 pt-4 md:pt-0">
+            <div className="relative w-[350px] md:w-[450px] lg:w-[600px] aspect-[534/467] shrink-0 self-end">
+              <Image
+                src="/branding.png"
+                alt="Creatibuz Studio Founders"
+                fill
+                priority
+                className="object-contain object-bottom"
+              />
             </div>
           </div>
         </motion.div>

@@ -99,7 +99,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               })}
             </div>
 
-            <div className="pt-2 border-t border-white/10 flex flex-col gap-2.5">
+            <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
               <Link
                 href="https://calendly.com/creatibuzstudio/30min"
                 target="_blank"
@@ -109,20 +109,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               >
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-white" />
-                  <span className="font-semibold text-sm tracking-wide">Free UI/UX Audit</span>
+                  <span className="font-semibold text-sm tracking-wide">Request A Free Audit</span>
                 </div>
                 <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center text-[#F85800]">
                   <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </div>
               </Link>
-
-              <div className="flex items-center justify-between px-2 text-[11px] text-gray-400 font-normal">
-                <span>⚡ 20-Min Build Scope Call</span>
-                <span className="text-emerald-400 font-medium flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block" />
-                  Engineers Online
-                </span>
-              </div>
             </div>
           </motion.div>
         </>

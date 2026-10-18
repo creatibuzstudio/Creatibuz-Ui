@@ -35,12 +35,14 @@ export default async function BlogsPage() {
       <BlogsNewsletterOrbitSection />
 
       {/* 4. Frequently Asked Questions Section wrapped in SectionContainer */}
-      <SectionContainer extendTopBorder={false} showTopBorder={true}>
+      <SectionContainer extendTopBorder={false} showTopBorder={false}>
         <FaqSection />
       </SectionContainer>
 
       {/* 5. Brand CTA Section: "Your Brand Deserves the Next Level!" with Button, Avatar Stack & Socials */}
-      <BlogsBrandCtaSection />
+      <SectionContainer extendTopBorder={false} showTopBorder={true}>
+        <BlogsBrandCtaSection />
+      </SectionContainer>
     </div>
   );
 }

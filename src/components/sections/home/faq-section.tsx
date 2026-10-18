@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { DEFAULT_FAQS, FaqItem } from "@/data/faq.data";
 import { FaqAccordionItem } from "./faq/faq-accordion-item";
+import PrimaryButton from "@/components/ui/primary-button";
 
 interface FaqSectionProps {
   items?: FaqItem[];
@@ -45,15 +46,14 @@ export function FaqSection({
             Before You Ask — Here&apos;s the Answer
           </p>
 
-          <Link
-            href="#contact"
-            className="group relative inline-flex items-center gap-3 bg-primary hover:bg-[#ff6914] text-white rounded-full pl-6 pr-1.5 py-1.5 text-[15px] transition-all cursor-pointer shadow-[0_0_30px_rgba(255,107,0,0.4)] hover:shadow-[0_0_40px_rgba(255,107,0,0.6)]"
-          >
-            <span>Request Free Audit</span>
-            <div className="w-8 h-8 rounded-full bg-foreground text-primary flex items-center justify-center font-bold group-hover:-rotate-12 transition-transform duration-300">
-              <ArrowUpRight className="w-4 h-4 stroke-[2]" />
-            </div>
-          </Link>
+          <PrimaryButton
+            text="Request Free Audit"
+            href="https://calendly.com/creatibuzstudio/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="md"
+            glow="md"
+          />
 
           {/* {showViewAll && items.length > displayedFaqs.length && (
             <Link
@@ -81,7 +81,7 @@ export function FaqSection({
           {showViewAll && items.length > displayedFaqs.length && (
             <div className="pt-2 flex justify-start sm:justify-end">
               <Link
-                href="https://calendly.com/creatibuzstudio/30min"
+                href="/faqs"
                 className="inline-flex items-center gap-2 text-[14px] md:text-[15px] font-medium text-primary hover:text-white transition-colors group"
               >
                 <span>Have more questions? View more FAQs</span>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { BlogCardItem } from "@/data/blog.data";
+import PrimaryButton from "@/components/ui/primary-button";
 
 interface BlogCardProps {
   card: BlogCardItem;
@@ -47,26 +48,8 @@ export function BlogCard({ card, index, isActive, onHover }: BlogCardProps) {
       </div>
 
       {/* Interactive CTA Button */}
-      <div className="my-2">
-        <Link
-          href={`/blog/${card.slug}`}
-          className={`rounded-full px-3 pr-1.5 py-1.5 flex items-center justify-between w-fit gap-3 transition-all duration-300 group/btn ${
-            isActive
-              ? "bg-primary text-foreground text-sm md:text-base font-semibold shadow-[0_0_30px_rgba(248,88,0,0.45)]"
-              : "bg-[#202020] text-primary-text text-sm md:text-base font-medium border border-white/10 hover:bg-zinc-800"
-          }`}
-        >
-          <span>Read Article</span>
-          <div
-            className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-transform duration-300 group-hover/btn:rotate-45 ${
-              isActive
-                ? "bg-white text-primary"
-                : "bg-primary text-foreground"
-            }`}
-          >
-            <ArrowUpRight className="w-5 h-5 stroke-[2]" />
-          </div>
-        </Link>
+      <div>
+        <PrimaryButton href={`/blogs/${card.slug}`} text="Read Article" size="sm" glow={false}/>
       </div>
     </motion.div>
   );

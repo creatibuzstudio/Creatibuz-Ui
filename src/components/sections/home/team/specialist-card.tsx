@@ -60,7 +60,7 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          onError={() => setImgSrc("/specialist/Team 01.png")}
+          onError={() => setImgSrc("/Team/hossainAhmed.png")}
         />
 
         {/* Subtle Black Shade Overlay to soften bright white background */}
@@ -72,10 +72,10 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
 
       {/* Dynamic Name & Designation Container */}
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end z-20 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 ease-out">
-        <h3 className="text-white font-bold text-xl md:text-2xl tracking-tight font-sans">
+        <h3 className="text-white font-semibold text-[24px] md:text-[30px] tracking-tight font-sans">
           {specialist.name}
         </h3>
-        <p className="text-white/90 text-base md:text-lg font-medium mt-0.5 font-sans">
+        <p className="text-white/90 text-base md:text-[24px] mt-0.5 font-sans">
           {specialist.role}
         </p>
       </div>

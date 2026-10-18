@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { partnerService, type Partner } from "@/services/partner.service";
 import { collaboratorLogos, clientProofAvatars } from "@/data/projects.data";
+import { StackAvatar } from "@/components/ui/stack-avatar";
 
 export function PartnerLogosSection() {
   const [dynamicPartners, setDynamicPartners] = useState<Partner[]>([]);
@@ -54,29 +55,7 @@ export function PartnerLogosSection() {
           className="flex items-center gap-5 self-start md:self-auto"
         >
           {/* Overlapping circular avatar cluster */}
-          <div className="flex items-center">
-            {clientProofAvatars.map((src, i) => (
-              <div
-                key={src}
-                style={{ zIndex: i * 10 }}
-                className={`relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 border-[#080808] ${
-                  i > 0 ? "-ml-2.5" : ""
-                }`}
-              >
-                <Image src={src} alt="Client avatar" fill className="object-cover" />
-              </div>
-            ))}
-
-            {/* Glowing Brand Orange Avatar */}
-            <div className="flex justify-center items-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary shadow-[0_0_50px_rgba(248,88,0,1)] -ml-2.5 z-30">
-              <Image
-                src="/creatibuz-symbol.png"
-                alt="Creatibuz symbol"
-                width={35}
-                height={10}
-              />
-            </div>
-          </div>
+          <StackAvatar/>
 
           {/* Social Proof Text & 5 Stars */}
           <div className="flex flex-col items-center justify-center">

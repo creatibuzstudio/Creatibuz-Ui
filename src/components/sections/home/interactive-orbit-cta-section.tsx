@@ -1,10 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { motion, useMotionValue } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/primary-button";
 import { JELLY_ICONS } from "@/data/orbit-icons.data";
 import { JellyIconItem } from "./cta/jelly-icon-item";
 
@@ -157,15 +156,14 @@ export function InteractiveOrbitCtaSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 sm:mt-8"
           >
-            <Link
+            <PrimaryButton
+              text="Request Free Audit"
               href="https://calendly.com/creatibuzstudio/30min"
-              className="group inline-flex items-center gap-4 sm:gap-5 rounded-full bg-white hover:bg-primary text-black hover:text-foreground font-display text-[15px] sm:text-base md:text-lg pl-5 sm:pl-6 pr-1.5 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl"
-            >
-              <span>Request Free Audit</span>
-              <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
-                <ArrowUpRight className="w-4 h-4 md:w-6 md:h-6 stroke-[2]" />
-              </span>
-            </Link>
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="white"
+              size="md"
+            />
           </motion.div>
         </div>
       </div>

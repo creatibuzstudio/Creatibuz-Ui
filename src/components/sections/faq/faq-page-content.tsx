@@ -18,6 +18,7 @@ import {
 import { DEFAULT_FAQS } from "@/data/faq.data";
 import { FaqAccordionItem } from "@/components/sections/home/faq/faq-accordion-item";
 import { SectionContainer } from "@/components/ui/section-container";
+import { PrimaryButton } from "@/components/ui/primary-button";
 
 export function FaqPageContent() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -211,15 +212,16 @@ export function FaqPageContent() {
 
                 {/* Direct Action Links */}
                 <div className="flex flex-col space-y-3">
-                  <Link
+                  <PrimaryButton
+                    text="Schedule Free 30-Min Call"
                     href="https://calendly.com/creatibuzstudio/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-primary hover:bg-[#ff6914] text-white font-medium text-sm transition-all duration-200 group shadow-[0_0_20px_rgba(254,90,0,0.3)]"
-                  >
-                    <span>Schedule Free 30-Min Call</span>
-                    <ArrowUpRight className="w-4 h-4 stroke-[2.5] group-hover:rotate-45 transition-transform" />
-                  </Link>
+                    size="sm"
+                    glow="sm"
+                    fullWidth={true}
+                    className="py-2.5 px-4 text-sm font-medium"
+                  />
 
                   <Link
                     href="https://wa.me/+8801968657353"

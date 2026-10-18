@@ -10,7 +10,7 @@ import { SectionContainer } from "@/components/ui/section-container";
 
 export function CareerFamilySection() {
   return (
-    <section className="relative w-full pt-36 sm:pt-40 md:pt-44 overflow-hidden">
+    <section className="relative w-full pt-32 lg:pt-40 overflow-hidden">
       {/* Dynamic Ribbon Wave Graphic Backdrop starting from absolute top-0 behind navbar */}
       <div className="absolute top-0 inset-x-0 w-full h-[650px] sm:h-[800px] md:h-[920px] pointer-events-none z-0 overflow-hidden select-none">
         <Image
@@ -34,7 +34,7 @@ export function CareerFamilySection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <h1 className="text-3xl md:text-4xl lg:text-[42px] text-foreground/90 font-bold tracking-tight leading-[1.14] font-sans">
+          <h1 className="text-4xl md:text-5xl lg:text-[64px] text-foreground/80 font-semibold tracking-tight leading-[1.14] font-sans">
             Our Talented Creatibuz
             <br />
             Studio Family

@@ -10,9 +10,9 @@ import {
   BlogRelatedPosts,
 } from "@/components/sections/blog-detail";
 import { BlogsNewsletterOrbitSection } from "@/components/sections/blogs/blogs-newsletter-orbit-section";
-import { BlogsBrandCtaSection } from "@/components/sections/blogs/blogs-brand-cta-section";
-import { FaqSection } from "@/components/sections/home/faq-section";
 import { SectionContainer } from "@/components/ui/section-container";
+import { ClientTestimonialsSection } from "@/components/sections/home/client-testimonials-section";
+import ContactCtaSection from "@/components/sections/home/contact-cta-section";
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -36,12 +36,16 @@ export async function generateMetadata({
     };
   }
 
+  const metaTitle = post.metaTitle || `${post.title} | Creatibuz Studio`;
+  const metaDescription = post.metaDescription || post.excerpt || `Read ${post.title} on Creatibuz Studio.`;
+
   return {
-    title: `${post.title} | Creatibuz Studio`,
-    description: post.excerpt || `Read ${post.title} on Creatibuz Studio.`,
+    title: metaTitle,
+    description: metaDescription,
+    keywords: post.focusKeyword ? [post.focusKeyword, ...(post.secondaryKeywords || [])] : undefined,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: metaTitle,
+      description: metaDescription,
       images: [
         {
           url: post.image,
@@ -83,12 +87,12 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       <BlogsNewsletterOrbitSection />
 
       {/* 6. FAQ Section */}
-      <SectionContainer extendTopBorder={false} showTopBorder={true}>
-        <FaqSection />
-      </SectionContainer>
+        <ClientTestimonialsSection/>
 
       {/* 7. Brand CTA Banner with Founders & Socials */}
-      <BlogsBrandCtaSection />
+      <SectionContainer>
+      <ContactCtaSection/>
+      </SectionContainer>
     </div>
   );
 }

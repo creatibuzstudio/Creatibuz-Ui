@@ -5,19 +5,18 @@ export type { CategoryData, PlanItem };
 export const CATEGORIES_DATA: CategoryData[] = [
   {
     id: "website-design",
-    name: "Website Design",
+    name: "Website",
     plans: [
       {
         id: "starter-web",
         name: "Starter Plan",
         subtitle: "Essential design foundation designed to validate your ideas and launch fast with high impact.",
         highlightFeature: "Design only",
-        price: 1800,
+        price: 999,
         period: "/ project",
         isPopular: false,
         features: [
           "UX research",
-          "Include 1-4 Pages",
           "1 discovery session",
           "High-fidelity designs",
           "Responsive Design",
@@ -34,12 +33,11 @@ export const CATEGORIES_DATA: CategoryData[] = [
         name: "Growth Plan",
         subtitle: "Complete design and development package built to grow your product and convert users.",
         highlightFeature: "Design + Development",
-        price: 4999,
+        price: 2500,
         period: "/ project",
         isPopular: true,
         features: [
           "UX research & Strategy",
-          "Include 5-8 Pages",
           "1 discovery session",
           "High-fidelity designs",
           "Design Documentation",
@@ -56,11 +54,10 @@ export const CATEGORIES_DATA: CategoryData[] = [
         name: "Business Plan",
         subtitle: "Full-scale solution combining advanced design, dev and cohesive branding for market leaders.",
         highlightFeature: "Design + Dev + Branding",
-        price: 7999,
+        price: 3999,
         period: "/ project",
         isPopular: false,
         features: [
-          "Include 10-15 Pages",
           "UX research & Strategy",
           "Persona & journey mapping",
           "Logo and Essentials",
@@ -77,14 +74,14 @@ export const CATEGORIES_DATA: CategoryData[] = [
   },
   {
     id: "mobile-app",
-    name: "Mobile App Design",
+    name: "Mobile App",
     plans: [
       {
         id: "starter-mobile",
         name: "Starter Plan",
         subtitle: "Essential design foundation designed to validate your ideas and launch fast with high impact.",
         highlightFeature: "Design only",
-        price: 2500,
+        price: 999,
         period: "/ project",
         isPopular: false,
         features: [
@@ -95,7 +92,6 @@ export const CATEGORIES_DATA: CategoryData[] = [
           "Graphic Assets",
           "Design Style Guide",
           "Developer Handoff Files",
-          "10-25 Core Pages",
           "7–10 working Days",
           "5 revision rounds",
         ],
@@ -106,7 +102,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         name: "Growth Plan",
         subtitle: "Complete design and development package built to grow your product and convert users.",
         highlightFeature: "Design + Development",
-        price: 6999,
+        price: 3500,
         period: "/ project",
         isPopular: true,
         features: [
@@ -116,7 +112,6 @@ export const CATEGORIES_DATA: CategoryData[] = [
           "Component-Based Design",
           "Create Brand style guide",
           "Developer Collaboration",
-          "25–40 Core Screens",
           "Color palate and Brand font",
           "5 revision rounds",
           "3-4 week working Days",
@@ -128,7 +123,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         name: "Business Plan",
         subtitle: "Full-scale solution combining advanced design, dev and cohesive branding for market leaders.",
         highlightFeature: "Design + Dev + Branding",
-        price: 9999,
+        price: 4999,
         period: "/ project",
         isPopular: false,
         features: [
@@ -140,7 +135,6 @@ export const CATEGORIES_DATA: CategoryData[] = [
           "Component-Based Design",
           "Create Brand style guide",
           "Developer Collaboration",
-          "40–80 Core Screens",
           "5-7 week working Days",
         ],
         buttonText: "Choose This Plan",
@@ -149,14 +143,14 @@ export const CATEGORIES_DATA: CategoryData[] = [
   },
   {
     id: "web-app",
-    name: "Web App Design",
+    name: "Web App",
     plans: [
       {
         id: "starter-webapp",
         name: "Starter Plan",
         subtitle: "Essential design foundation designed to validate your ideas and launch fast with high impact.",
         highlightFeature: "Design only",
-        price: 3999,
+        price: 1800,
         period: "/ project",
         isPopular: false,
         features: [
@@ -167,7 +161,6 @@ export const CATEGORIES_DATA: CategoryData[] = [
           "Responsive layouts",
           "Design Style guide",
           "Developer Handoff Files",
-          "10-20 pages Core Screens",
           "2 weeks Working Days",
           "3 Revision Rounds",
         ],
@@ -178,7 +171,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         name: "Growth Plan",
         subtitle: "Complete design and development package built to grow your product and convert users.",
         highlightFeature: "Design + Development",
-        price: 9999,
+        price: 4999,
         period: "/ project",
         isPopular: true,
         features: [
@@ -189,7 +182,6 @@ export const CATEGORIES_DATA: CategoryData[] = [
           "Component-Based Design",
           "Design QA Support",
           "Developer Collaboration",
-          "20-40 pages Core Screens",
           "4-7 Weeks Working Days",
           "5 revision rounds",
         ],
@@ -200,7 +192,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         name: "Business Plan",
         subtitle: "Full-scale solution combining advanced design, dev and cohesive branding for market leaders.",
         highlightFeature: "Design + Dev + Branding",
-        price: 15999,
+        price: 6999,
         period: "/ project",
         isPopular: false,
         features: [
@@ -210,7 +202,6 @@ export const CATEGORIES_DATA: CategoryData[] = [
           "SaaS Dashboard Ecosystem",
           "Advanced UI/UX Strategy",
           "Complete Product Wireframing",
-          "30-50 pages Core Screens",
           "Developer Collaboration",
           "7-9 Weeks Working Days",
           "3 Months maintenance",

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { MoreVertical } from "lucide-react";
 import { feedbackChatMessages } from "@/data/team.data";
+import StackAvatar from "@/components/ui/stack-avatar";
 
 export function UnlimitedRevisionCard() {
   return (
@@ -28,41 +29,7 @@ export function UnlimitedRevisionCard() {
                 # Landing Animation Feedback
               </span>
               <div className="flex items-center gap-2">
-                <div className="flex items-center">
-                  <Image
-                    src="https://randomuser.me/api/portraits/men/32.jpg"
-                    alt="Avatar 1"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5 rounded-full border border-[#121212] object-cover"
-                  />
-                  <Image
-                    src="https://randomuser.me/api/portraits/women/44.jpg"
-                    alt="Avatar 2"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5 rounded-full border border-[#121212] object-cover -ml-1.5"
-                  />
-                  <Image
-                    src="https://randomuser.me/api/portraits/men/45.jpg"
-                    alt="Avatar 3"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5 rounded-full border border-[#121212] object-cover -ml-1.5"
-                  />
-                  <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center -ml-1.5 shrink-0 shadow-[0_0_30px_rgba(248,88,0,1)]">
-                    <Image
-                      src="/creatibuz-symbol.png"
-                      alt="Creatibuz"
-                      width={15}
-                      height={15}
-                      className="w-5 h-5 object-contain"
-                    />
-                  </div>
-                  <span className="text-[10px] font-bold text-foreground ml-1.5">
-                    5+
-                  </span>
-                </div>
+                <StackAvatar size="xs" />
                 <MoreVertical className="w-4 h-4 text-foreground cursor-pointer hover:text-primary-text transition-colors" />
               </div>
             </div>

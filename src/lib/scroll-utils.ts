@@ -29,19 +29,23 @@ export function handleSectionScroll(
   href: string,
   onComplete?: () => void
 ): void {
-  if (href.startsWith("#")) {
-    if (typeof window !== "undefined" && window.location.pathname !== "/") {
-      return;
-    }
-    e.preventDefault();
-    const targetId = href.replace(/.*#/, "");
-    const elem = document.getElementById(targetId);
-    if (elem) {
-      const headerOffset = 90;
-      const elementPosition = elem.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-      smoothScrollTo(offsetPosition, 1200);
-    }
-    onComplete?.();
+  if (!href.startsWith("#") && !href.startsWith("/#")) {
+    return;
   }
+
+  if (typeof window !== "undefined" && window.location.pathname !== "/") {
+    onComplete?.();
+    return;
+  }
+
+  e.preventDefault();
+  const targetId = href.slice(href.indexOf("#") + 1);
+  const elem = document.getElementById(targetId);
+  if (elem) {
+    const headerOffset = 90;
+    const elementPosition = elem.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    smoothScrollTo(offsetPosition, 1200);
+  }
+  onComplete?.();
 }

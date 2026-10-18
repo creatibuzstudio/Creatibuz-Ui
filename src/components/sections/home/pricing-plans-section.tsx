@@ -59,7 +59,7 @@ export function PricingPlansSection() {
         </h2>
 
         {/* Category Switcher Tabs */}
-        <div className="rounded-full p-1.5 bg-zinc-900/90 border border-white/10 w-fit mx-auto mb-14 sm:mb-16 flex items-center gap-1 shadow-xl backdrop-blur-md">
+        <div className="rounded-full p-1.5 bg-zinc-900/90 border border-white/10 w-fit mx-auto mb-14 sm:mb-16 flex items-center gap-5 shadow-xl backdrop-blur-md">
           {CATEGORIES_DATA.map((tab) => {
             const isActive = activeTabId === tab.id;
             return (

@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const fullText =
   "Creatibuz Studio helps founders turn ideas into products people love to use. From strategy and UX to design and development, we work as an extension of your team to launch faster, reduce costly iterations, and create products built for growth. Trusted by SaaS, Fintech, B2B & Healthcare companies worldwide, we deliver experiences that attract users, increase conversions, & scale with your business from day one.";
 
-const words = fullText.split(" ");
+const characters = Array.from(fullText);
 
 export function AboutIntroSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -44,7 +44,14 @@ export function AboutIntroSection() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let animationFrame = 0;
+    const updateProgress = () => {
+      if (mediaQuery.matches) {
+        setScrollProgress(1);
+        return;
+      }
+
       if (!textRef.current) return;
       const rect = textRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
@@ -54,9 +61,17 @@ export function AboutIntroSection() {
       setScrollProgress(progress);
     };
 
+    const handleScroll = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(updateProgress);
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateProgress();
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -64,28 +79,23 @@ export function AboutIntroSection() {
       <div className="w-full lg:px-16 flex flex-col items-start">
         <h2 className="text-primary text-2xl mb-8 font-sans">[ About Us ]</h2>
 
-        {/* Scroll Reveal Main Paragraph */}
         <p
           ref={textRef}
           className="text-2xl md:text-3xl lg:text-[32px] tracking-[-1px] text-primary-text text-justify hyphens-auto"
         >
-          {words.map((word, i) => {
-            const targetProgress = (i + 1) / words.length;
+          {characters.map((character, i) => {
+            const targetProgress = (i + 1) / characters.length;
             const isRevealed = scrollProgress >= targetProgress;
             return (
               <span
                 key={i}
-                style={{
-                  transitionDelay: `${Math.min(i * 6, 200)}ms`,
-                  transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-                }}
-                className={`inline-block mr-[0.25em] transition-all duration-500 ${
+                className={`transition-[color,opacity,filter] duration-150 ease-out ${
                   isRevealed
-                    ? "text-primary-text font-light opacity-100 blur-none translate-y-0"
-                    : "text-gray-400 font-light opacity-40 blur-[3px] translate-y-1"
+                    ? "text-primary-text opacity-100 blur-none"
+                    : "text-gray-400 opacity-40 blur-[1px]"
                 }`}
               >
-                {word}
+                {character}
               </span>
             );
           })}

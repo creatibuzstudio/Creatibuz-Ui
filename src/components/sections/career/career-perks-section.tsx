@@ -18,13 +18,13 @@ function renderBenefitIcon(iconName: string) {
     case "remote":
       return (
         <svg
-          viewBox="0 0 32 32"
+          viewBox="0 0 25 25"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="w-12 h-12 text-black"
+          className="w-9 h-9 text-black"
         >
           {/* Finger touch circle */}
           <ellipse cx="14" cy="7" rx="3.5" ry="3.5" />
@@ -53,15 +53,16 @@ export function CareerPerksSection() {
     <SectionContainer
       showTopBorder={true}
       showBottomBorder={true}
+      showVerticalBorders={false}
       crossMarkers={true}
       noPadding={true}
       containerClassName="bg-[#0C0E12]"
       backgroundContent={
         <>
           {/* Background Grid Pattern: flush with SectionContainer top and bottom borders */}
-          <div className="absolute inset-0 pointer-events-none opacity-40 select-none overflow-hidden z-0">
+          <div className="absolute inset-0 pointer-events-none opacity-75 select-none overflow-hidden z-0">
             <Image
-              src="/grid-bg.png"
+              src="/designProcess/designProcess-bg.png"
               alt="Grid Pattern"
               fill
               className="object-cover object-center"
@@ -106,17 +107,17 @@ export function CareerPerksSection() {
                 delay: (idx % 3) * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="bg-white text-zinc-950 rounded-[22px] sm:rounded-[24px] p-7 sm:p-8 flex flex-col justify-start shadow-[0_12px_36px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.6)] hover:-translate-y-1.5 transition-all duration-300 group select-none"
+              className="bg-white text-zinc-950 rounded-[22px] sm:rounded-[24px] p-7 sm:p-8 flex flex-col justify-start shadow-[0_12px_36px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.6)] hover:-translate-y-1.5 transition-all duration-300 select-none"
             >
-              <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-6">
                 {renderBenefitIcon(benefit.iconName)}
               </div>
 
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-black tracking-tight leading-snug mb-3 font-sans">
+              <h3 className="text-[20px] sm:text-[26px] font-semibold text-black tracking-tight leading-snug mb-3 font-sans">
                 {benefit.title}
               </h3>
 
-              <p className="text-zinc-600 text-[13.5px] sm:text-base leading-relaxed font-display">
+              <p className="text-zinc-600 text-[14px] sm:text-base leading-relaxed font-display">
                 {benefit.description}
               </p>
             </motion.div>

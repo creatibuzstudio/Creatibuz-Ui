@@ -16,16 +16,17 @@ export default function DynamicWhatsApp({
   const whatsappUrl = `https://wa.me/${cleanPhoneNumber}?text=${encodeURIComponent(customMessage)}`;
 
   return (
-    <Link 
-      href={whatsappUrl} 
-      target="_blank"             
-      rel="noopener noreferrer"   
+    <Link
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      <Image 
-        src="/whatsapp-icon.png" 
-        width={60} 
-        height={50} 
+      <Image
+        src="/whatsapp-icon.png"
+        width={60}
+        height={50}
         alt="WhatsApp icon"
+        className="w-12 h-12 md:w-16 md:h-16"
       />
     </Link>
   );

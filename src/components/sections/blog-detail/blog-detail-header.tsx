@@ -13,9 +13,9 @@ interface BlogDetailHeaderProps {
 
 export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
   return (
-    <div className="relative w-full pt-32 sm:pt-36 md:pt-40 pb-10 sm:pb-12">
-      {/* Background Ambience */}
-      <div className="absolute top-0 inset-x-0 w-full h-[600px] pointer-events-none z-0 overflow-hidden select-none">
+    <div className="relative w-full pt-32 lg:pt-40 pb-12 sm:pb-16 overflow-hidden">
+      {/* Background Ambience with team-bg.jpg */}
+      <div className="absolute top-0 inset-x-0 w-full h-[650px] sm:h-[750px] pointer-events-none z-0 overflow-hidden select-none">
         <Image
           src="/Team/team-bg.jpg"
           alt="Atmospheric Background"
@@ -23,116 +23,111 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           priority
           className="object-cover object-top opacity-50 mix-blend-screen"
         />
+        {/* Mask overlay */}
         <div className="absolute inset-0 bg-[#0C0E12]/80" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0C0E12]/70 to-[#0C0E12]" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Navigation & Breadcrumbs */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 1. Breadcrumbs (Center Aligned): Home › Blogs › Blog details */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-zinc-400 mb-6"
+          className="flex items-center justify-center gap-2 text-xs sm:text-sm text-zinc-400 mb-6"
         >
           <Link
-            href="/blogs"
-            className="inline-flex items-center gap-1.5 text-primary hover:text-white transition-colors font-medium"
+            href="/"
+            className="hover:text-white transition-colors font-medium"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>All Blogs</span>
+            Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
-          <span className="text-zinc-500">{post.category}</span>
-          <ChevronRight className="w-3.5 h-3.5 text-zinc-600 hidden sm:inline" />
-          <span className="text-zinc-300 truncate max-w-[220px] hidden sm:inline">
-            {post.title}
-          </span>
+          <Link
+            href="/blogs"
+            className="hover:text-white transition-colors font-medium"
+          >
+            Blogs
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
+          <span className="text-primary font-medium">Blog details</span>
         </motion.div>
 
-        {/* Metadata Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4"
-        >
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary/15 text-primary border border-primary/25">
-            {post.category}
-          </span>
-          <span className="inline-flex items-center gap-1 text-xs text-zinc-400">
-            <Clock className="w-3.5 h-3.5 text-zinc-400" />
-            {post.readingTime}
-          </span>
-          <span className="inline-flex items-center gap-1 text-xs text-zinc-400">
-            <Calendar className="w-3.5 h-3.5 text-zinc-400" />
-            {post.publishedAt}
-          </span>
-        </motion.div>
-
-        {/* Blog Post Title */}
+        {/* 2. Blog Post Title (Center Aligned, Large Bold Typography) */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-[1.2] font-sans mb-6"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-white tracking-tight leading-[1.15] font-sans text-center max-w-4xl mx-auto mb-8 sm:mb-10"
         >
           {post.title}
         </motion.h1>
 
-        {/* Author Bio Bar */}
+        {/* 3. Meta Info Row (Center Aligned: Author | Publish Date | Latest Update) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center justify-between border-y border-white/10 py-4 mb-8"
+          className="flex flex-wrap items-center justify-between gap-6 sm:gap-10 md:gap-14 py-4 px-6 sm:px-8 max-w-5xl mx-auto mb-10 sm:mb-14 shadow-sm"
         >
-          <div className="flex items-center gap-3">
-            <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/20 bg-zinc-800">
-              <Image
-                src={post.author.image}
-                alt={post.author.name}
-                fill
-                className="object-cover object-top"
-              />
-            </div>
-            <div>
-              <p className="text-white text-sm font-semibold leading-tight">
+          {/* Author */}
+          <div className="flex flex-col items-center items-center text-center">
+            <span className="text-sm sm:text-base text-zinc-500 uppercase tracking-wider font-semibold mb-1">
+              Author
+            </span>
+            <div className="flex items-center gap-2">
+              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-zinc-800 shrink-0">
+                <Image
+                  src={post.author.image}
+                  alt={post.author.name}
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <span className="text-base sm:text-[20px] font-semibold text-white">
                 {post.author.name}
-              </p>
-              <p className="text-zinc-400 text-xs">{post.author.role}</p>
+              </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-zinc-400 hidden sm:inline">
-              Verified Author
+          <div className="hidden sm:block w-px h-8 bg-white/10" />
+
+          {/* Publish Date */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <span className="text-sm sm:text-base text-zinc-500 uppercase tracking-wider font-semibold mb-1">
+              Publish Date
             </span>
-            <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center p-1 border border-primary/30">
-              <Image
-                src={post.author.badgeIcon}
-                alt="Badge"
-                width={14}
-                height={14}
-                className="object-contain"
-              />
-            </div>
+            <span className="text-base sm:text-[20px] font-semibold text-white">
+              {post.publishedAt}
+            </span>
+          </div>
+
+          <div className="hidden sm:block w-px h-8 bg-white/10" />
+
+          {/* Latest Update */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <span className="text-sm sm:text-base text-zinc-500 uppercase tracking-wider font-semibold mb-1">
+              Latest Update
+            </span>
+            <span className="text-base sm:text-[20px] font-semibold text-white">
+              {post.publishedAt}
+            </span>
           </div>
         </motion.div>
 
-        {/* Featured Cover Image */}
+        {/* 4. Featured Thumbnail Image (Centered, Rounded, HD Shadow) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="relative w-full aspect-[16/9] rounded-2xl sm:rounded-[28px] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)] bg-[#16181D]"
+          className="relative w-full aspect-[16/9] rounded-2xl sm:rounded-[32px] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)] bg-[#16181D]"
         >
           <Image
             src={post.image}
             alt={post.alt || post.title}
             fill
             priority
-            sizes="(max-width: 896px) 100vw, 896px"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             className="object-cover object-center"
           />
         </motion.div>

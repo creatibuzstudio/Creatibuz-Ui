@@ -15,7 +15,7 @@ export function BlogsAuthorsSection() {
       noPadding={true}
       containerClassName="bg-[#0C0E12]"
     >
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36 overflow-hidden">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,9 +27,9 @@ export function BlogsAuthorsSection() {
           <span className="text-primary text-sm sm:text-base font-semibold tracking-wider font-sans uppercase mb-3 inline-block">
             [ Authors ]
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.2] font-sans">
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-header-text tracking-tight font-sans">
             Voices Behind{" "}
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal text-header-text">
               The Words
             </span>
           </h2>
