@@ -15,7 +15,7 @@ import { FooterSocial } from "./footer/footer-social";
 export function Footer() {
   return (
     <footer className="w-full bg-[#000000] text-header-text pt-16 md:pt-20 relative overflow-hidden z-10">
-      <div className="w-full max-w-[95%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[95%] lg:max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-14">
           {/* Column 1: Brand Info & Social Icons */}
           <div className="lg:col-span-4 flex flex-col items-start space-y-7">

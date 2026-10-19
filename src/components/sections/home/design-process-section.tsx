@@ -122,7 +122,7 @@ export function DesignProcessSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col px-5 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
         {/* Header Area */}
         <span className="text-[#F85800] text-base md:text-xl mb-3 md:mb-8 font-sans">
           [ Design Process ]

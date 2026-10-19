@@ -8,7 +8,7 @@ export const quickLinks: FooterLink[] = [
   { name: "Feature Works", href: "#feature-works" },
   { name: "Meet our Team", href: "#specialist" },
   { name: "Pricing Plan", href: "#pricing" },
-  { name: "FAQ", href: "/faqs" },
+  { name: "FAQs", href: "/faqs" },
   { name: "Latest Blogs", href: "/blogs" },
   { name: "Career", href: "/career" },
 ];

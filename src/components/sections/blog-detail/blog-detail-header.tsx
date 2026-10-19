@@ -35,7 +35,7 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
         <div className="absolute right-0 top-[580px] sm:top-[680px] md:top-[750px] bottom-0 w-px bg-white/[0.12]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
         {/* 1. Breadcrumbs (Center Aligned): Home › Blogs › Blog details */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

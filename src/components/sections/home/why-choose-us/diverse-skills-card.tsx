@@ -13,7 +13,7 @@ export function DiverseSkillsCard() {
           {/* Left Pane: Diverse Skill Set */}
           <div className="lg:col-span-6 relative p-[0.5px] bg-gradient-to-br from-white/10 to-white/25 rounded-xl overflow-hidden shadow-2xl">
             <div className="w-full h-full bg-[#171717] rounded-xl flex flex-col justify-center">
-              <div className="px-4 md:px-6 pt-7 pb-2">
+              <div className="px-5 md:px-6 pt-7 pb-2">
                 <h4 className="text-primary-text text-xl sm:text-2xl font-semibold tracking-tight">
                   Diverse Skill Set
                 </h4>

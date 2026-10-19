@@ -22,7 +22,7 @@ export function PricingPlansSection() {
   return (
     <section
       id="pricing"
-      className="relative w-full overflow-hidden px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32"
+      className="relative w-full overflow-hidden px-5 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32"
     >
       {/* Figma Grid Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">

@@ -4,6 +4,7 @@ import { FaqPageContent } from "@/components/sections/faq";
 import { ContactCtaSection } from "@/components/sections/home/contact-cta-section";
 import { ClientTestimonialsSection } from "@/components/sections/home/client-testimonials-section";
 import { SectionContainer } from "@/components/ui/section-container";
+import { FooterBoundarySparks } from "@/components/ui/footer-boundary-sparks";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ) | Creatibuz Studio",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <div className="relative min-h-screen w-full bg-background text-primary-text flex flex-col justify-between overflow-hidden">
+    <div className="relative min-h-screen w-full bg-background text-primary-text flex flex-col justify-between overflow-x-clip">
       {/* 1. Dedicated FAQ Content with Hero, Filters & All 10 Accordion Items */}
       <FaqPageContent />
 
@@ -29,6 +30,7 @@ export default function FaqPage() {
 
       {/* 3. Client Testimonials */}
       <ClientTestimonialsSection />
+      <FooterBoundarySparks />
     </div>
   );
 }

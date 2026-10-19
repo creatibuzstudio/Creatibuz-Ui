@@ -30,7 +30,7 @@ export function BlogRelatedPosts({
       noPadding={true}
       containerClassName="bg-[#0C0E12]"
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36">
+      <div className="w-full px-5 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36">
         <div className="flex flex-col justify-center mb-10">
           <span className="text-primary text-center text-base md:text-xl mb-3 font-sans">
             [ Keep Reading ]

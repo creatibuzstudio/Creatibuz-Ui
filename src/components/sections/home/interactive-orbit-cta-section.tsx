@@ -126,7 +126,7 @@ export function InteractiveOrbitCtaSection() {
         </div>
 
         {/* Center Stationary CTA Content */}
-        <div className="relative z-20 max-w-2xl mx-auto px-4 sm:px-6 text-center pointer-events-auto flex flex-col items-center">
+        <div className="relative z-20 max-w-2xl mx-auto px-5 sm:px-6 text-center pointer-events-auto flex flex-col items-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -162,6 +162,7 @@ export function InteractiveOrbitCtaSection() {
               dataCalLink={CAL_CONFIG.calLink}
               variant="white"
               size="md"
+              glow={false}
             />
           </motion.div>
         </div>

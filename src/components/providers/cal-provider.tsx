@@ -139,7 +139,7 @@ export function CalProvider() {
         )}
       >
         {/* Top Header: Branding, Description & 1-Click Close Button */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-white/10 bg-[#121316]/95 backdrop-blur-sm shrink-0">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-[#121316]/95 backdrop-blur-sm shrink-0">
           <div className="flex flex-col pr-4">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#FE5A00] animate-pulse shrink-0" />

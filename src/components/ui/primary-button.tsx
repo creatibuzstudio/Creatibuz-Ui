@@ -110,12 +110,12 @@ const variantClasses = {
     arrowIcon: "text-primary",
   },
   white: {
-    button: "bg-white hover:bg-zinc-100 text-black shadow-[0_10px_25px_rgba(0,0,0,0.3)]",
+    button: "bg-white hover:bg-zinc-100 text-black",
     arrowBadge: "bg-primary text-white",
     arrowIcon: "text-white",
   },
   dark: {
-    button: "bg-[#181A1E] hover:bg-[#202328] text-white border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.4)]",
+    button: "bg-[#181A1E] hover:bg-[#202328] text-white border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.25)]",
     arrowBadge: "bg-white/10 text-white",
     arrowIcon: "text-white",
   },

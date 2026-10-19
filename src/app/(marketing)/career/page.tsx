@@ -8,6 +8,7 @@ import {
 import { FaqSection } from "@/components/sections/home/faq-section";
 import { ClientTestimonialsSection } from "@/components/sections/home/client-testimonials-section";
 import { SectionContainer } from "@/components/ui/section-container";
+import { FooterBoundarySparks } from "@/components/ui/footer-boundary-sparks";
 
 export const metadata: Metadata = {
   title: "Career - Our Talented Creatibuz Studio Family",
@@ -36,6 +37,7 @@ export default function CareerPage() {
 
       {/* 5. Client Testimonials / Feedback Section */}
       <ClientTestimonialsSection />
+      <FooterBoundarySparks />
     </div>
   );
 }

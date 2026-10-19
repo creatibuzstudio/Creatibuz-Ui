@@ -155,7 +155,7 @@ export function ClientTestimonialsSection() {
 
       {/* 3D Album Coverflow Stage */}
       <div
-        className="relative w-full max-w-[1400px] mx-auto px-4 relative z-10"
+        className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-6 z-10"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         style={{ perspective: "1300px" }}

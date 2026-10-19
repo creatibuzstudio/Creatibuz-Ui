@@ -26,7 +26,7 @@ export function CareerFamilySection() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/20 via-[#0C0E12]/60 to-[#0C0E12]" />
       </div>
       {/* Top Header & Founders Section (Outside SectionContainer, on the background image) */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -56,7 +56,7 @@ export function CareerFamilySection() {
         crossMarkers={false}
         noPadding={true}
       >
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
           {/* Team Members Grid (3 Columns) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {STUDIO_TEAM_MEMBERS.map((member, idx) => (

@@ -161,7 +161,7 @@ export function ContactForm() {
           disabled={isSubmitting}
           text={isSubmitting ? "Submitting..." : "Book Free Consultation"}
           size="md"
-          glow="md"
+          glow="sm"
           customArrow={
             isSubmitting ? (
               <Loader2 className="w-4 h-4 animate-spin text-primary" />

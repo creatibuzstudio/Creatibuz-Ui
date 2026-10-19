@@ -85,7 +85,7 @@ export function TestimonialCard({ item, onPlayVideo }: TestimonialCardProps) {
           </div>
 
           <div className="flex flex-col text-left">
-            <h4 className="text-primary-text font-medium text-base md:text-xl lg:text-[24px] tracking-tight">
+            <h4 className="text-primary-text font-medium text-lg md:text-xl lg:text-[24px] tracking-tight">
               {item.client?.name || "Anonymous Client"}
             </h4>
             <p className="text-primary-text text-sm md:text-base font-normal mt-0.5">

@@ -74,7 +74,7 @@ export function CareerPerksSection() {
         </>
       }
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 md:py-32 lg:py-36">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 lg:px-8 py-20 md:py-32 lg:py-36">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

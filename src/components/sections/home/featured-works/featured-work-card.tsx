@@ -30,7 +30,7 @@ export function FeaturedWorkCard({
         className="!p-0 !py-0 !px-0"
         containerClassName="w-full overflow-visible"
       >
-        <div className="relative w-full px-4 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
+        <div className="relative w-full px-5 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
           {/* Header Area ONLY on First Card */}
           {isFirstCard && (
             <div className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">

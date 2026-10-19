@@ -40,7 +40,7 @@ export const navLinks: NavLinkItem[] = [
   },
   {
     name: "Blogs",
-    href: "/#blogs",
+    href: "/blogs",
     desc: "Read our latest Articles",
     icon: Layers,
   },

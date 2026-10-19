@@ -14,7 +14,7 @@ export function WorkMarqueeSection() {
   return (
     <div id="work-marquee" className="w-full">
       {/* Title inside Section Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24 flex flex-col items-center text-center">
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24 flex flex-col items-center text-center">
         <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-header-text tracking-tight leading-[1.15] text-center font-sans max-w-3xl mx-auto">
           Explore Some of Our{" "} <br />
           <span className="font-serif italic font-normal text-header-text">

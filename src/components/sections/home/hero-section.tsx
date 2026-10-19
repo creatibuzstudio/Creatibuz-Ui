@@ -55,7 +55,7 @@ export function HeroSection() {
 
         {/* Main Hero Content */}
         <section className="relative z-10 w-full">
-          <main className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 pt-37.5 pb-16 md:pb-20 lg:pb-24 w-full max-w-6xl mx-auto">
+          <main className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-6 pt-37.5 pb-16 md:pb-20 lg:pb-24 w-full max-w-6xl mx-auto">
             {/* Spinning Brand Border Badge */}
             <motion.div
               variants={fadeUp}

@@ -26,7 +26,7 @@ export default function DynamicWhatsApp({
         width={60}
         height={50}
         alt="WhatsApp icon"
-        className="w-9 h-9 mr-2 md:ml-2 md:w-12 md:h-12"
+        className="w-8.5 h-8.5 md:ml-2 md:w-11 md:h-11"
       />
     </Link>
   );

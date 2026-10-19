@@ -65,7 +65,7 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
       </div>
 
       {/* Top Header & Search Bar (Outside SectionContainer, on the background image) */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -101,7 +101,7 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
         crossMarkers={false}
         noPadding={true}
       >
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
           {/* 4 Blog Cards (2 Columns x 2 Rows) */}
           {paginatedBlogs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 lg:gap-10 mb-12 sm:mb-14">

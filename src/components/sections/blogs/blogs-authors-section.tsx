@@ -15,7 +15,7 @@ export function BlogsAuthorsSection() {
       noPadding={true}
       containerClassName="bg-[#0C0E12]"
     >
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36 overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36 overflow-hidden">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

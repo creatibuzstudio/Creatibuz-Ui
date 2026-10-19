@@ -24,7 +24,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
       noPadding={true}
       containerClassName="bg-[#0C0E12]"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
         <div className="flex items-stretch overflow-hidden rounded-2xl bg-[#14161C] shadow-[0_8px_28px_rgba(0,0,0,0.2)] text-left">
           {/* Full-height author image */}
           <div className="relative w-[30%] min-w-24 max-w-56 shrink-0 bg-[#0C0E12]">

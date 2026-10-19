@@ -105,7 +105,7 @@ export function BlogsNewsletterOrbitSection() {
     >
       <div className="relative w-full min-h-[460px] sm:min-h-[500px] md:min-h-[540px] flex items-center justify-center py-20 md:py-32 lg:py-36">
         {/* Foreground Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

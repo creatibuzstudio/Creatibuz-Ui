@@ -9,7 +9,7 @@ import { CAREER_OPENINGS } from "@/data/career.data";
 export function CareerCtaSection() {
   return (
     <section className="w-full pb-20 sm:pb-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Call to Action Container */}
         <div
           className="w-full rounded-[24px] p-8 sm:p-12 md:p-16 relative overflow-hidden bg-[#14161C] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.8)]"

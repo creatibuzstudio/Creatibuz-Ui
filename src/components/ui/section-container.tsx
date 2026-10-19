@@ -96,7 +96,7 @@ export function SectionContainer({
         {/* Content area */}
         <div
           className={`relative ${
-            noPadding ? "" : "px-4 sm:px-6 md:px-8 py-20 md:py-32 lg:py-36"
+            noPadding ? "" : "px-5 sm:px-6 md:px-8 py-20 md:py-32 lg:py-36"
           } ${className}`}
         >
           {children}

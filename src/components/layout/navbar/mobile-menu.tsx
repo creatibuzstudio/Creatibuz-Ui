@@ -8,6 +8,7 @@ import { navLinks } from "@/data/navigation.data";
 import { handleSectionScroll } from "@/lib/scroll-utils";
 import { openCalModal } from "@/components/providers/cal-provider";
 import { CAL_CONFIG } from "@/config/cal.config";
+import PrimaryButton from "@/components/ui/primary-button";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -102,7 +103,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
-              <button
+              {/* <button
                 type="button"
                 onClick={() => {
                   onClose();
@@ -117,7 +118,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center text-[#F85800]">
                   <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </div>
-              </button>
+              </button> */}
+              <PrimaryButton
+                text="Request Free Audit"
+                dataCalLink={CAL_CONFIG.calLink}
+                variant="primary"
+                size="md"
+                glow="md"
+                className="w-full rounded-xl flex justify-between text-base py-3 pr-3"
+              />
             </div>
           </motion.div>
         </>

@@ -11,6 +11,7 @@ import { MobileMenu } from "./navbar/mobile-menu";
 import DynamicWhatsApp from "./navbar/dynamic-whatsapp";
 import { openCalModal } from "@/components/providers/cal-provider";
 import { CAL_CONFIG } from "@/config/cal.config";
+import PrimaryButton from "../ui/primary-button";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,14 +34,14 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-4 sm:top-6 inset-x-0 z-50 max-w-7xl mx-auto flex justify-center px-4 sm:px-6 md:px-8 pointer-events-none">
+    <header className="fixed top-4 sm:top-6 inset-x-0 z-50 max-w-7xl mx-auto flex justify-center px-5 sm:px-6 md:px-8 pointer-events-none">
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-2.5 sm:pl-4 sm:pr-1.5 py-2 ${isScrolled
-            ? "bg-[#191919] backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
-            : "bg-[#191919] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-3 py-2 ${isScrolled
+          ? "bg-[#191919] backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
+          : "bg-[#191919] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
           }`}
       >
         {/* Left: Creatibuz Studio Logo */}
@@ -73,7 +74,7 @@ export function Navbar() {
         {/* Right: Free Audit CTA & Mobile Toggle */}
         <div className="flex items-center justify-center">
           <div className="flex items-center gap-0">
-            <button
+            {/* <button
               type="button"
               onClick={() => openCalModal()}
               className="hidden md:flex items-center gap-5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-2 md:pl-6 md:pr-2 transition-all duration-300 group cursor-pointer"
@@ -84,7 +85,21 @@ export function Navbar() {
               <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-primary group-hover:bg-[#ff6914] flex items-center justify-center text-white shrink-0 animate-heartbeat-glow transition-all duration-300">
                 <ArrowUpRight className="w-6 h-6 text-foreground stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
               </div>
-            </button> 
+            </button>  */}
+            <div className="hidden md:flex">
+            <PrimaryButton
+              text="Request Free Audit"
+              dataCalLink={CAL_CONFIG.calLink}
+              variant="dark"
+              size="sm"
+              glow={false}
+              arrowBg="#FE5A00"
+              arrowBgSize={36}
+              arrowWidth={25}
+              arrowHeight={25}
+              bgColor="#202020"
+            />
+            </div>
 
             <DynamicWhatsApp />
 

@@ -60,6 +60,7 @@ export function BlogsBrandCtaSection() {
                 href="mailto:Info@creatibuzstudio.com?subject=Project%20Inquiry%20from%20Blog"
                 variant="white"
                 size="md"
+                glow={false}
               />
 
               {/* Overlapping Circle Avatars Stack */}
@@ -71,7 +72,7 @@ export function BlogsBrandCtaSection() {
           </div>
 
           {/* Right Branding Image (Bottom on Mobile, Right on Desktop) */}
-          <div className="relative z-10 w-full md:w-[46%] lg:w-[44%] flex items-end justify-center md:justify-end self-end px-4 sm:px-6 md:px-0 md:pr-4 lg:pr-8 pt-4 md:pt-0">
+          <div className="relative z-10 w-full md:w-[46%] lg:w-[44%] flex items-end justify-center md:justify-end self-end px-5 sm:px-6 md:px-0 md:pr-4 lg:pr-8 pt-4 md:pt-0">
             <div className="relative w-[300px] sm:w-[360px] md:w-[440px] lg:w-[540px] xl:w-[580px] aspect-[532/434] shrink-0 self-end">
               <Image
                 src="/branding.png"
@@ -90,7 +91,7 @@ export function BlogsBrandCtaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-zinc-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto text-center leading-relaxed mt-12 sm:mt-16 mb-8 font-normal px-4"
+          className="text-zinc-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto text-center leading-relaxed mt-12 sm:mt-16 mb-8 font-normal px-5"
         >
           Say goodbye to outdated enterprise software and welcome the smoother
           one. We lead you from design to product innovation to shape your path

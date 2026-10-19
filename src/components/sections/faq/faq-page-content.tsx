@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -81,115 +82,104 @@ export function FaqPageContent() {
 
   return (
     <div className="relative w-full">
-      {/* 1. Hero Section with Ambient Glow Backdrop */}
-      <section className="relative w-full pt-36 sm:pt-40 md:pt-44 pb-16 sm:pb-20 overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute top-0 inset-x-0 w-full h-[600px] pointer-events-none z-0 overflow-hidden select-none">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] bg-primary/15 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute top-0 inset-0 bg-gradient-to-b from-[#0C0E12]/40 via-[#0C0E12]/80 to-[#0C0E12]" />
-        </div>
+      {/* Dynamic Ribbon Wave Graphic Backdrop starting from absolute top-0 behind navbar */}
+      <div className="absolute top-0 inset-x-0 w-full h-[580px] sm:h-[650px] md:h-[720px] pointer-events-none z-0 overflow-hidden select-none">
+        <Image
+          src="/Team/team-bg.jpg"
+          alt="Creatibuz Studio Team Background"
+          fill
+          priority
+          className="object-cover object-top mix-blend-screen"
+        />
+        {/* Subtle dark tint and soft gradient fade mask to blend smoothly into deep background */}
+        <div className="absolute inset-0 bg-[#0C0E12]/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/15 via-[#0C0E12]/50 to-[#0C0E12]" />
+      </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-primary text-xs sm:text-sm font-medium mb-6 shadow-sm"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span>Help & Knowledge Center</span>
-          </motion.div>
+      {/* Top Header & Search Bar (Outside SectionContainer, on the background image - matching Blogs & Career) */}
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 pt-32 lg:pt-40 mb-12 sm:mb-16">
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-10"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-[64px] text-foreground/80 font-semibold tracking-tight leading-[1.14] font-sans">
+            Frequently Asked
+            <br />
+            Questions
+          </h1>
+        </motion.div>
 
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-header-text tracking-tight leading-[1.12] mb-6 font-sans"
-          >
-            Frequently Asked{" "}
-            <span className="font-serif italic font-medium text-primary">
-              Questions
-            </span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-primary-text text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-normal"
-          >
-            Everything you need to know about working with Creatibuz Studio, our
-            design process, deliverables, tools, timelines, and pricing.
-          </motion.p>
-
-          {/* Search Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="max-w-2xl mx-auto relative mb-8"
-          >
-            <div className="relative flex items-center">
-              <Search className="w-5 h-5 text-gray-400 absolute left-4.5 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search any question, keyword (e.g. tools, pricing, timeline, MVP)..."
-                className="w-full bg-[#181A1E] text-white placeholder-gray-400 pl-12 pr-11 py-3.5 sm:py-4 rounded-full border border-white/10 focus:border-primary/60 focus:outline-none text-[15px] sm:text-base shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-200"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-4 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
-                  aria-label="Clear search"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              )}
+        {/* Search Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="max-w-2xl mx-auto relative mb-6 sm:mb-8"
+        >
+          <div className="relative flex items-center w-full bg-[#181A1E]/90 backdrop-blur-md rounded-full border border-white/10 hover:border-white/20 focus-within:border-primary/60 transition-all duration-200 shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+            <div className="pl-4 sm:pl-5 pr-4 text-zinc-400 pointer-events-none flex items-center shrink-0">
+              <Search className="w-5 h-5 text-zinc-400 stroke-[2]" />
             </div>
-          </motion.div>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search any question, keyword (e.g. tools, pricing, timeline, MVP)..."
+              className="w-full bg-transparent text-white placeholder-zinc-500 pr-11 py-3.5 sm:py-4 focus:outline-none text-[15px] sm:text-base font-sans"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-4 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+                aria-label="Clear search"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+        </motion.div>
 
-          {/* Category Filter Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl mx-auto"
-          >
-            {categories.map((cat) => {
-              const isSelected = selectedCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
-                    isSelected
-                      ? "bg-primary text-white shadow-[0_0_20px_rgba(254,90,0,0.4)]"
-                      : "bg-[#181A1E] text-primary-text hover:text-white border border-white/10 hover:border-white/20"
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
+        {/* Category Filter Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl mx-auto"
+        >
+          {categories.map((cat) => {
+            const isSelected = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  isSelected
+                    ? "bg-primary text-white shadow-[0_0_20px_rgba(254,90,0,0.4)]"
+                    : "bg-[#181A1E]/80 backdrop-blur-sm text-primary-text hover:text-white border border-white/10 hover:border-white/20"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </motion.div>
+      </div>
 
-      {/* 2. Main FAQ Accordion List & Sidebar */}
+      {/* 2. Main FAQ Accordion List & Sidebar inside SectionContainer */}
+      {/* Side vertical border lines start immediately below the header / bg-image; NO top horizontal border */}
       <SectionContainer
-        extendTopBorder={false}
-        showTopBorder={true}
-        className="pt-12 sm:pt-16 pb-20 sm:pb-28"
+        showTopBorder={false}
+        showBottomBorder={false}
+        crossMarkers={false}
+        noPadding={true}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-8 pb-20 md:pb-32 lg:pb-36">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Column: Quick Stats & Direct Contact Card */}
-            <div className="lg:col-span-4 flex flex-col space-y-6 lg:sticky lg:top-28">
+            {/* Left Column: Sticky Aside */}
+            <aside className="lg:col-span-4 flex flex-col space-y-6 lg:sticky lg:top-28 self-start">
               {/* Contact Card */}
               <div
                 className="w-full rounded-2xl p-6 sm:p-7 relative overflow-hidden bg-[#181A1E] border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.6)]"
@@ -294,7 +284,7 @@ export function FaqPageContent() {
                   </div>
                 </div>
               </div>
-            </div>
+            </aside>
 
             {/* Right Column: FAQ Accordion List */}
             <div className="lg:col-span-8 flex flex-col">
