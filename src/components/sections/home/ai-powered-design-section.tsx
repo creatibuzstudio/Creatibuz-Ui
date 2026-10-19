@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import { leftAiFeatures, rightAiFeatures } from "@/data/ai-features.data";
 import { AiFeatureCard } from "./ai-powered-design/ai-feature-card";
 import { AiCenterHub } from "./ai-powered-design/ai-center-hub";
@@ -78,7 +79,13 @@ export function AiPoweredDesignSection() {
   return (
     <div id="ai-section" className="w-full flex flex-col items-center">
       {/* Section Header */}
-      <div className="flex flex-col items-center text-center mb-14 md:mb-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col items-center text-center mb-14 md:mb-20"
+      >
         <span className="text-primary text-base md:text-xl mb-3 font-sans">
           [ AI Powered Design ]
         </span>
@@ -92,7 +99,7 @@ export function AiPoweredDesignSection() {
           From wireframes to launch, we blend AI tools with strategy to deliver
           faster, sharper, and data-led design results.
         </p>
-      </div>
+      </motion.div>
 
       {/* Relative Canvas Area */}
       <div ref={containerRef} className="relative">

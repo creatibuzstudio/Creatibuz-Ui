@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { GridSpark } from "@/components/ui/section-container";
 import { servicesData } from "@/data/services.data";
 import { ServicePreviewCard } from "./services/service-preview-card";
+import { motion } from "framer-motion";
 
 export function ServicesShowcaseSection() {
   const [activeService, setActiveService] = useState<number>(0);
@@ -29,13 +30,25 @@ export function ServicesShowcaseSection() {
 
         {/* Right Column on Desktop / Top List on Mobile */}
         <div className="order-1 lg:order-2 lg:col-span-8 lg:pl-10 xl:pl-14 flex flex-col justify-center">
-          <div className="mb-6 sm:mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-6 sm:mb-8"
+          >
             <span className="text-primary text-lg md:text-xl lg:text-2xl tracking-wide font-sans inline-block">
               [ Our Services ]
             </span>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col w-full"
+          >
             {servicesData.map((service, index) => {
               const isActive = activeService === index;
               return (
@@ -68,7 +81,7 @@ export function ServicesShowcaseSection() {
                 </div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { DEFAULT_FAQS, FaqItem } from "@/data/faq.data";
 import { FaqAccordionItem } from "./faq/faq-accordion-item";
@@ -31,7 +32,13 @@ export function FaqSection({
     <section id="faq" className="w-full lg:px-16">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
         {/* Left Column: Titles & CTA */}
-        <div className="w-full lg:w-4/12 flex flex-col items-start pt-2">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-4/12 flex flex-col items-start pt-2"
+        >
           <span className="text-primary text-sm md:text-[20px] mb-6 font-sans">
             [ Ask Anything ]
           </span>
@@ -63,10 +70,16 @@ export function FaqSection({
               <ArrowUpRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           )} */}
-        </div>
+        </motion.div>
 
         {/* Right Column: FAQ Accordions */}
-        <div className="w-full lg:w-8/12 flex flex-col space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-8/12 flex flex-col space-y-4"
+        >
           {displayedFaqs.map((faq, index) => (
             <FaqAccordionItem
               key={faq.question}
@@ -88,7 +101,7 @@ export function FaqSection({
               </Link>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

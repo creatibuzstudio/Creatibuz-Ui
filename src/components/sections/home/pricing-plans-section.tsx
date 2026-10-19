@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { CATEGORIES_DATA, PlanItem } from "@/data/pricing.data";
 import { PricingCard } from "./pricing/pricing-card";
 import { BookingModal } from "./pricing/booking-modal";
@@ -42,24 +43,38 @@ export function PricingPlansSection() {
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center">
-        <span className="text-primary text-sm md:text-[20px] text-center mb-3 block font-sans">
-          [ Pricing Plan ]
-        </span>
-
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-header-text text-center tracking-tight leading-[1.18] max-w-3xl mx-auto font-sans mb-8">
-          Customize your plan to{" "}
-          <span className="font-serif italic font-normal text-header-text">
-            match your
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
+        >
+          <span className="text-primary text-sm md:text-[20px] text-center mb-3 block font-sans">
+            [ Pricing Plan ]
           </span>
-          <br className="hidden sm:inline" />{" "}
-          <span className="font-serif italic font-normal text-header-text">
-            goals,
-          </span>{" "}
-          scale, and business needs.
-        </h2>
+
+          <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-header-text text-center tracking-tight leading-[1.18] max-w-3xl mx-auto font-sans mb-8">
+            Customize your plan to{" "}
+            <span className="font-serif italic font-normal text-header-text">
+              match your
+            </span>
+            <br className="hidden sm:inline" />{" "}
+            <span className="font-serif italic font-normal text-header-text">
+              goals,
+            </span>{" "}
+            scale, and business needs.
+          </h2>
+        </motion.div>
 
         {/* Category Switcher Tabs */}
-        <div className="rounded-full p-1.5 bg-zinc-900/90 border border-white/10 w-fit mx-auto mb-14 sm:mb-16 flex items-center gap-5 shadow-xl backdrop-blur-md">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-full p-1.5 bg-zinc-900/90 border border-white/10 w-fit mx-auto mb-14 sm:mb-16 flex items-center gap-5 shadow-xl backdrop-blur-md"
+        >
           {CATEGORIES_DATA.map((tab) => {
             const isActive = activeTabId === tab.id;
             return (
@@ -76,7 +91,7 @@ export function PricingPlansSection() {
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Pricing Cards Grid */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">

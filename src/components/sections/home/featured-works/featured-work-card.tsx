@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/ui/section-container";
 import type { FeaturedProject } from "@/data/featured-projects.data";
@@ -33,7 +34,13 @@ export function FeaturedWorkCard({
         <div className="relative w-full px-5 sm:px-6 md:px-8 py-16 md:py-24 lg:py-32">
           {/* Header Area ONLY on First Card */}
           {isFirstCard && (
-            <div className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20"
+            >
               <span className="text-primary text-base md:text-xl font-medium mb-3 font-sans">
                 [ Feature Work ]
               </span>
@@ -43,7 +50,7 @@ export function FeaturedWorkCard({
                   design and uncover creative solution
                 </span>
               </h2>
-            </div>
+            </motion.div>
           )}
 
           {/* Stack Image Showcase (Single 3-in-1 composite project set) */}

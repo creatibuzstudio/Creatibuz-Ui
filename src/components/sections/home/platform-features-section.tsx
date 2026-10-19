@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Gem } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function PlatformFeaturesSection() {
   return (
@@ -16,7 +19,13 @@ export function PlatformFeaturesSection() {
         />
 
         {/* Left Side Content */}
-        <div className="relative z-10 w-full lg:w-[48%] text-white pb-10 lg:pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 w-full lg:w-[48%] text-white pb-10 lg:pb-12"
+        >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3.5 py-1.5 rounded-full mb-6 text-white text-[13px] font-medium shadow-xs">
             <Gem size={14} className="text-white fill-white" />
@@ -50,10 +59,16 @@ export function PlatformFeaturesSection() {
               Subscribe
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Side: Laptop Mockup */}
-        <div className="relative z-10 w-full lg:w-[50%] flex items-end justify-center lg:justify-end self-end mt-4 lg:mt-0">
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 w-full lg:w-[50%] flex items-end justify-center lg:justify-end self-end mt-4 lg:mt-0"
+        >
           <div className="relative w-full max-w-[580px] aspect-[1318/965] scale-110 lg:scale-120 translate-y-2 lg:translate-y-4 lg:translate-x-4">
             <Image
               src="/laptopFeatured.png"
@@ -63,7 +78,7 @@ export function PlatformFeaturesSection() {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

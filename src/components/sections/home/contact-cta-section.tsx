@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "./contact/contact-form";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function ContactCtaSection() {
   return (
@@ -18,7 +19,13 @@ export function ContactCtaSection() {
         }}
       >
         {/* Left Column: Headline, Photo, Profile Info */}
-        <div className="w-full lg:w-5/12 flex flex-col items-start relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-5/12 flex flex-col items-start relative z-10"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.2] mb-8 text-header-text">
             Enhance Your Brand <br className="hidden sm:inline" />
             Potential{" "}
@@ -65,11 +72,17 @@ export function ContactCtaSection() {
             </span>
             <ArrowUpRight className="w-4 h-4 stroke-[2.5] group-hover:rotate-45 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
         {/* Right Column: Form Container */}
-        <div className="w-full lg:w-7/12 relative z-10 mt-4 lg:mt-0">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-7/12 relative z-10 mt-4 lg:mt-0"
+        >
           <ContactForm />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
