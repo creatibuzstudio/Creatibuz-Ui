@@ -22,12 +22,17 @@ export function AboutStats({ statsRef }: AboutStatsProps) {
     clients: 0,
     partners: 0,
   });
+  const hasAnimated = useRef(false);
+  const latestTargetStats = useRef(targetStats);
 
   useEffect(() => {
     statsService
       .getStats()
       .then((data) => {
-        if (data) setTargetStats(data);
+        if (data) {
+          latestTargetStats.current = data;
+          setTargetStats(data);
+        }
       })
       .catch(() => {
         // Silently preserve defaultStats
@@ -37,46 +42,45 @@ export function AboutStats({ statsRef }: AboutStatsProps) {
   useEffect(() => {
     let timer: NodeJS.Timeout | null = null;
     const node = statsRef.current;
-    if (!node) return;
+    if (!node || hasAnimated.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting) {
-          if (timer) clearInterval(timer);
-          setCounts({ deliveries: 0, experts: 0, clients: 0, partners: 0 });
+        if (!entry?.isIntersecting || hasAnimated.current) return;
 
-          const duration = 1800;
-          const steps = 50;
-          const intervalTime = duration / steps;
-          let step = 0;
+        hasAnimated.current = true;
+        observer.disconnect();
 
-          timer = setInterval(() => {
-            step++;
-            const progress = step / steps;
-            const ease = 1 - Math.pow(1 - progress, 3);
+        const duration = 1800;
+        const steps = 50;
+        const intervalTime = duration / steps;
+        let step = 0;
 
+        timer = setInterval(() => {
+          step++;
+          const progress = step / steps;
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const currentStats = latestTargetStats.current;
+
+          setCounts({
+            deliveries: Math.floor(ease * currentStats.projectDeliveries),
+            experts: Math.floor(ease * currentStats.inHouseExperts),
+            clients: Math.floor(ease * currentStats.satisfiedClients),
+            partners: Math.floor(ease * currentStats.businessPartners),
+          });
+
+          if (step >= steps) {
+            if (timer) clearInterval(timer);
+            const finalStats = latestTargetStats.current;
             setCounts({
-              deliveries: Math.floor(ease * targetStats.projectDeliveries),
-              experts: Math.floor(ease * targetStats.inHouseExperts),
-              clients: Math.floor(ease * targetStats.satisfiedClients),
-              partners: Math.floor(ease * targetStats.businessPartners),
+              deliveries: finalStats.projectDeliveries,
+              experts: finalStats.inHouseExperts,
+              clients: finalStats.satisfiedClients,
+              partners: finalStats.businessPartners,
             });
-
-            if (step >= steps) {
-              if (timer) clearInterval(timer);
-              setCounts({
-                deliveries: targetStats.projectDeliveries,
-                experts: targetStats.inHouseExperts,
-                clients: targetStats.satisfiedClients,
-                partners: targetStats.businessPartners,
-              });
-            }
-          }, intervalTime);
-        } else {
-          if (timer) clearInterval(timer);
-          setCounts({ deliveries: 0, experts: 0, clients: 0, partners: 0 });
-        }
+          }
+        }, intervalTime);
       },
       { threshold: 0.2 }
     );
@@ -86,7 +90,7 @@ export function AboutStats({ statsRef }: AboutStatsProps) {
       if (timer) clearInterval(timer);
       observer.disconnect();
     };
-  }, [targetStats, statsRef]);
+  }, [statsRef]);
 
   const statItems = [
     { value: `${counts.deliveries}+`, label: "Project Deliveries" },

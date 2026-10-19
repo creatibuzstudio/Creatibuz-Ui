@@ -39,9 +39,9 @@ export const navLinks: NavLinkItem[] = [
     icon: CreditCard,
   },
   {
-    name: "Portfolio",
-    href: "https://dribbble.com/uidesignerhakim",
-    desc: "Explore Featured Case Studies & Builds",
+    name: "Blogs",
+    href: "/#blogs",
+    desc: "Read our latest Articles",
     icon: Layers,
   },
 ];

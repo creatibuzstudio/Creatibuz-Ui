@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight, Clock, Calendar, ArrowLeft } from "lucide-react";
 import { BlogPost } from "@/types/blogs.types";
+import { SectionContainer } from "@/components/ui/section-container";
 
 interface BlogDetailHeaderProps {
   post: BlogPost;
@@ -13,22 +14,28 @@ interface BlogDetailHeaderProps {
 
 export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
   return (
-    <div className="relative w-full pt-32 lg:pt-40 pb-12 sm:pb-16 overflow-hidden">
+    <section className="relative w-full pt-32 lg:pt-40 overflow-hidden">
       {/* Background Ambience with team-bg.jpg */}
-      <div className="absolute top-0 inset-x-0 w-full h-[650px] sm:h-[750px] pointer-events-none z-0 overflow-hidden select-none">
+      <div className="absolute top-0 inset-x-0 w-full h-[580px] sm:h-[680px] md:h-[750px] pointer-events-none z-0 overflow-hidden select-none">
         <Image
           src="/Team/team-bg.jpg"
           alt="Atmospheric Background"
           fill
           priority
-          className="object-cover object-top opacity-50 mix-blend-screen"
+          className="object-cover object-top mix-blend-screen"
         />
         {/* Mask overlay */}
         <div className="absolute inset-0 bg-[#0C0E12]/80" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0C0E12]/70 to-[#0C0E12]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Side vertical border lines starting strictly below the top bg image */}
+      <div className="absolute inset-x-0 top-0 bottom-0 max-w-7xl mx-auto pointer-events-none z-10">
+        <div className="absolute left-0 top-[580px] sm:top-[680px] md:top-[750px] bottom-0 w-px bg-white/[0.12]" />
+        <div className="absolute right-0 top-[580px] sm:top-[680px] md:top-[750px] bottom-0 w-px bg-white/[0.12]" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
         {/* 1. Breadcrumbs (Center Aligned): Home › Blogs › Blog details */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -58,7 +65,7 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-white tracking-tight leading-[1.15] font-sans text-center max-w-4xl mx-auto mb-8 sm:mb-10"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-foreground/80 tracking-tight leading-[1.15] font-sans text-center max-w-4xl mx-auto mb-8 sm:mb-10"
         >
           {post.title}
         </motion.h1>
@@ -71,8 +78,8 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           className="flex flex-wrap items-center justify-between gap-6 sm:gap-10 md:gap-14 py-4 px-6 sm:px-8 max-w-5xl mx-auto mb-10 sm:mb-14 shadow-sm"
         >
           {/* Author */}
-          <div className="flex flex-col items-center items-center text-center">
-            <span className="text-sm sm:text-base text-zinc-500 uppercase tracking-wider font-semibold mb-1">
+          <div className="flex flex-col items-center text-center">
+            <span className="text-base sm:text-lg text-zinc-500 uppercase tracking-wider mb-1">
               Author
             </span>
             <div className="flex items-center gap-2">
@@ -84,7 +91,7 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
                   className="object-cover object-top"
                 />
               </div>
-              <span className="text-base sm:text-[20px] font-semibold text-white">
+              <span className="text-[20px] sm:text-2xl font-medium text-foreground/75">
                 {post.author.name}
               </span>
             </div>
@@ -93,11 +100,11 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           <div className="hidden sm:block w-px h-8 bg-white/10" />
 
           {/* Publish Date */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <span className="text-sm sm:text-base text-zinc-500 uppercase tracking-wider font-semibold mb-1">
+          <div className="flex flex-col items-center text-center">
+            <span className="text-base sm:text-lg text-zinc-500 uppercase tracking-wider mb-1">
               Publish Date
             </span>
-            <span className="text-base sm:text-[20px] font-semibold text-white">
+            <span className="text-[20px] sm:text-2xl font-medium text-foreground/75">
               {post.publishedAt}
             </span>
           </div>
@@ -105,11 +112,11 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           <div className="hidden sm:block w-px h-8 bg-white/10" />
 
           {/* Latest Update */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <span className="text-sm sm:text-base text-zinc-500 uppercase tracking-wider font-semibold mb-1">
+          <div className="flex flex-col items-center text-center">
+            <span className="text-base sm:text-lg text-zinc-500 uppercase tracking-wider mb-1">
               Latest Update
             </span>
-            <span className="text-base sm:text-[20px] font-semibold text-white">
+            <span className="text-[20px] sm:text-2xl font-medium text-foreground/75">
               {post.publishedAt}
             </span>
           </div>
@@ -132,7 +139,7 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
 

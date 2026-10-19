@@ -113,7 +113,7 @@ export function CareerPerksSection() {
                 {renderBenefitIcon(benefit.iconName)}
               </div>
 
-              <h3 className="text-[20px] sm:text-[26px] font-semibold text-black tracking-tight leading-snug mb-3 font-sans">
+              <h3 className="text-[20px] sm:text-[26px] font-medium text-black tracking-tight leading-snug mb-3 font-sans">
                 {benefit.title}
               </h3>
 

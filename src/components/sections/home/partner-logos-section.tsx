@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { partnerService, type Partner } from "@/services/partner.service";
-import { collaboratorLogos, clientProofAvatars } from "@/data/projects.data";
+import { collaboratorLogos } from "@/data/projects.data";
 import { StackAvatar } from "@/components/ui/stack-avatar";
 
 export function PartnerLogosSection() {
@@ -52,13 +52,10 @@ export function PartnerLogosSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-5 self-start md:self-auto"
+          className="relative flex items-center flex-row-reverse md:flex-row justify-center md:gap-0"
         >
-          {/* Overlapping circular avatar cluster */}
-          <StackAvatar/>
-
           {/* Social Proof Text & 5 Stars */}
-          <div className="flex flex-col items-center justify-center">
+          <div className="order-1 flex flex-col items-center justify-center">
             <span className="text-[11px] sm:text-xs text-[#D9D9D9] font-medium tracking-tight">
               90% Client Satisfactions
             </span>
@@ -71,6 +68,12 @@ export function PartnerLogosSection() {
               ))}
             </div>
           </div>
+
+          {/* Overlapping circular avatar cluster */}
+          <StackAvatar
+            size="lg"
+            className="order-2 mt-2 md:absolute md:-left-[150px] md:-top-[50px] md:mt-0"
+          />
         </motion.div>
       </div>
 

@@ -6,11 +6,9 @@ import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { bannerService } from "@/services/banner.service";
-import {
-  defaultHeroMockupsRow1,
-  defaultHeroMockupsRow2,
-} from "@/data/projects.data";
+import { defaultHeroMockupsRow1, defaultHeroMockupsRow2 } from "@/data/projects.data";
 import { HeroMarquee } from "./hero/hero-marquee";
+import { CAL_CONFIG } from "@/config/cal.config";
 
 export function HeroSection() {
   const [row1, setRow1] = useState<string[]>(defaultHeroMockupsRow1);
@@ -136,9 +134,7 @@ export function HeroSection() {
             >
               <PrimaryButton
                 text="Schedule a Meeting"
-                href="https://calendly.com/creatibuzstudio/30min"
-                target="_blank"
-                rel="noopener noreferrer"
+                dataCalLink={CAL_CONFIG.calLink}
                 size="lg"
               />
             </motion.div>

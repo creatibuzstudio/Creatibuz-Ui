@@ -5,6 +5,7 @@ import {
   siteViewport,
   organizationJsonLd,
 } from "@/config/site";
+import { CalProvider } from "@/components/providers/cal-provider";
 import "./globals.css";
 
 export const viewport: Viewport = siteViewport;
@@ -26,6 +27,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col justify-between bg-[#080808] text-white font-sans selection:bg-[#F85800] selection:text-white">
+        <CalProvider />
         {children}
       </body>
     </html>

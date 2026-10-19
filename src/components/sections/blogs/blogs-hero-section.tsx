@@ -56,7 +56,7 @@ export function BlogsHeroSection({ initialBlogs }: BlogsHeroSectionProps) {
           alt="Creative Waves Background"
           fill
           priority
-          className="object-cover object-top opacity-70 mix-blend-screen"
+          className="object-cover object-top mix-blend-screen"
         />
         {/* Dark bg-color mask overlay with low opacity to prevent glare */}
         <div className="absolute inset-0 bg-[#0C0E12]/65" />

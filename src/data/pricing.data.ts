@@ -16,6 +16,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: false,
         features: [
+          "Include 1-4 Pages",
           "UX research",
           "1 discovery session",
           "High-fidelity designs",
@@ -37,6 +38,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: true,
         features: [
+          "Include 4-7 Pages",
           "UX research & Strategy",
           "1 discovery session",
           "High-fidelity designs",
@@ -58,6 +60,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: false,
         features: [
+          "Include 5-10 Pages",
           "UX research & Strategy",
           "Persona & journey mapping",
           "Logo and Essentials",
@@ -85,6 +88,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: false,
         features: [
+          "10-15 Core Pages",
           "Custom Mobile UI Design",
           "UX-Focused User Flow",
           "High-fidelity designs",
@@ -106,6 +110,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: true,
         features: [
+          "15–30 Core Screens",
           "Complete App Wireframing",
           "Interactive Prototyping",
           "Design System Creation",
@@ -127,6 +132,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: false,
         features: [
+          "30–60 Core Screens",
           "Logo & Branding Design",
           "Advanced Product Architecture",
           "Complex User Flow Design",
@@ -154,6 +160,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: false,
         features: [
+          "10-15 pages Core Screens",
           "UX-Focused User Flow",
           "Sketch & Wireframes",
           "High-fidelity UI Design",
@@ -175,6 +182,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: true,
         features: [
+          "15-30 pages Core Screens",
           "Advanced UI/UX Strategy",
           "Complete Product Wireframing",
           "Scalable Design System",
@@ -196,6 +204,7 @@ export const CATEGORIES_DATA: CategoryData[] = [
         period: "/ project",
         isPopular: false,
         features: [
+          "30-50 pages Core Screens",
           "Enterprise-Level UI/UX",
           "Product Architecture Planning",
           "Multi-Platform Design System",

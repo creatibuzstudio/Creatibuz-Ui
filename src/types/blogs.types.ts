@@ -7,6 +7,7 @@ export interface BlogAuthor {
   badgeAlt?: string;
   bio?: string;
   socials?: {
+    facebook?: string;
     twitter?: string;
     linkedin?: string;
     github?: string;

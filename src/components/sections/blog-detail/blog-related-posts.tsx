@@ -13,7 +13,10 @@ interface BlogRelatedPostsProps {
   posts: BlogPost[];
 }
 
-export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) {
+export function BlogRelatedPosts({
+  currentSlug,
+  posts,
+}: BlogRelatedPostsProps) {
   // Filter out current post and take up to 3 related articles
   const related = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
 
@@ -28,25 +31,16 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
       containerClassName="bg-[#0C0E12]"
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-36">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
-          <div>
-            <span className="text-primary text-xs font-semibold uppercase tracking-wider">
-              Keep Reading
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight font-sans mt-1">
-              Related Articles & Highlights
-            </h2>
-          </div>
-          <Link
-            href="/blogs"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-white transition-colors mt-3 sm:mt-0 group"
-          >
-            <span>View All Blogs</span>
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
+        <div className="flex flex-col justify-center mb-10">
+          <span className="text-primary text-center text-base md:text-xl mb-3 font-sans">
+            [ Keep Reading ]
+          </span>
+          <h2 className="font-bold text-header-text text-3xl md:text-4xl lg:text-[40px] text-center tracking-tight">
+            See Other Blogs
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-8">
           {related.map((post, idx) => (
             <motion.div
               key={post.id}
@@ -57,7 +51,7 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
               className="group flex flex-col"
             >
               <Link href={`/blogs/${post.slug}`} className="block w-full">
-                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 bg-[#16181D] group-hover:border-primary/40 transition-all duration-300">
+                <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/10 bg-[#16181D] group-hover:border-primary/40 transition-all duration-300">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -77,6 +71,15 @@ export function BlogRelatedPosts({ currentSlug, posts }: BlogRelatedPostsProps) 
               </Link>
             </motion.div>
           ))}
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-1.5 text-lg font-semibold text-primary hover:text-white transition-colors sm:mt-0 group"
+          >
+            <span>View All Blogs</span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
         </div>
       </div>
     </SectionContainer>

@@ -1,46 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { DEFAULT_SPECIALISTS, SpecialistItem } from "@/data/specialists.data";
-import { userService } from "@/services/user.service";
+import { DEFAULT_SPECIALISTS } from "@/data/specialists.data";
 import { SpecialistCard } from "./team/specialist-card";
 
 export function TeamSpecialistsSection() {
-  const [specialists, setSpecialists] =
-    useState<SpecialistItem[]>(DEFAULT_SPECIALISTS);
-
-  useEffect(() => {
-    const fetchTeam = async () => {
-      try {
-        const userList = await userService.getAllUsers();
-        if (userList.length > 0) {
-          setSpecialists((prev) =>
-            prev.map((fallback, idx) => {
-              const apiUser = userList[idx];
-              if (!apiUser) return fallback;
-              return {
-                ...fallback,
-                name: apiUser.name || fallback.name,
-                role:
-                  apiUser.designation?.title ||
-                  apiUser.role ||
-                  fallback.role,
-                image: apiUser.picture || fallback.image,
-              };
-            })
-          );
-        }
-      } catch {
-        // Silently preserve DEFAULT_SPECIALISTS fallback
-      }
-    };
-
-    fetchTeam();
-  }, []);
+  // Directly load from DEFAULT_SPECIALISTS (API call disabled as requested)
+  const specialists = DEFAULT_SPECIALISTS;
 
   return (
-    <div className="w-full lg:px-16">
+    <div className="w-full lg:px-16 overflow-x-clip">
       {/* Section Header */}
       <motion.div
         id="specialist"

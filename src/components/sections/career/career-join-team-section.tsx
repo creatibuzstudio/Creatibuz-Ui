@@ -2,12 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { HeartIcon } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { FooterSocial } from "@/components/layout/footer/footer-social";
-import { AvatarStack } from "@/components/sections/blogs/avatar-stack";
+import StackAvatar from "@/components/ui/stack-avatar";
 
 export function CareerJoinTeamSection() {
   return (
@@ -21,19 +20,16 @@ export function CareerJoinTeamSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full rounded-[24px] sm:rounded-[32px] overflow-hidden flex flex-col md:flex-row md:items-end justify-between bg-[#ea4c00] min-h-[auto] md:min-h-[480px] lg:min-h-[520px]"
         >
-          {/* Background Graphic: newsletter-bg.png */}
+          {/* Background Graphic: /Newsletter-bg-gradient.png */}
           <div className="absolute inset-0 w-full h-full select-none pointer-events-none z-0">
             <Image
-              src="/newsletter-bg.png"
+              src="/Newsletter-bg-gradient.png"
               alt="Creatibuz Newsletter Background"
               fill
               priority
               className="object-cover object-center"
             />
           </div>
-
-          {/* Desktop Bottom-Right Dark Glow / Vignette */}
-          <div className="hidden md:block absolute -bottom-55 -right-25 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-black/80 rounded-full blur-2xl pointer-events-none z-0" />
 
           {/* Left Text & Call to Action Container (Top on Mobile, Left on Desktop) */}
           <div className="relative z-10 p-6 sm:p-10 md:p-12 lg:p-16 w-full md:w-[54%] lg:w-[56%] flex flex-col items-start justify-center self-center">
@@ -56,7 +52,7 @@ export function CareerJoinTeamSection() {
             </p>
 
             {/* Join Our Team Button & Avatar Stack */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-6">
               <PrimaryButton
                 text="Join Our Team"
                 href="mailto:Info@creatibuzstudio.com?subject=Job%20Application%20at%20Creatibuz%20Studio"
@@ -65,13 +61,16 @@ export function CareerJoinTeamSection() {
               />
 
               {/* Overlapping Circle Avatars */}
-              <AvatarStack />
+              <StackAvatar
+                size="lg"
+                className="shrink-0 -my-4 sm:-my-6 pointer-events-none"
+              />
             </div>
           </div>
 
           {/* Right Branding Image (Bottom on Mobile, Right on Desktop) */}
           <div className="relative z-10 w-full md:w-[46%] lg:w-[44%] flex items-end justify-center md:justify-end self-end px-4 sm:px-6 md:px-0 md:pr-4 lg:pr-8 pt-4 md:pt-0">
-            <div className="relative w-[350px] md:w-[450px] lg:w-[600px] aspect-[534/467] shrink-0 self-end">
+            <div className="relative w-[300px] sm:w-[360px] md:w-[440px] lg:w-[540px] xl:w-[580px] aspect-[532/434] shrink-0 self-end">
               <Image
                 src="/branding.png"
                 alt="Creatibuz Studio Founders"

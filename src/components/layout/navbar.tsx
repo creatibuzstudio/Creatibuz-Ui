@@ -9,6 +9,8 @@ import { navLinks } from "@/data/navigation.data";
 import { handleSectionScroll } from "@/lib/scroll-utils";
 import { MobileMenu } from "./navbar/mobile-menu";
 import DynamicWhatsApp from "./navbar/dynamic-whatsapp";
+import { openCalModal } from "@/components/providers/cal-provider";
+import { CAL_CONFIG } from "@/config/cal.config";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +38,7 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-2.5 sm:pl-4 sm:pr-1.5 py-1 ${isScrolled
+        className={`pointer-events-auto w-full rounded-full transition-all duration-300 flex items-center justify-between px-2.5 sm:pl-4 sm:pr-1.5 py-2 ${isScrolled
             ? "bg-[#191919] backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
             : "bg-[#191919] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
           }`}
@@ -70,20 +72,19 @@ export function Navbar() {
 
         {/* Right: Free Audit CTA & Mobile Toggle */}
         <div className="flex items-center justify-center">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <Link
-            href="https://calendly.com/creatibuzstudio/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2.5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-1 md:pl-4.5 md:pr-1 transition-all duration-300 group"
-          >
-            <span className="inline text-foreground text-[13px] sm:text-[14px] font-medium tracking-tight whitespace-nowrap group-hover:text-primary">
-              Request Free Audit
-            </span>
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary group-hover:bg-[#ff6914] flex items-center justify-center text-white shrink-0 animate-heartbeat-glow transition-all duration-300">
-              <ArrowUpRight className="w-4 h-4 text-foreground stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
-            </div>
-          </Link> 
+          <div className="flex items-center gap-0">
+            <button
+              type="button"
+              onClick={() => openCalModal()}
+              className="hidden md:flex items-center gap-5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-2 md:pl-6 md:pr-2 transition-all duration-300 group cursor-pointer"
+            >
+              <span className="inline text-foreground text-[14px] sm:text-base font-medium tracking-tight whitespace-nowrap group-hover:text-primary">
+                Request Free Audit
+              </span>
+              <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-primary group-hover:bg-[#ff6914] flex items-center justify-center text-white shrink-0 animate-heartbeat-glow transition-all duration-300">
+                <ArrowUpRight className="w-6 h-6 text-foreground stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
+              </div>
+            </button> 
 
             <DynamicWhatsApp />
 

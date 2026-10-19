@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { DEFAULT_FAQS, FaqItem } from "@/data/faq.data";
 import { FaqAccordionItem } from "./faq/faq-accordion-item";
 import PrimaryButton from "@/components/ui/primary-button";
+import { CAL_CONFIG } from "@/config/cal.config";
 
 interface FaqSectionProps {
   items?: FaqItem[];
@@ -48,9 +49,7 @@ export function FaqSection({
 
           <PrimaryButton
             text="Request Free Audit"
-            href="https://calendly.com/creatibuzstudio/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            dataCalLink={CAL_CONFIG.calLink}
             size="md"
             glow="md"
           />

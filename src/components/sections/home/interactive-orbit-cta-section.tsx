@@ -6,6 +6,7 @@ import { motion, useMotionValue } from "framer-motion";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { JELLY_ICONS } from "@/data/orbit-icons.data";
 import { JellyIconItem } from "./cta/jelly-icon-item";
+import { CAL_CONFIG } from "@/config/cal.config";
 
 // =========================================================================
 // ⚙️ CUSTOM EDIT: Orbit Dashed Border Size & Gap
@@ -158,9 +159,7 @@ export function InteractiveOrbitCtaSection() {
           >
             <PrimaryButton
               text="Request Free Audit"
-              href="https://calendly.com/creatibuzstudio/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              dataCalLink={CAL_CONFIG.calLink}
               variant="white"
               size="md"
             />

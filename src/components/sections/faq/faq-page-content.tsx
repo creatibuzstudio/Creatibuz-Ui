@@ -19,6 +19,7 @@ import { DEFAULT_FAQS } from "@/data/faq.data";
 import { FaqAccordionItem } from "@/components/sections/home/faq/faq-accordion-item";
 import { SectionContainer } from "@/components/ui/section-container";
 import { PrimaryButton } from "@/components/ui/primary-button";
+import { CAL_CONFIG } from "@/config/cal.config";
 
 export function FaqPageContent() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -214,13 +215,11 @@ export function FaqPageContent() {
                 <div className="flex flex-col space-y-3">
                   <PrimaryButton
                     text="Schedule Free 30-Min Call"
-                    href="https://calendly.com/creatibuzstudio/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    dataCalLink={CAL_CONFIG.calLink}
                     size="sm"
                     glow="sm"
                     fullWidth={true}
-                    className="py-2.5 px-4 text-sm font-medium"
+                    className="py-2.5 px-4 pr-2.5 text-sm rounded-lg font-medium"
                   />
 
                   <Link

@@ -21,52 +21,60 @@ export function UnlimitedRevisionCard() {
         </div>
 
         {/* Chat Box Widget */}
-        <div className="relative">
-          <div className="absolute -bottom-9 -right-8 z-10 bg-[#1A1A1A] border border-white/10 rounded-tl-xl scale-x-105 scale-y-105 flex flex-col gap-3">
-            {/* Header */}
-            <div className="flex items-center justify-between bg-[#0F1013] border-b border-white/[0.08] rounded-tl-xl p-4">
-              <span className="text-xs sm:text-sm font-semibold text-primary-text font-sans flex items-center gap-1.5">
-                # Landing Animation Feedback
-              </span>
-              <div className="flex items-center gap-2">
-                <StackAvatar size="xs" />
-                <MoreVertical className="w-4 h-4 text-foreground cursor-pointer hover:text-primary-text transition-colors" />
+        <div className="mt-4 -mr-6 sm:-mr-8 -mb-6 sm:-mb-8 bg-[#161618] border-t border-l border-white/10 rounded-tl-2xl shadow-2xl flex flex-col overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center justify-between bg-[#0F1013] border-b border-white/[0.08] px-4 py-3 sm:px-5 sm:py-3.5">
+            <span className="text-xs sm:text-sm font-medium text-white/90 font-sans tracking-tight">
+              # Landing Animation Feedback
+            </span>
+            <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center">
+                <StackAvatar
+                  size="md"
+                  className="-my-5 sm:-my-6 md:-my-7 -mr-5 sm:-mr-6 pointer-events-none"
+                />
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
+                  5+
+                </span>
               </div>
+              <MoreVertical className="w-4 h-4 text-white/60 cursor-pointer hover:text-white transition-colors ml-0.5" />
             </div>
+          </div>
 
-            {/* Messages */}
-            <div className="space-y-4 font-sans p-4">
-              {feedbackChatMessages.map((msg, i) => (
-                <div key={i} className="flex items-start gap-6">
+          {/* Messages */}
+          <div className="space-y-3.5 font-sans p-4 sm:p-5">
+            {feedbackChatMessages.map((msg, i) => (
+              <div key={i} className="flex items-start gap-3 sm:gap-3.5">
+                <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-white/15 shrink-0 bg-[#222]">
                   <Image
                     src={msg.avatar}
                     alt={msg.name}
-                    width={32}
-                    height={32}
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/10 shrink-0 object-cover mt-0.5"
+                    fill
+                    sizes="36px"
+                    className="object-cover object-top"
                   />
-                  <div className="flex-1 min-w-0 pb-2">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-xs font-semibold text-primary-text">
-                        {msg.name}
-                      </span>
-                      <span className="text-[10px] text-primary-text/60">
-                        — {msg.time}
-                      </span>
-                    </div>
-                    <p className="text-xs text-primary-text mt-0.5 leading-snug">
-                      {msg.text}
-                      {msg.mention && (
-                        <span className="text-[#3B82F6] font-medium">
-                          {msg.mention}
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                  <MoreVertical className="w-4 h-4 text-primary-text shrink-0 mt-1" />
                 </div>
-              ))}
-            </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-xs sm:text-[13px] font-semibold text-white">
+                      {msg.name}
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-white/50">
+                      — {msg.time}
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-[12.5px] text-white/80 mt-0.5 leading-snug">
+                    {msg.text}
+                    {msg.mention && (
+                      <span className="text-[#3B82F6] font-medium ml-1">
+                        {msg.mention}
+                      </span>
+                    )}
+                  </p>
+                </div>
+                <MoreVertical className="w-4 h-4 text-white/40 hover:text-white/80 transition-colors shrink-0 mt-1 cursor-pointer" />
+              </div>
+            ))}
           </div>
         </div>
       </div>

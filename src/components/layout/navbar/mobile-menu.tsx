@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { navLinks } from "@/data/navigation.data";
 import { handleSectionScroll } from "@/lib/scroll-utils";
+import { openCalModal } from "@/components/providers/cal-provider";
+import { CAL_CONFIG } from "@/config/cal.config";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -100,12 +102,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
-              <Link
-                href="https://calendly.com/creatibuzstudio/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onClose}
-                className="w-full flex items-center justify-between bg-[#F85800] hover:bg-[#ff6914] text-white p-2.5 pl-4 rounded-2xl shadow-[0_0_20px_rgba(248,88,0,0.35)] transition-all duration-200 group"
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  openCalModal();
+                }}
+                className="w-full flex items-center justify-between bg-[#F85800] hover:bg-[#ff6914] text-white p-2.5 pl-4 rounded-2xl shadow-[0_0_20px_rgba(248,88,0,0.35)] transition-all duration-200 group cursor-pointer"
               >
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-white" />
@@ -114,7 +117,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center text-[#F85800]">
                   <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </div>
-              </Link>
+              </button>
             </div>
           </motion.div>
         </>

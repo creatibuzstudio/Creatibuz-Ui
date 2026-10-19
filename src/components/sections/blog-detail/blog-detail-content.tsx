@@ -29,7 +29,7 @@ export function BlogDetailContent({ post }: BlogDetailContentProps) {
       noPadding={true}
       containerClassName="bg-[#0C0E12]"
     >
-      <article className="relative w-full py-12 sm:py-16 md:py-20">
+      <article className="relative w-full pt-20 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24">
         {/* Center reading area (max-w-4xl) with empty left and right sides inside max-w-7xl container */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 1. Key Takeaways Box (with spark/check icon) */}

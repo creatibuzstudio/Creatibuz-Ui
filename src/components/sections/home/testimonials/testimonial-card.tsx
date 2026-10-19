@@ -88,7 +88,7 @@ export function TestimonialCard({ item, onPlayVideo }: TestimonialCardProps) {
             <h4 className="text-primary-text font-medium text-base md:text-xl lg:text-[24px] tracking-tight">
               {item.client?.name || "Anonymous Client"}
             </h4>
-            <p className="text-primary-text text-sm md:text-base lg:text-xl font-normal mt-0.5">
+            <p className="text-primary-text text-sm md:text-base font-normal mt-0.5">
               {item.client?.role || "Verified Client"}
             </p>
           </div>
@@ -131,7 +131,7 @@ export function TestimonialCard({ item, onPlayVideo }: TestimonialCardProps) {
       </div>
 
       {/* Middle Quote */}
-      <p className="relative z-10 mt-4 mb-6 md:mt-8 md:mb-10 text-primary-text font-normal text-base sm:text-lg md:text-xl lg:text-[22px] leading-[1.65] tracking-[-0.01em] text-left">
+      <p className="relative z-10 mt-4 mb-6 md:mt-8 md:mb-10 text-primary-text font-normal text-base sm:text-lg leading-[1.65] tracking-[-0.01em] text-left">
         {item.reviewText}
       </p>
 

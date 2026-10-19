@@ -15,28 +15,28 @@ export interface FeedbackMessage {
 
 export const diverseTeamMembers: TeamMember[] = [
   {
-    name: "Sourov Dhali",
-    role: "Product Designer",
-    avatar: "https://randomuser.me/api/portraits/men/33.jpg",
+    name: "Md. Ibrahim",
+    role: "UI/UX Designer",
+    avatar: "/Team/ibrahim.png",
     tags: ["UX Specialist", "Design System"],
   },
   {
-    name: "Tanvir Ahmed",
-    role: "Creative Director",
-    avatar: "https://randomuser.me/api/portraits/men/36.jpg",
+    name: "Hossain Ahmed",
+    role: "Branding Designer",
+    avatar: "/Team/hossainAhmed.png",
     tags: ["Brand Design", "Design Direction"],
   },
   {
-    name: "Azaz Ahamed",
-    role: "Sr Product Designer",
-    avatar: "https://randomuser.me/api/portraits/men/46.jpg",
+    name: "Md. Abdur Rahman",
+    role: "SaaS Product Developer",
+    avatar: "/Team/abdurRahman.png",
     tags: ["UX Consultant", "SaaS Product Design"],
   },
   {
-    name: "Azaz Ahamed",
-    role: "Growth Engineer",
-    avatar: "https://randomuser.me/api/portraits/men/52.jpg",
-    tags: ["Growth Marketing", "SEO Strategy"],
+    name: "Md. Golam Rabbi",
+    role: "Web Developer",
+    avatar: "/Team/golamRabbi.png",
+    tags: ["Web Architecture", "Frontend Eng."],
   },
 ];
 
@@ -51,16 +51,17 @@ export const feedbackChatMessages: FeedbackMessage[] = [
     name: "Abdur Rahman",
     avatar: "/Team/abdurRahman.png",
     time: "Today at 2:47 PM",
-    text: "Yep, all set up ready for review.",
+    text: "Yep, all set up read for ",
     mention: "@Rubendao",
   },
   {
-    name: "Mahmudul Hoque",
-    avatar: "/Team/mahmudulHoque.png",
+    name: "Rifat Hasan",
+    avatar: "/Team/rifat.png",
     time: "Today at 2:47 PM",
-    text: "Very excited to see the rollout.",
+    text: "Very Exited to see this rolled out.",
   },
 ];
+
 
 export interface CreatibuzTeamDetail {
   serial: number;

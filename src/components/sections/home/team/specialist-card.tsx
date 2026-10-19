@@ -44,12 +44,24 @@ function renderSocialIcon(type: string) {
 export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
   const [imgSrc, setImgSrc] = useState(specialist.image);
 
+  // Row 0 (cards 0, 1, 2) comes from Left (-80px)
+  // Row 1 (cards 3, 4, 5) comes from Right (+80px)
+  const rowIndex = Math.floor(index / 3);
+  const isRowFromLeft = rowIndex % 2 === 0;
+  const colIndex = index % 3;
+  const initialX = isRowFromLeft ? -80 : 80;
+  const delay = colIndex * 0.15;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      initial={{ opacity: 0, x: initialX }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.7,
+        delay: delay,
+        ease: [0.21, 1.02, 0.47, 0.98],
+      }}
       className="relative rounded-2xl overflow-hidden group cursor-pointer aspect-[4/5] bg-zinc-900 border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg select-none"
     >
       {/* Portrait Image */}
@@ -75,7 +87,7 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
         <h3 className="text-white font-semibold text-[24px] md:text-[30px] tracking-tight font-sans">
           {specialist.name}
         </h3>
-        <p className="text-white/90 text-base md:text-[24px] mt-0.5 font-sans">
+        <p className="text-white/90 text-base md:text-[20px] mt-0.5 font-sans">
           {specialist.role}
         </p>
       </div>

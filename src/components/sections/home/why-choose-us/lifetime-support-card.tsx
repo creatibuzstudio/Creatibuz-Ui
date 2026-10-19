@@ -28,10 +28,15 @@ export function LifetimeSupportCard() {
           <div className="absolute -top-1 right-0 left-0 bg-[#191919] border-2 border-white/15 rounded-2xl flex flex-col gap-2.5 shadow-xl">
             {/* Header Avatar Stack */}
             <div className="flex items-center bg-[#0F1013] px-8 py-4 rounded-t-2xl gap-1.5 mb-0.5">
-              <div className="">
-                <StackAvatar size="sm" />
+              <div className="flex items-center">
+                <StackAvatar
+                  size="md"
+                  className="-my-5 sm:-my-6 md:-my-7 -mr-5 sm:-mr-6 pointer-events-none"
+                />
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
+                  5+
+                </span>
               </div>
-              <span className="text-xs font-bold text-primary-text ml-1">5+</span>
             </div>
 
             {/* Feature List */}

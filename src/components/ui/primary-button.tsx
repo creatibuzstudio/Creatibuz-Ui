@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { openCalModal } from "@/components/providers/cal-provider";
 
 export type GlowLevel = "sm" | "md" | "lg" | "none";
 
@@ -17,6 +18,8 @@ export interface PrimaryButtonProps {
   href?: string;
   /** Optional click handler */
   onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+  /** Button type for HTML button elements */
+  type?: "button" | "submit" | "reset";
   /** Additional classes applied to the core button / link element */
   className?: string;
   /** Additional classes applied to the outer motion wrapper */
@@ -72,10 +75,14 @@ export interface PrimaryButtonProps {
   target?: string;
   /** Optional rel attribute */
   rel?: string;
-  /** Button HTML type when rendered as button */
-  type?: "button" | "submit" | "reset";
   /** Disabled state */
   disabled?: boolean;
+  /** Cal.com link slug for direct modal opening (e.g. "creatibuzstudio/30min") */
+  dataCalLink?: string;
+  /** Cal.com config JSON string */
+  dataCalConfig?: string;
+  /** Cal.com namespace */
+  dataCalNamespace?: string;
 }
 
 const sizeClasses = {
@@ -183,9 +190,21 @@ export function PrimaryButton({
   rel,
   type = "button",
   disabled = false,
+  dataCalLink,
+  dataCalConfig,
+  dataCalNamespace,
 }: PrimaryButtonProps) {
   const currentSize = sizeClasses[size] || sizeClasses.lg;
   const currentVariant = variantClasses[variant] || variantClasses.primary;
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    if (onClick) {
+      onClick(e);
+    }
+    if (dataCalLink) {
+      openCalModal(dataCalLink);
+    }
+  };
 
   // Resolve dynamic glow level:
   // "lg" = Hero signature glow, "md" = section glow, "sm" = compact glow
@@ -292,7 +311,7 @@ export function PrimaryButton({
           href={href}
           target={target}
           rel={rel}
-          onClick={onClick}
+          onClick={handleClick}
           style={buttonStyle}
           className={baseButtonClasses}
         >
@@ -302,7 +321,7 @@ export function PrimaryButton({
         <button
           type={type}
           disabled={disabled}
-          onClick={onClick}
+          onClick={handleClick}
           style={buttonStyle}
           className={baseButtonClasses}
         >

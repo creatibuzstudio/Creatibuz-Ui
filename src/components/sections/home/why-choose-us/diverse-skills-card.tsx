@@ -28,20 +28,20 @@ export function DiverseSkillsCard() {
                     } ${i === diverseTeamMembers.length - 1 ? "pb-4" : ""}`}
                   >
                     <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="relative shrink-0 w-10 h-10 rounded-full p-0.5 border border-white/20">
+                      <div className="relative shrink-0 w-10 h-10 rounded-full overflow-hidden border border-white/20 bg-[#222]">
                         <Image
                           src={member.avatar}
                           alt={member.name}
-                          width={36}
-                          height={36}
-                          className="w-full h-full rounded-full shrink-0 object-cover"
+                          fill
+                          sizes="40px"
+                          className="object-cover object-top"
                         />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-sm sm:text-base font-semibold text-primary-text truncate">
+                        <p className="text-sm sm:text-[15px] font-semibold text-white truncate">
                           {member.name}
                         </p>
-                        <p className="text-xs text-primary-text/60 truncate mt-0.5">
+                        <p className="text-xs text-white/60 truncate mt-0.5">
                           {member.role}
                         </p>
                       </div>
@@ -51,7 +51,7 @@ export function DiverseSkillsCard() {
                       {member.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[9px] sm:text-[10px] px-1.5 py-1 rounded-xs bg-[#2E2E2E] text-foreground whitespace-nowrap"
+                          className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-[4px] bg-[#2A2A2A] text-white/80 border border-white/5 whitespace-nowrap font-sans"
                         >
                           {tag}
                         </span>

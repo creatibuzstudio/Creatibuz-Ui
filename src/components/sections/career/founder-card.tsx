@@ -11,12 +11,18 @@ interface FounderCardProps {
 }
 
 export function FounderCard({ member, index }: FounderCardProps) {
+  // CEO (index 0) comes from Left (-100px), COO (index 1) comes from Right (+100px)
+  const initialX = index === 0 ? -100 : 100;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, x: initialX }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.75,
+        ease: [0.21, 1.02, 0.47, 0.98],
+      }}
       className="group relative overflow-hidden transition-all duration-300 shadow-[0_16px_40px_rgba(0,0,0,0.6)] flex flex-col select-none"
     >
       {/* Portrait Photo Container with Vibrant Blue Backdrop */}
