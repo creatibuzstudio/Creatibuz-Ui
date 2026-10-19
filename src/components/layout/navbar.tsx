@@ -8,8 +8,6 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { navLinks } from "@/data/navigation.data";
 import { handleSectionScroll } from "@/lib/scroll-utils";
 import { MobileMenu } from "./navbar/mobile-menu";
-import DynamicWhatsApp from "./navbar/dynamic-whatsapp";
-import { openCalModal } from "@/components/providers/cal-provider";
 import { CAL_CONFIG } from "@/config/cal.config";
 import PrimaryButton from "../ui/primary-button";
 
@@ -73,35 +71,22 @@ export function Navbar() {
 
         {/* Right: Free Audit CTA & Mobile Toggle */}
         <div className="flex items-center justify-center">
-          <div className="flex items-center gap-0">
-            {/* <button
-              type="button"
-              onClick={() => openCalModal()}
-              className="hidden md:flex items-center gap-5 bg-white/[0.06] hover:bg-white/10 border border-white/10 rounded-full p-1 md:py-2 md:pl-6 md:pr-2 transition-all duration-300 group cursor-pointer"
-            >
-              <span className="inline text-foreground text-[14px] sm:text-base font-medium tracking-tight whitespace-nowrap group-hover:text-primary">
-                Request Free Audit
-              </span>
-              <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-primary group-hover:bg-[#ff6914] flex items-center justify-center text-white shrink-0 animate-heartbeat-glow transition-all duration-300">
-                <ArrowUpRight className="w-6 h-6 text-foreground stroke-[2.5] group-hover:rotate-45 transition-transform duration-300" />
-              </div>
-            </button>  */}
-            <div className="hidden md:flex">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             <PrimaryButton
-              text="Request Free Audit"
               dataCalLink={CAL_CONFIG.calLink}
               variant="dark"
               size="sm"
               glow={false}
               arrowBg="#FE5A00"
-              arrowBgSize={36}
-              arrowWidth={25}
-              arrowHeight={25}
+              arrowBgSize={34}
+              arrowWidth={24}
+              arrowHeight={24}
               bgColor="#202020"
-            />
-            </div>
-
-            <DynamicWhatsApp />
+              className="text-xs sm:text-sm pl-3 sm:pl-4 pr-1 sm:pr-1.5 py-1 sm:py-1.5"
+            >
+              <span className="md:hidden">Free Audit</span>
+              <span className="hidden md:inline">Request Free Audit</span>
+            </PrimaryButton>
 
             {/* Mobile Menu Button */}
             <button

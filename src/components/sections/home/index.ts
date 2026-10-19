@@ -1,0 +1,17 @@
+export { HeroSection } from "./hero-section";
+export { PartnerLogosSection } from "./partner-logos-section";
+export { AboutIntroSection } from "./about-intro-section";
+export { ServicesShowcaseSection } from "./services-showcase-section";
+export { FeaturedWorksSection } from "./featured-works-section";
+export { DesignProcessSection } from "./design-process-section";
+export { AiPoweredDesignSection } from "./ai-powered-design-section";
+export { WhyChooseUsSection } from "./why-choose-us-section";
+export { WorkMarqueeSection } from "./work-marquee-section";
+export { PricingPlansSection } from "./pricing-plans-section";
+export { InteractiveOrbitCtaSection } from "./interactive-orbit-cta-section";
+export { TeamSpecialistsSection } from "./team-specialists-section";
+export { FaqSection } from "./faq-section";
+export { ContactCtaSection } from "./contact-cta-section";
+export { ClientTestimonialsSection } from "./client-testimonials-section";
+export { BlogInsightsSection } from "./blog-insights-section";
+export { PlatformFeaturesSection } from "./platform-features-section";

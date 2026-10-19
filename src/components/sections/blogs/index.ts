@@ -6,4 +6,3 @@ export { BlogGridCard } from "./blog-grid-card";
 export { AuthorCard } from "./author-card";
 export { BlogsSearchBar } from "./blogs-search-bar";
 export { BlogsPagination } from "./blogs-pagination";
-export { AvatarStack } from "./avatar-stack";
