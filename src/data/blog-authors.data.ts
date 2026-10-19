@@ -8,10 +8,11 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     image: "/Team/ceo.png",
     badgeIcon: "/creatibuz-symbol.png",
     badgeAlt: "Founder & CEO Badge",
-    bio: "Founder & CEO at Creatibuz Studio. Directing product strategy, high-conversion UX design, and scaling design systems for venture-backed startups.",
+    bio: "I’m Abdul Hakim, founder & CEO at Creatibuz Studio. I lead a 15+ expert design and development team. With 6 years of experience and a proven track record of success in designing innovative and engaging solutions for a wide range of clients, including SaaS, fintech, B2B, real estate, healthcare, and e-commerce. We've designed 400+ global projects since 2020.",
     socials: {
+      facebook:"https://www.facebook.com/uidesignerhakim",
       linkedin: "https://www.linkedin.com/in/uidesignerhakim",
-      twitter: "https://x.com/abdulhakim292",
+      website:"https://dribbble.com/uidesignerhakim", 
     },
   },
   {
@@ -23,21 +24,23 @@ export const BLOG_AUTHORS: BlogAuthor[] = [
     badgeAlt: "COO & Co-Founder Badge",
     bio: "COO & Co-Founder at Creatibuz Studio. Leading agency operations, frontend architecture, and client engineering success across SaaS and mobile applications.",
     socials: {
+      facebook:"https://www.facebook.com",
       linkedin: "https://www.linkedin.com",
-      twitter: "https://x.com",
+      website:"https://www.example.com", 
     },
   },
   {
     id: "author-rabbi",
     name: "Md Golam Rabbi",
-    role: "SEO Specialist",
+    role: "Web Developer",
     image: "/blogs/author-golamRabbi.png",
     badgeIcon: "/creatibuz-symbol.png",
-    badgeAlt: "SEO Specialist Badge",
-    bio: "SEO & Growth Specialist at Creatibuz Studio. Driving search visibility, technical performance optimizations, and content marketing architectures.",
+    badgeAlt: "Web Developer Badge",
+    bio: "Web Development Lead at Creatibuz Studio with a specialization in building scalable web applications and high-performance frontend interfaces. I manage development workflows, optimize frontend architectures for speed, and implement responsive designs. My goal is to bridge engineering standards with user-centric experiences through modern development practices.",
     socials: {
-      linkedin: "https://www.linkedin.com",
-      twitter: "https://x.com",
+      facebook:"https://www.facebook.com/md.GolamRabbi22Abdullah",
+      linkedin: "https://www.linkedin.com/in/dev-golamrabbi",
+      website:"http://dev-golamrabbi-portfolio.web.app", 
     },
   },
 ];

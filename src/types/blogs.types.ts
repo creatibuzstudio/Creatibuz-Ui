@@ -11,6 +11,8 @@ export interface BlogAuthor {
     twitter?: string;
     linkedin?: string;
     github?: string;
+    website?: string;
+    dribbble?: string;
   };
 }
 

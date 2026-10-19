@@ -79,11 +79,11 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
                   </Link>
                 )}
                 <Link
-                  href="https://creatibuzstudio.com"
+                  href={author.socials?.website ?? "https://creatibuzstudio.com"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-zinc-400 transition-colors hover:bg-primary hover:text-white"
-                  aria-label="Creatibuz Studio Website"
+                  aria-label={author.socials?.website ? `${author.name} Website` : "Creatibuz Studio Website"}
                 >
                   <Globe className="h-4 w-4" />
                 </Link>
