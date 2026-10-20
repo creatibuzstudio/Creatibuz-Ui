@@ -8,6 +8,8 @@ export interface User {
   picture?: string;
   department?: { id: string; name: string };
   designation?: { id: string; title: string };
+  order?: number;
+  isPreview?: boolean;
   createdAt?: string;
   updatedAt?: string;
 }
