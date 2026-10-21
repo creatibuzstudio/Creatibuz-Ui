@@ -5,84 +5,105 @@ import { statsService, type StatsData } from "@/services/stats.service";
 
 interface AboutStatsProps {
   statsRef: React.RefObject<HTMLDivElement | null>;
+  initialStats?: StatsData | null;
 }
 
 const defaultStats: StatsData = {
   projectDeliveries: 400,
   inHouseExperts: 15,
-  satisfiedClients: 90,
+  satisfiedClients: 99,
   businessPartners: 40,
 };
 
-export function AboutStats({ statsRef }: AboutStatsProps) {
-  const [targetStats, setTargetStats] = useState<StatsData>(defaultStats);
-  const [counts, setCounts] = useState({
-    deliveries: 0,
-    experts: 0,
-    clients: 0,
-    partners: 0,
-  });
-  const hasAnimated = useRef(false);
-  const latestTargetStats = useRef(targetStats);
+export function AboutStats({ statsRef, initialStats }: AboutStatsProps) {
+  const [targetStats, setTargetStats] = useState<StatsData>(() => initialStats || defaultStats);
+  const [counts, setCounts] = useState(() => ({
+    deliveries: initialStats?.projectDeliveries || defaultStats.projectDeliveries,
+    experts: initialStats?.inHouseExperts || defaultStats.inHouseExperts,
+    clients: initialStats?.satisfiedClients || defaultStats.satisfiedClients,
+    partners: initialStats?.businessPartners || defaultStats.businessPartners,
+  }));
+  const hasAnimatedRef = useRef(false);
 
+  // 1. Fetch live dynamic stats from backend API
   useEffect(() => {
+    let isMounted = true;
     statsService
       .getStats()
       .then((data) => {
-        if (data) {
-          latestTargetStats.current = data;
-          setTargetStats(data);
+        if (!isMounted || !data) return;
+        const fresh: StatsData = {
+          projectDeliveries: Number(data.projectDeliveries) || 400,
+          inHouseExperts: Number(data.inHouseExperts) || 15,
+          satisfiedClients: Number(data.satisfiedClients) || 99,
+          businessPartners: Number(data.businessPartners) || 40,
+        };
+        setTargetStats(fresh);
+        if (hasAnimatedRef.current) {
+          setCounts({
+            deliveries: fresh.projectDeliveries,
+            experts: fresh.inHouseExperts,
+            clients: fresh.satisfiedClients,
+            partners: fresh.businessPartners,
+          });
         }
       })
       .catch(() => {
-        // Silently preserve defaultStats
+        // Preserve current values gracefully
       });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
+  // 2. Count-up animation when scrolled into view
   useEffect(() => {
     let timer: NodeJS.Timeout | null = null;
     const node = statsRef.current;
-    if (!node || hasAnimated.current) return;
+    if (!node || hasAnimatedRef.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (!entry?.isIntersecting || hasAnimated.current) return;
+        if (entry?.isIntersecting && !hasAnimatedRef.current) {
+          hasAnimatedRef.current = true;
+          observer.disconnect();
 
-        hasAnimated.current = true;
-        observer.disconnect();
+          const duration = 1600;
+          const steps = 40;
+          const intervalTime = duration / steps;
+          let step = 0;
 
-        const duration = 1800;
-        const steps = 50;
-        const intervalTime = duration / steps;
-        let step = 0;
+          const targetDeliveries = targetStats.projectDeliveries;
+          const targetExperts = targetStats.inHouseExperts;
+          const targetClients = targetStats.satisfiedClients;
+          const targetPartners = targetStats.businessPartners;
 
-        timer = setInterval(() => {
-          step++;
-          const progress = step / steps;
-          const ease = 1 - Math.pow(1 - progress, 3);
-          const currentStats = latestTargetStats.current;
+          timer = setInterval(() => {
+            step++;
+            const progress = step / steps;
+            const ease = 1 - Math.pow(1 - progress, 3);
 
-          setCounts({
-            deliveries: Math.floor(ease * currentStats.projectDeliveries),
-            experts: Math.floor(ease * currentStats.inHouseExperts),
-            clients: Math.floor(ease * currentStats.satisfiedClients),
-            partners: Math.floor(ease * currentStats.businessPartners),
-          });
-
-          if (step >= steps) {
-            if (timer) clearInterval(timer);
-            const finalStats = latestTargetStats.current;
             setCounts({
-              deliveries: finalStats.projectDeliveries,
-              experts: finalStats.inHouseExperts,
-              clients: finalStats.satisfiedClients,
-              partners: finalStats.businessPartners,
+              deliveries: Math.floor(targetDeliveries * ease),
+              experts: Math.floor(targetExperts * ease),
+              clients: Math.floor(targetClients * ease),
+              partners: Math.floor(targetPartners * ease),
             });
-          }
-        }, intervalTime);
+
+            if (step >= steps) {
+              if (timer) clearInterval(timer);
+              setCounts({
+                deliveries: targetDeliveries,
+                experts: targetExperts,
+                clients: targetClients,
+                partners: targetPartners,
+              });
+            }
+          }, intervalTime);
+        }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     observer.observe(node);
@@ -90,7 +111,7 @@ export function AboutStats({ statsRef }: AboutStatsProps) {
       if (timer) clearInterval(timer);
       observer.disconnect();
     };
-  }, [statsRef]);
+  }, [statsRef, targetStats]);
 
   const statItems = [
     { value: `${counts.deliveries}+`, label: "Project Deliveries" },

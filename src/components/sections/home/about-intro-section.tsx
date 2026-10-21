@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AboutStats } from "./about/about-stats";
+import { type StatsData } from "@/services/stats.service";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +13,11 @@ const fullText =
 
 const characters = Array.from(fullText);
 
-export function AboutIntroSection() {
+interface AboutIntroSectionProps {
+  initialStats?: StatsData | null;
+}
+
+export function AboutIntroSection({ initialStats }: AboutIntroSectionProps = {}) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLParagraphElement | null>(null);
   const statsRef = useRef<HTMLDivElement | null>(null);
@@ -102,7 +107,7 @@ export function AboutIntroSection() {
         </p>
 
         {/* Dynamic Stats Row */}
-        <AboutStats statsRef={statsRef} />
+        <AboutStats statsRef={statsRef} initialStats={initialStats} />
       </div>
     </div>
   );
