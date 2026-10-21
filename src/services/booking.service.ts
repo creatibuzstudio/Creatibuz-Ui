@@ -7,6 +7,7 @@ export interface CreateBookingPayload {
   companyEmail: string;
   billingCycle: string;
   packageId: string;
+  whatsappNumber?: string;
 }
 
 export interface BookingResponse {
@@ -17,6 +18,7 @@ export interface BookingResponse {
   companyEmail: string;
   billingCycle: string;
   packageId: string;
+  whatsappNumber?: string;
   status?: string;
   createdAt?: string;
 }
