@@ -19,6 +19,7 @@ import {
   PlatformFeaturesSection,
 } from "@/components/sections/home";
 import { SectionContainer } from "@/components/ui/section-container";
+import { userService, User } from "@/services/user.service";
 import { statsService, StatsData } from "@/services/stats.service";
 
 export const dynamic = "force-dynamic";
@@ -26,10 +27,20 @@ export const revalidate = 0;
 
 export default async function MarketingPage() {
   let initialStats: StatsData | null = null;
+  let initialUsers: User[] = [];
   try {
-    initialStats = await statsService.getStats();
+    const [statsData, userList] = await Promise.all([
+      statsService.getStats(),
+      userService.getAllUsers(),
+    ]);
+    if (statsData) {
+      initialStats = statsData;
+    }
+    if (Array.isArray(userList)) {
+      initialUsers = userList;
+    }
   } catch (err) {
-    console.error("Error fetching homepage stats on server:", err);
+    console.error("Error fetching homepage data on server:", err);
   }
 
   return (
@@ -67,11 +78,11 @@ export default async function MarketingPage() {
       <SectionContainer extendTopBorder={false}>
         <WhyChooseUsSection />
       </SectionContainer>
-      
+
       <InteractiveOrbitCtaSection />
 
       <SectionContainer extendTopBorder={false}>
-        <TeamSpecialistsSection />
+        <TeamSpecialistsSection initialUsers={initialUsers} />
       </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
