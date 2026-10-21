@@ -37,7 +37,7 @@ export const socialLinks = [
   },
   {
     name: "Behance",
-    href: "https://www.behance.net/uidesignerhakim",
+    href: "https://www.behance.net/mdabdulhakim20",
     icon: "/behance-logo.png",
   },
   {

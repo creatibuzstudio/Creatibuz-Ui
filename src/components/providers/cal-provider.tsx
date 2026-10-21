@@ -131,7 +131,7 @@ export function CalProvider() {
       */}
       <div
         className={cn(
-          "relative z-10 w-[92vw] max-w-5xl h-[86vh] max-h-[820px]",
+          "relative z-10 w-[92vw] max-w-[1080px] h-[86vh] max-h-[600px]",
           "bg-[#0E0F12] border border-white/10 rounded-2xl md:rounded-3xl",
           "shadow-[0_25px_80px_rgba(0,0,0,0.85)] flex flex-col overflow-hidden",
           "transition-transform duration-300",

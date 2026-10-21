@@ -81,7 +81,6 @@ export function Navbar() {
               arrowBgSize={34}
               arrowWidth={24}
               arrowHeight={24}
-              bgColor="#202020"
               className="text-xs sm:text-sm pl-3 sm:pl-4 pr-1 sm:pr-1.5 py-1 sm:py-1.5"
             >
               <span className="md:hidden">Free Audit</span>

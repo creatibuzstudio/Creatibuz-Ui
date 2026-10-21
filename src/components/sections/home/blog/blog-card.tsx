@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -15,13 +16,25 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ card, index, isActive, onHover }: BlogCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Middle card (index 1) is always primary button.
+  // Left and right side cards (index 0, 2) are conditional: primary on hover, dark otherwise.
+  const isPrimary = index === 1 || isHovered;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      onMouseEnter={onHover}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        onHover?.();
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
       className="bg-nav rounded-xl p-3 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
     >
       <div>
@@ -49,7 +62,15 @@ export function BlogCard({ card, index, isActive, onHover }: BlogCardProps) {
 
       {/* Interactive CTA Button */}
       <div>
-        <PrimaryButton href={`/blogs/${card.slug}`} text="Read Article" size="sm" glow={false}/>
+        <PrimaryButton
+          href={`/blogs/${card.slug}`}
+          text="Read Article"
+          size="sm"
+          variant={isPrimary ? "primary" : "dark"}
+          glow={false}
+          arrowBg={isPrimary ? "" : "#FE5A00"}
+          textColor={isPrimary ? "" : "#767676"}
+        />
       </div>
     </motion.div>
   );

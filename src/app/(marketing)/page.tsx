@@ -48,7 +48,7 @@ export default async function MarketingPage() {
     <div className="relative min-h-screen w-full bg-background text-primary-text flex flex-col justify-between overflow-hidden">
       <HeroSection />
 
-      <SectionContainer extendTopBorder={true}>
+      <SectionContainer extendTopBorder={false}>
         <PartnerLogosSection />
       </SectionContainer>
 

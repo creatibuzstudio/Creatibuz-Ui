@@ -21,62 +21,77 @@ export function AboutIntroSection({ initialStats }: AboutIntroSectionProps = {})
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLParagraphElement | null>(null);
   const statsRef = useRef<HTMLDivElement | null>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".about-stat",
-        { opacity: 0, y: 20, filter: "blur(3px)" },
-        {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 0.4,
-          stagger: 0.05,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: "top 95%",
-            end: "bottom 5%",
-            toggleActions: "play reverse play reverse",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const maxProgressRef = useRef(0);
+  const [revealedProgress, setRevealedProgress] = useState(0);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let animationFrame = 0;
-    const updateProgress = () => {
-      if (mediaQuery.matches) {
-        setScrollProgress(1);
+    if (mediaQuery.matches) {
+      maxProgressRef.current = 1;
+      setRevealedProgress(1);
+      return;
+    }
+
+    // If page is loaded/refreshed while already at or past the about section,
+    // don't pin at all—show full text immediately and allow normal scroll.
+    if (sectionRef.current) {
+      const rect = sectionRef.current.getBoundingClientRect();
+      if (rect.top <= 150 && window.scrollY > 300) {
+        maxProgressRef.current = 1;
+        setRevealedProgress(1);
         return;
       }
+    }
 
-      if (!textRef.current) return;
-      const rect = textRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const start = windowHeight * 0.85;
-      const end = windowHeight * 0.25;
-      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-      setScrollProgress(progress);
-    };
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
 
-    const handleScroll = () => {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = requestAnimationFrame(updateProgress);
-    };
+      // Desktop: Smooth pinned reading experience with natural scroll continuation
+      mm.add("(min-width: 768px)", () => {
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top 150px",
+          end: "+=550",
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.5,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          once: true,
+          onUpdate: (self) => {
+            // Forward-only reading progress: smoothly illuminates text letter by letter
+            // Once revealed, text permanently stays visible without reversing
+            if (self.progress > maxProgressRef.current) {
+              maxProgressRef.current = self.progress;
+              setRevealedProgress(self.progress);
+            }
+          },
+        });
+      });
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    updateProgress();
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener("scroll", handleScroll);
-    };
+      // Mobile: Shorter pinned reading distance adapted for touch screens
+      mm.add("(max-width: 767px)", () => {
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top 100px",
+          end: "+=400",
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.5,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          once: true,
+          onUpdate: (self) => {
+            if (self.progress > maxProgressRef.current) {
+              maxProgressRef.current = self.progress;
+              setRevealedProgress(self.progress);
+            }
+          },
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -86,15 +101,17 @@ export function AboutIntroSection({ initialStats }: AboutIntroSectionProps = {})
 
         <p
           ref={textRef}
-          className="text-2xl md:text-3xl lg:text-[32px] tracking-[-1px] text-primary-text text-justify hyphens-auto"
+          className="text-2xl md:text-3xl lg:text-[32px] tracking-[-1px] text-primary-text text-justify hyphens-auto leading-relaxed select-none"
         >
           {characters.map((character, i) => {
+            // Full text illuminates across the pinned scroll,
+            // once revealed, it permanently stays visible without reversing.
             const targetProgress = (i + 1) / characters.length;
-            const isRevealed = scrollProgress >= targetProgress;
+            const isRevealed = revealedProgress >= targetProgress;
             return (
               <span
                 key={i}
-                className={`transition-[color,opacity,filter] duration-150 ease-out ${
+                className={`transition-[color,opacity,filter] duration-150 ease-out font-light ${
                   isRevealed
                     ? "text-primary-text opacity-100 blur-none"
                     : "text-gray-400 opacity-40 blur-[1px]"
@@ -106,7 +123,7 @@ export function AboutIntroSection({ initialStats }: AboutIntroSectionProps = {})
           })}
         </p>
 
-        {/* Dynamic Stats Row */}
+        {/* Dynamic Stats Row - always 100% visible, independent static component */}
         <AboutStats statsRef={statsRef} initialStats={initialStats} />
       </div>
     </div>

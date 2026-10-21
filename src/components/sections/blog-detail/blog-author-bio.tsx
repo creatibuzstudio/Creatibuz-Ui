@@ -97,7 +97,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
               </div>
             </div>
 
-            <p className="text-zinc-300 text-sm leading-relaxed font-normal">
+            <p className="text-zinc-300 text-sm leading-relaxed font-normal max-w-[444px]">
               {author.bio ||
                 "Passionate about craft, precision UI/UX, and scaling modern digital products that empower human-centered software experiences."}
             </p>

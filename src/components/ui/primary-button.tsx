@@ -89,7 +89,7 @@ const sizeClasses = {
   sm: {
     button: "pl-4 sm:pl-5 pr-1.5 py-1.5 text-xs sm:text-sm gap-2.5 font-medium",
     arrowBadge: "w-7 h-7 sm:w-8 sm:h-8",
-    arrowIcon: "w-3.5 h-3.5 sm:w-4 sm:h-4",
+    arrowIcon: "w-4 h-4 sm:w-5 sm:h-5",
   },
   md: {
     button: "pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 text-[14px] sm:text-[16px] gap-3.5 font-medium",
@@ -115,7 +115,7 @@ const variantClasses = {
     arrowIcon: "text-white",
   },
   dark: {
-    button: "bg-[#181A1E] hover:bg-[#202328] text-white border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.25)]",
+    button: "bg-[#202020] hover:bg-[#202328] text-white border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.25)]",
     arrowBadge: "bg-white/10 text-white",
     arrowIcon: "text-white",
   },

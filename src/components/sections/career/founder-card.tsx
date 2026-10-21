@@ -18,16 +18,14 @@ export function FounderCard({ member, index }: FounderCardProps) {
     setImgSrc(member.image || getLocalTeamPhoto(member.name, index));
   }, [member.image, member.name, index]);
 
-  // Alternating slide-in animation: Left for even indices
-  const initialX = index % 2 === 0 ? -100 : 100;
-
   return (
     <motion.div
-      initial={{ opacity: 0, x: initialX }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.75,
+        duration: 0.5,
+        delay: index * 0.1,
         ease: [0.21, 1.02, 0.47, 0.98],
       }}
       className="group relative overflow-hidden transition-all duration-300 shadow-[0_16px_40px_rgba(0,0,0,0.6)] flex flex-col select-none"

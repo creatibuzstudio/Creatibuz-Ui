@@ -16,7 +16,13 @@ export function HeroMarquee({ row1, row2 }: HeroMarqueeProps) {
 
   return (
     <section className="relative z-10 w-full pt-8 pb-16 md:pb-24 lg:pb-32 overflow-hidden">
-      <div className="relative w-full [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      {/* Side vertical border lines (under marquee images, matching SectionContainer max-w-7xl grid) */}
+      <div className="absolute inset-0 pointer-events-none w-full max-w-7xl mx-auto z-0">
+        <div className="absolute left-0 bottom-0 w-px bg-white/[0.12] h-36 sm:h-44 md:h-52 lg:h-60" />
+        <div className="absolute right-0 bottom-0 w-px bg-white/[0.12] h-36 sm:h-44 md:h-52 lg:h-60" />
+      </div>
+
+      <div className="relative z-10 w-full [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
         <div className="flex flex-col gap-4 sm:gap-5 w-full">
           {/* Row 1: Right to Left */}
           <div className="overflow-hidden w-full flex group">

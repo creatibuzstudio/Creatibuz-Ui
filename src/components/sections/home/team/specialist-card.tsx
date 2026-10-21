@@ -43,22 +43,16 @@ function renderSocialIcon(type: string) {
 
 export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
   const [imgSrc, setImgSrc] = useState(specialist.image);
-
-  // Row 0 (cards 0, 1, 2) comes from Left (-80px)
-  // Row 1 (cards 3, 4, 5) comes from Right (+80px)
-  const rowIndex = Math.floor(index / 3);
-  const isRowFromLeft = rowIndex % 2 === 0;
   const colIndex = index % 3;
-  const initialX = isRowFromLeft ? -80 : 80;
-  const delay = colIndex * 0.15;
+  const delay = colIndex * 0.1;
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: initialX }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{
-        duration: 0.7,
+        duration: 0.5,
         delay: delay,
         ease: [0.21, 1.02, 0.47, 0.98],
       }}
@@ -84,10 +78,10 @@ export function SpecialistCard({ specialist, index }: SpecialistCardProps) {
 
       {/* Dynamic Name & Designation Container */}
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end z-20 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-5 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 ease-out">
-        <h3 className="text-white font-semibold text-[24px] md:text-[30px] tracking-tight font-sans">
+        <h3 className="text-white font-semibold text-[24px] md:text-[30px] tracking-tight leading-[1.15] font-sans">
           {specialist.name}
         </h3>
-        <p className="text-white/90 text-base md:text-[20px] mt-0.5 font-sans">
+        <p className="text-white/90 text-base md:text-[20px] leading-snug mt-1 font-sans">
           {specialist.role}
         </p>
       </div>

@@ -55,7 +55,7 @@ export function HeroSection() {
 
         {/* Main Hero Content */}
         <section className="relative z-10 w-full">
-          <main className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-6 pt-37.5 pb-16 md:pb-20 lg:pb-24 w-full max-w-6xl mx-auto">
+          <main className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-6 pt-36.5 md:pt-37.5 pb-16 md:pb-20 lg:pb-24 w-full max-w-6xl mx-auto">
             {/* Spinning Brand Border Badge */}
             <motion.div
               variants={fadeUp}
@@ -101,7 +101,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={1}
-              className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal md:font-medium font-sans text-white text-center leading-[1.18] sm:leading-[1.14] tracking-[-0.03em] max-w-5xl mx-auto text-balance"
+              className="text-[30px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal md:font-medium font-sans text-white text-center leading-[1.18] sm:leading-[1.14] tracking-[-0.03em] max-w-5xl mx-auto text-balance"
             >
               We Are UI/UX Design{" "}
               <span className="font-serif italic font-normal text-white">&amp;</span>{" "}
@@ -118,7 +118,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               custom={2}
-              className="mt-5 sm:mt-6 text-zinc-400 text-center font-normal text-[15px] sm:text-lg md:text-[18px] lg:text-[19px] leading-[1.6] max-w-2xl mx-auto font-sans text-balance px-2 sm:px-0"
+              className="mt-5 sm:mt-6 text-zinc-400 text-center font-normal text-base md:text-[20px] lg:text-[22px] leading-[1.6] max-w-3xl mx-auto font-sans text-balance px-2 sm:px-0"
             >
               A full-service UI/UX and development agency helping startups and
               businesses create fast, scalable, and user-focused digital products.
@@ -135,7 +135,12 @@ export function HeroSection() {
               <PrimaryButton
                 text="Schedule a Meeting"
                 dataCalLink={CAL_CONFIG.calLink}
-                size="lg"
+                size="md"
+                textSize={20}
+                py={8}
+                arrowBgSize={42}
+                arrowHeight={28}
+                arrowWidth={28}
               />
             </motion.div>
           </main>
