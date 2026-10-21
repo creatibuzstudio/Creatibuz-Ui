@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CareerTeamMember } from "@/types/career.types";
+import { getLocalTeamPhoto } from "@/services/user.service";
 
 interface CareerMemberCardProps {
   member: CareerTeamMember;
@@ -11,7 +12,11 @@ interface CareerMemberCardProps {
 }
 
 export function CareerMemberCard({ member, index }: CareerMemberCardProps) {
-  const [imgSrc, setImgSrc] = useState(member.image);
+  const [imgSrc, setImgSrc] = useState(member.image || getLocalTeamPhoto(member.name, index));
+
+  useEffect(() => {
+    setImgSrc(member.image || getLocalTeamPhoto(member.name, index));
+  }, [member.image, member.name, index]);
 
   // Row-based alternating slide-in animation:
   // Row 0: Left (-80px)
@@ -42,9 +47,10 @@ export function CareerMemberCard({ member, index }: CareerMemberCardProps) {
           src={imgSrc}
           alt={member.name}
           fill
+          unoptimized
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          onError={() => setImgSrc("/Team/hossainAhmed.png")}
+          onError={() => setImgSrc(getLocalTeamPhoto(member.name, index))}
         />
 
         {/* Subtle Black Shade Overlay to soften bright white background */}

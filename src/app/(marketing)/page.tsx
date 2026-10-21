@@ -30,7 +30,7 @@ export default async function MarketingPage() {
   let initialUsers: User[] = [];
   try {
     const [statsData, userList] = await Promise.all([
-      statsService.getStats(),
+      statsService.getAboutStats(),
       userService.getAllUsers(),
     ]);
     if (statsData) {
@@ -42,6 +42,7 @@ export default async function MarketingPage() {
   } catch (err) {
     console.error("Error fetching homepage data on server:", err);
   }
+  ///kjlkjljl
 
   return (
     <div className="relative min-h-screen w-full bg-background text-primary-text flex flex-col justify-between overflow-hidden">

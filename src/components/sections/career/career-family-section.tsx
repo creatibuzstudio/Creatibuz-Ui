@@ -1,14 +1,50 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { LEADERSHIP_TEAM, STUDIO_TEAM_MEMBERS } from "@/data/career.data";
+import { FounderMember, CareerTeamMember } from "@/types/career.types";
+import { userService } from "@/services/user.service";
 import { FounderCard } from "./founder-card";
 import { CareerMemberCard } from "./career-member-card";
 import { SectionContainer } from "@/components/ui/section-container";
 
-export function CareerFamilySection() {
+interface CareerFamilySectionProps {
+  initialLeadership?: FounderMember[];
+  initialTeam?: CareerTeamMember[];
+}
+
+export function CareerFamilySection({
+  initialLeadership = LEADERSHIP_TEAM,
+  initialTeam = STUDIO_TEAM_MEMBERS,
+}: CareerFamilySectionProps) {
+  const [leadership, setLeadership] = useState<FounderMember[]>(initialLeadership);
+  const [team, setTeam] = useState<CareerTeamMember[]>(initialTeam);
+
+  useEffect(() => {
+    let isMounted = true;
+    const loadCareerMembers = async () => {
+      try {
+        const data = await userService.getCareerMembersWithFallback();
+        if (isMounted) {
+          if (data.leadership && data.leadership.length > 0) {
+            setLeadership(data.leadership);
+          }
+          if (data.team && data.team.length > 0) {
+            setTeam(data.team);
+          }
+        }
+      } catch {
+        // Fallback to initial
+      }
+    };
+    loadCareerMembers();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <section className="relative w-full pt-32 lg:pt-40 overflow-hidden">
       {/* Dynamic Ribbon Wave Graphic Backdrop starting from absolute top-0 behind navbar */}
@@ -25,6 +61,7 @@ export function CareerFamilySection() {
         {/* Soft gradient fade mask to blend smoothly into deep background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/20 via-[#0C0E12]/60 to-[#0C0E12]" />
       </div>
+
       {/* Top Header & Founders Section (Outside SectionContainer, on the background image) */}
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section Heading */}
@@ -41,12 +78,22 @@ export function CareerFamilySection() {
           </h1>
         </motion.div>
 
-        {/* Leadership / Founders Row (2 Columns) */}
-        <div className="max-w-[760px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 mb-12 sm:mb-16">
-          {LEADERSHIP_TEAM.map((founder, idx) => (
-            <FounderCard key={founder.id} member={founder} index={idx} />
-          ))}
-        </div>
+        {/* Leadership / Preview Members Row (Top: isPreview === true, sorted by order) */}
+        {leadership.length > 0 && (
+          <div
+            className={`mx-auto gap-5 sm:gap-6 mb-12 sm:mb-16 ${
+              leadership.length === 1
+                ? "max-w-[380px] grid grid-cols-1"
+                : leadership.length === 2
+                ? "max-w-[760px] grid grid-cols-1 sm:grid-cols-2"
+                : "max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
+            {leadership.map((founder, idx) => (
+              <FounderCard key={founder.id} member={founder} index={idx} />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* SectionContainer: starts below the background image/founders, side lines visible from here downwards */}
@@ -57,9 +104,9 @@ export function CareerFamilySection() {
         noPadding={true}
       >
         <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 pb-20 md:pb-32 lg:pb-36">
-          {/* Team Members Grid (3 Columns) */}
+          {/* Team Members Grid (Bottom: remaining non-client members sorted by order) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {STUDIO_TEAM_MEMBERS.map((member, idx) => (
+            {team.map((member, idx) => (
               <CareerMemberCard key={member.id} member={member} index={idx} />
             ))}
           </div>

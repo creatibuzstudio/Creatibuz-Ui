@@ -7,37 +7,49 @@ export interface StatsData {
   businessPartners: number;
 }
 
+export const DEFAULT_ABOUT_STATS: StatsData = {
+  projectDeliveries: 400,
+  inHouseExperts: 15,
+  satisfiedClients: 99,
+  businessPartners: 40,
+};
+
 export const statsService = {
-  getStats: async (): Promise<StatsData | null> => {
+  /** Fetch specifically the About Us stats directly from /stats/about */
+  getAboutStats: async (): Promise<StatsData> => {
     try {
-      const response = await apiClient.get("/stats");
+      const response = await apiClient.get("/stats/about");
       const d = response?.data;
       if (d) {
         return {
-          projectDeliveries: Number(d.projectDeliveries) || 400,
-          inHouseExperts: Number(d.inHouseExperts) || 15,
-          satisfiedClients: Number(d.satisfiedClients) || 99,
-          businessPartners: Number(d.businessPartners) || 40,
+          projectDeliveries: Number(d.projectDeliveries) || DEFAULT_ABOUT_STATS.projectDeliveries,
+          inHouseExperts: Number(d.inHouseExperts) || DEFAULT_ABOUT_STATS.inHouseExperts,
+          satisfiedClients: Number(d.satisfiedClients) || DEFAULT_ABOUT_STATS.satisfiedClients,
+          businessPartners: Number(d.businessPartners) || DEFAULT_ABOUT_STATS.businessPartners,
         };
       }
-      return null;
     } catch {
       try {
-        const aboutRes = await apiClient.get("/stats/about");
-        const ad = aboutRes?.data;
-        if (ad) {
+        const response = await apiClient.get("/stats");
+        const d = response?.data;
+        if (d) {
+          const ad = d.aboutStats || d;
           return {
-            projectDeliveries: Number(ad.projectDeliveries) || 400,
-            inHouseExperts: Number(ad.inHouseExperts) || 15,
-            satisfiedClients: Number(ad.satisfiedClients) || 99,
-            businessPartners: Number(ad.businessPartners) || 40,
+            projectDeliveries: Number(ad.projectDeliveries) || DEFAULT_ABOUT_STATS.projectDeliveries,
+            inHouseExperts: Number(ad.inHouseExperts) || DEFAULT_ABOUT_STATS.inHouseExperts,
+            satisfiedClients: Number(ad.satisfiedClients) || DEFAULT_ABOUT_STATS.satisfiedClients,
+            businessPartners: Number(ad.businessPartners) || DEFAULT_ABOUT_STATS.businessPartners,
           };
         }
       } catch {
-        // Graceful offline fallback
+        // Fallback
       }
-      return null;
     }
+    return DEFAULT_ABOUT_STATS;
+  },
+
+  getStats: async (): Promise<StatsData> => {
+    return statsService.getAboutStats();
   },
 };
 

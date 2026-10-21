@@ -3,7 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CATEGORIES_DATA, PlanItem } from "@/data/pricing.data";
+import { CATEGORIES_DATA as LOCAL_CATEGORIES, PlanItem } from "@/data/pricing.data";
+import { packageService } from "@/services/package.service";
+import { CategoryData } from "@/types/pricing.types";
+import { useEffect } from "react";
 import { PricingCard } from "./pricing/pricing-card";
 import { BookingModal } from "./pricing/booking-modal";
 
@@ -11,9 +14,32 @@ export function PricingPlansSection() {
   const [activeTabId, setActiveTabId] = useState<string>("website-design");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<PlanItem | null>(null);
+  const [categories, setCategories] = useState<CategoryData[]>(LOCAL_CATEGORIES);
+
+  // Fetch categories from API with fallback to local data
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const apiCategories = await packageService.getAllCategories();
+      if (apiCategories && apiCategories.length > 0) {
+        setCategories(apiCategories);
+        setActiveTabId((current) => {
+          if (apiCategories.some((c) => c.id === current)) return current;
+          return apiCategories[0].id;
+        });
+      }
+    };
+    fetchCategories();
+  }, []);
 
   const activeCategory =
-    CATEGORIES_DATA.find((c) => c.id === activeTabId) || CATEGORIES_DATA[0];
+    categories.find((c) => c.id === activeTabId) ||
+    categories[0] ||
+    LOCAL_CATEGORIES[0];
+
+  const currentPlans =
+    activeCategory?.plans && activeCategory.plans.length > 0
+      ? activeCategory.plans
+      : LOCAL_CATEGORIES[0].plans;
 
   const handleSelectPlan = (plan: PlanItem) => {
     setSelectedPlan(plan);
@@ -75,7 +101,7 @@ export function PricingPlansSection() {
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="rounded-full p-1.5 bg-zinc-900/90 border border-white/10 w-fit mx-auto mb-14 sm:mb-16 flex items-center gap-5 shadow-xl backdrop-blur-md"
         >
-          {CATEGORIES_DATA.map((tab) => {
+          {categories.map((tab: CategoryData) => {
             const isActive = activeTabId === tab.id;
             return (
               <button
@@ -95,7 +121,7 @@ export function PricingPlansSection() {
 
         {/* Pricing Cards Grid */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          {activeCategory.plans.map((plan, idx) => (
+          {currentPlans.map((plan, idx) => (
             <PricingCard
               key={plan.id}
               plan={plan}

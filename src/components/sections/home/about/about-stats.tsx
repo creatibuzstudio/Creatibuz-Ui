@@ -1,42 +1,35 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { statsService, type StatsData } from "@/services/stats.service";
+import { statsService, type StatsData, DEFAULT_ABOUT_STATS } from "@/services/stats.service";
 
 interface AboutStatsProps {
   statsRef: React.RefObject<HTMLDivElement | null>;
   initialStats?: StatsData | null;
 }
 
-const defaultStats: StatsData = {
-  projectDeliveries: 400,
-  inHouseExperts: 15,
-  satisfiedClients: 99,
-  businessPartners: 40,
-};
-
 export function AboutStats({ statsRef, initialStats }: AboutStatsProps) {
-  const [targetStats, setTargetStats] = useState<StatsData>(() => initialStats || defaultStats);
+  const [targetStats, setTargetStats] = useState<StatsData>(() => initialStats || DEFAULT_ABOUT_STATS);
   const [counts, setCounts] = useState(() => ({
-    deliveries: initialStats?.projectDeliveries || defaultStats.projectDeliveries,
-    experts: initialStats?.inHouseExperts || defaultStats.inHouseExperts,
-    clients: initialStats?.satisfiedClients || defaultStats.satisfiedClients,
-    partners: initialStats?.businessPartners || defaultStats.businessPartners,
+    deliveries: initialStats?.projectDeliveries || DEFAULT_ABOUT_STATS.projectDeliveries,
+    experts: initialStats?.inHouseExperts || DEFAULT_ABOUT_STATS.inHouseExperts,
+    clients: initialStats?.satisfiedClients || DEFAULT_ABOUT_STATS.satisfiedClients,
+    partners: initialStats?.businessPartners || DEFAULT_ABOUT_STATS.businessPartners,
   }));
   const hasAnimatedRef = useRef(false);
 
-  // 1. Fetch live dynamic stats from backend API
+  // 1. Fetch live dynamic stats from backend API (/stats/about)
   useEffect(() => {
     let isMounted = true;
     statsService
-      .getStats()
+      .getAboutStats()
       .then((data) => {
         if (!isMounted || !data) return;
         const fresh: StatsData = {
-          projectDeliveries: Number(data.projectDeliveries) || 400,
-          inHouseExperts: Number(data.inHouseExperts) || 15,
-          satisfiedClients: Number(data.satisfiedClients) || 99,
-          businessPartners: Number(data.businessPartners) || 40,
+          projectDeliveries: Number(data.projectDeliveries) || DEFAULT_ABOUT_STATS.projectDeliveries,
+          inHouseExperts: Number(data.inHouseExperts) || DEFAULT_ABOUT_STATS.inHouseExperts,
+          satisfiedClients: Number(data.satisfiedClients) || DEFAULT_ABOUT_STATS.satisfiedClients,
+          businessPartners: Number(data.businessPartners) || DEFAULT_ABOUT_STATS.businessPartners,
         };
         setTargetStats(fresh);
         if (hasAnimatedRef.current) {

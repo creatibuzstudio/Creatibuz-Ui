@@ -18,8 +18,12 @@ interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
+  const blogs = await blogService.getBlogsWithFallback();
+  return blogs.map((post) => ({
     slug: post.slug,
   }));
 }

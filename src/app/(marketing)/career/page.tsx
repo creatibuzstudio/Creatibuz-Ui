@@ -9,6 +9,7 @@ import { FaqSection } from "@/components/sections/home/faq-section";
 import { ClientTestimonialsSection } from "@/components/sections/home/client-testimonials-section";
 import { SectionContainer } from "@/components/ui/section-container";
 import { FooterBoundarySparks } from "@/components/ui/footer-boundary-sparks";
+import { userService } from "@/services/user.service";
 
 export const metadata: Metadata = {
   title: "Career - Our Talented Creatibuz Studio Family",
@@ -16,11 +17,15 @@ export const metadata: Metadata = {
     "Meet our talented Creatibuz Studio family, explore employee benefits, and join our creative team.",
 };
 
-export default function CareerPage() {
+export const revalidate = 60;
+
+export default async function CareerPage() {
+  const { leadership, team } = await userService.getCareerMembersWithFallback();
+
   return (
     <div className="relative min-h-screen w-full bg-background text-primary-text flex flex-col justify-between overflow-hidden">
       {/* 1. Our Talented Creatibuz Studio Family Section (starts at page top-0 above/behind navbar) */}
-      <CareerFamilySection />
+      <CareerFamilySection initialLeadership={leadership} initialTeam={team} />
 
       {/* 2. Employee Benefits / Perks Section */}
       <CareerPerksSection />

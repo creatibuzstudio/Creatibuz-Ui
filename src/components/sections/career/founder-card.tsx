@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FounderMember } from "@/types/career.types";
+import { getLocalTeamPhoto } from "@/services/user.service";
 
 interface FounderCardProps {
   member: FounderMember;
@@ -11,8 +12,14 @@ interface FounderCardProps {
 }
 
 export function FounderCard({ member, index }: FounderCardProps) {
-  // CEO (index 0) comes from Left (-100px), COO (index 1) comes from Right (+100px)
-  const initialX = index === 0 ? -100 : 100;
+  const [imgSrc, setImgSrc] = useState(member.image || getLocalTeamPhoto(member.name, index));
+
+  useEffect(() => {
+    setImgSrc(member.image || getLocalTeamPhoto(member.name, index));
+  }, [member.image, member.name, index]);
+
+  // Alternating slide-in animation: Left for even indices
+  const initialX = index % 2 === 0 ? -100 : 100;
 
   return (
     <motion.div
@@ -28,12 +35,14 @@ export function FounderCard({ member, index }: FounderCardProps) {
       {/* Portrait Photo Container with Vibrant Blue Backdrop */}
       <div className="relative w-full aspect-[4/4.6] overflow-hidden">
         <Image
-          src={member.image}
+          src={imgSrc}
           alt={member.name}
           fill
+          unoptimized
           priority
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
           className="object-cover object-top rounded-xl transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          onError={() => setImgSrc(getLocalTeamPhoto(member.name, index))}
         />
 
         {/* Subtle ambient light glow on hover */}

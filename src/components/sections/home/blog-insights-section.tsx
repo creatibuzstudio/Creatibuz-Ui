@@ -2,45 +2,27 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { BlogCardItem, DEFAULT_BLOGS } from "@/data/blog.data";
+import { BlogCardItem } from "@/data/blog.data";
 import { blogService } from "@/services/blog.service";
 import { BlogCard } from "./blog/blog-card";
 
 export function BlogInsightsSection() {
-  const [blogs, setBlogs] = useState<BlogCardItem[]>(DEFAULT_BLOGS);
+  const [blogs, setBlogs] = useState<BlogCardItem[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      try {
-        const blogList = await blogService.getAllBlogs();
-        if (blogList.length > 0) {
-          setBlogs((prev) =>
-            prev.map((fallback, idx) => {
-              const apiItem = blogList[idx];
-              if (!apiItem) return fallback;
-              return {
-                id: apiItem.id || fallback.id,
-                slug: apiItem.slug || fallback.slug,
-                title: apiItem.title || fallback.title,
-                date: apiItem.createdAt
-                  ? new Date(apiItem.createdAt).toLocaleDateString("en-US", {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    })
-                  : fallback.date,
-                image: fallback.image,
-                alt: fallback.alt,
-              };
-            })
-          );
-        }
-      } catch {
-        // Silently preserve DEFAULT_BLOGS
-      }
+      const apiData = await blogService.getBlogsWithFallback();
+      const formatted = apiData.map((b) => ({
+        id: b.id,
+        slug: b.slug,
+        title: b.title,
+        date: b.publishedAt,
+        image: b.image,
+        alt: b.alt,
+      }));
+      setBlogs(formatted);
     };
-
     fetchBlogs();
   }, []);
 

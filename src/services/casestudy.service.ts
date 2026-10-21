@@ -20,9 +20,9 @@ export interface CasestudyItem {
   shortDescription?: string;
   fullDescription?: string;
   photoUrl?: string;
-  images?: any;
+  images?: unknown;
   categoryId?: string;
-  category?: any;
+  category?: unknown;
   tag?: string;
   bgColor?: string;
   projectLink?: string;

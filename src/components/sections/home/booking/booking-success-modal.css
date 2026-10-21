@@ -1,0 +1,64 @@
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.booking-modal {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  max-width: 90vw;
+  width: 420px;
+  text-align: center;
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+.booking-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+
+.booking-modal-message {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.booking-modal-action {
+  background: #2563eb; /* blue-600 */
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.booking-modal-action:hover {
+  background: #1d4ed8; /* blue-700 */
+}
+
+.booking-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.booking-modal-close:hover {
+  color: #000;
+}

@@ -63,90 +63,97 @@ export function BlogDetailContent({ post }: BlogDetailContentProps) {
           )}
 
           {/* 2. Lead Excerpt Quote */}
-          {post.excerpt && (
+          {post.excerpt && post.excerpt.replace(/<[^>]*>/g, "").trim().length > 0 && (
             <div className="mb-10 sm:mb-12 pl-5 sm:pl-6 border-l-2 border-primary/80 py-1">
               <p className="text-lg sm:text-xl text-zinc-200 font-serif italic leading-relaxed">
-                &ldquo;{post.excerpt}&rdquo;
+                &ldquo;{post.excerpt.replace(/<[^>]*>/g, "").trim()}&rdquo;
               </p>
             </div>
           )}
 
           {/* 3. Formatted Article Body */}
-          <div className="text-zinc-300 text-base sm:text-lg leading-relaxed font-sans space-y-6 sm:space-y-7">
-            {post.content.split("\n\n").map((paragraph, index) => {
-              // Check if paragraph is an H2 heading
-              if (paragraph.startsWith("## ")) {
-                return (
-                  <h2
-                    key={index}
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight pt-8 pb-2 font-sans border-b border-white/5"
-                  >
-                    {paragraph.replace("## ", "")}
-                  </h2>
-                );
-              }
-
-              // Check if paragraph is an H3 heading
-              if (paragraph.startsWith("### ")) {
-                return (
-                  <h3
-                    key={index}
-                    className="text-xl sm:text-2xl font-semibold text-white tracking-tight pt-5 pb-1 font-sans text-primary"
-                  >
-                    {paragraph.replace("### ", "")}
-                  </h3>
-                );
-              }
-
-              // Check if paragraph is a blockquote
-              if (paragraph.startsWith("> ")) {
-                return (
-                  <blockquote
-                    key={index}
-                    className="p-5 sm:p-6 my-6 bg-white/[0.02] border-l-4 border-primary rounded-r-xl italic text-zinc-200 text-base sm:text-lg"
-                  >
-                    {paragraph.replace("> ", "")}
-                  </blockquote>
-                );
-              }
-
-              // Check if paragraph consists of bullet points (• or -)
-              if (paragraph.includes("• ") || paragraph.startsWith("- ")) {
-                const lines = paragraph
-                  .split("\n")
-                  .filter((l) => l.trim().length > 0);
-                const isAllBullets = lines.every(
-                  (l) => l.trim().startsWith("• ") || l.trim().startsWith("- ")
-                );
-                if (isAllBullets) {
+          {/<[a-z][\s\S]*>/i.test(post.content) ? (
+            <div
+              className="blog-rich-content"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          ) : (
+            <div className="text-zinc-300 text-base sm:text-lg leading-relaxed font-sans space-y-6 sm:space-y-7">
+              {post.content.split("\n\n").map((paragraph, index) => {
+                // Check if paragraph is an H2 heading
+                if (paragraph.startsWith("## ")) {
                   return (
-                    <ul key={index} className="space-y-2.5 my-4 pl-1">
-                      {lines.map((line, lIdx) => (
-                        <li
-                          key={lIdx}
-                          className="flex items-start gap-3 text-zinc-300 text-base sm:text-[17px]"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" />
-                          <span className="leading-relaxed">
-                            {line.replace(/^[•\-]\s*/, "")}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <h2
+                      key={index}
+                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight pt-8 pb-2 font-sans border-b border-white/5"
+                    >
+                      {paragraph.replace("## ", "")}
+                    </h2>
                   );
                 }
-              }
 
-              return (
-                <p
-                  key={index}
-                  className="text-zinc-300 font-normal leading-[1.85] whitespace-pre-line"
-                >
-                  {paragraph}
-                </p>
-              );
-            })}
-          </div>
+                // Check if paragraph is an H3 heading
+                if (paragraph.startsWith("### ")) {
+                  return (
+                    <h3
+                      key={index}
+                      className="text-xl sm:text-2xl font-semibold text-white tracking-tight pt-5 pb-1 font-sans text-primary"
+                    >
+                      {paragraph.replace("### ", "")}
+                    </h3>
+                  );
+                }
+
+                // Check if paragraph is a blockquote
+                if (paragraph.startsWith("> ")) {
+                  return (
+                    <blockquote
+                      key={index}
+                      className="p-5 sm:p-6 my-6 bg-white/[0.02] border-l-4 border-primary rounded-r-xl italic text-zinc-200 text-base sm:text-lg"
+                    >
+                      {paragraph.replace("> ", "")}
+                    </blockquote>
+                  );
+                }
+
+                // Check if paragraph consists of bullet points (• or -)
+                if (paragraph.includes("• ") || paragraph.startsWith("- ")) {
+                  const lines = paragraph
+                    .split("\n")
+                    .filter((l) => l.trim().length > 0);
+                  const isAllBullets = lines.every(
+                    (l) => l.trim().startsWith("• ") || l.trim().startsWith("- ")
+                  );
+                  if (isAllBullets) {
+                    return (
+                      <ul key={index} className="space-y-2.5 my-4 pl-1">
+                        {lines.map((line, lIdx) => (
+                          <li
+                            key={lIdx}
+                            className="flex items-start gap-3 text-zinc-300 text-base sm:text-[17px]"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" />
+                            <span className="leading-relaxed">
+                              {line.replace(/^[•\-]\s*/, "")}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                }
+
+                return (
+                  <p
+                    key={index}
+                    className="text-zinc-300 font-normal leading-[1.85] whitespace-pre-line"
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
+            </div>
+          )}
 
           {/* 4. Tags & Share Buttons */}
           {post.tags && post.tags.length > 0 && (

@@ -23,26 +23,32 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "i.ibb.co",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "**.ibb.co",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "api.creatibuzstudio.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "www.api.jevxo.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "api.jevxo.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "randomuser.me",
+        pathname: "/**",
       },
     ],
   },

@@ -22,6 +22,20 @@ export interface BlogItem {
   updatedAt: string;
 }
 
+export const stripHtml = (html?: string | null): string => {
+  if (!html) return "";
+  return html
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
 export const blogService = {
   getAllBlogs: async (): Promise<BlogItem[]> => {
     try {
@@ -56,7 +70,11 @@ export const blogService = {
           title: b.title || "Creative Design Insights",
           badgeTag: b.title || "Creatibuz Insights",
           category: "Design & Technology",
-          excerpt: b.excerpt || b.content?.slice(0, 160) || "",
+          excerpt: b.excerpt
+            ? stripHtml(b.excerpt)
+            : b.shortDescription
+            ? stripHtml(b.shortDescription)
+            : stripHtml(b.content || "").slice(0, 160),
           content: b.content || "",
           image: b.coverImage || `/blogs/blog-${(idx % 4) + 1}.png`,
           alt: b.title,
@@ -67,7 +85,13 @@ export const blogService = {
             image: "/Team/ceo.png",
             badgeIcon: "/creatibuz-symbol.png",
           },
-          publishedAt: b.createdAt ? new Date(b.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Recent",
+          publishedAt: b.createdAt
+            ? new Date(b.createdAt).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })
+            : "Recent",
           readingTime: "5 min read",
         }));
       }
@@ -78,22 +102,38 @@ export const blogService = {
   },
 
   getBlogBySlugWithFallback: async (slug: string): Promise<BlogPost | null> => {
-    const local = BLOG_POSTS.find((b) => b.slug === slug);
-    if (local) return local;
+    const decodedSlug = decodeURIComponent(slug).toLowerCase().trim();
 
+    // 1. Try API first
     try {
       const apiBlogs = await blogService.getAllBlogs();
-      const found = apiBlogs.find((b) => b.slug === slug || b.id === slug);
+      const found = apiBlogs.find(
+        (b) =>
+          b.slug?.toLowerCase().trim() === decodedSlug ||
+          b.slug === slug ||
+          b.id === slug
+      );
       if (found) {
+        const cleanExcerpt = found.excerpt
+          ? stripHtml(found.excerpt)
+          : found.shortDescription
+          ? stripHtml(found.shortDescription)
+          : "";
+
+        const allKeywords = found.keywords || found.metaKeywords || found.seoKeywords || "";
+        const tagList = allKeywords
+          ? allKeywords.split(",").map((k) => k.trim()).filter(Boolean)
+          : ["UI/UX", "Product Design", "AI"];
+
         return {
           id: found.id,
           slug: found.slug,
           title: found.title,
           badgeTag: found.title,
           category: "Design & Technology",
-          excerpt: found.excerpt || found.content?.slice(0, 160) || "",
+          excerpt: cleanExcerpt,
           content: found.content || "",
-          image: found.coverImage || "/blogs/blog-1.png",
+          image: found.coverImage?.trim() || "/blogs/blog-1.png",
           alt: found.title,
           author: {
             id: "api-author",
@@ -102,13 +142,30 @@ export const blogService = {
             image: "/Team/ceo.png",
             badgeIcon: "/creatibuz-symbol.png",
           },
-          publishedAt: "Recent",
+          publishedAt: found.createdAt
+            ? new Date(found.createdAt).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })
+            : "Recent",
           readingTime: "5 min read",
+          metaTitle: found.metaTitle || found.seoTitle,
+          metaDescription: found.metaDescription || found.seoDescription,
+          focusKeyword: tagList[0],
+          secondaryKeywords: tagList.slice(1),
+          tags: tagList,
         };
       }
     } catch {
       // Fallback
     }
+
+    // 2. Fallback to local curated blog posts
+    const local = BLOG_POSTS.find(
+      (b) => b.slug.toLowerCase().trim() === decodedSlug || b.slug === slug
+    );
+    if (local) return local;
 
     return null;
   },

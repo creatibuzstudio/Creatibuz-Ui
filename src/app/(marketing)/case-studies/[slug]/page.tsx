@@ -107,14 +107,22 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   const bgColor = project.bgColor || "#1D0C01";
   const stats = project.stats || project.metrics || [];
 
-  const galleryImages: string[] = Array.isArray(project.images)
-    ? project.images
-    : project.images?.hero
+  type CaseStudyImagesType =
+    | string[]
+    | {
+        hero?: { src?: string };
+        rightTop?: { src?: string };
+        rightBottom?: { src?: string };
+      };
+  const rawImages = project.images as CaseStudyImagesType | undefined;
+  const galleryImages: string[] = Array.isArray(rawImages)
+    ? rawImages
+    : rawImages?.hero
     ? [
-        project.images.hero.src,
-        project.images.rightTop?.src,
-        project.images.rightBottom?.src,
-      ].filter(Boolean)
+        rawImages.hero.src,
+        rawImages.rightTop?.src,
+        rawImages.rightBottom?.src,
+      ].filter((src): src is string => Boolean(src))
     : [];
 
   const challengePhotosList =
@@ -431,7 +439,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               Ready to elevate your project with proven design excellence?
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto mt-3 text-base">
-              Let's partner to engineer high-converting digital products and memorable experiences.
+              Let&apos;s partner to engineer high-converting digital products and memorable experiences.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
