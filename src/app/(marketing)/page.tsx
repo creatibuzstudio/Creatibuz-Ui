@@ -19,42 +19,17 @@ import {
   PlatformFeaturesSection,
 } from "@/components/sections/home";
 import { SectionContainer } from "@/components/ui/section-container";
-import { blogService } from "@/services/blog.service";
-import { userService, User } from "@/services/user.service";
-import { packageService } from "@/services/package.service";
 import { statsService, StatsData } from "@/services/stats.service";
-import { BlogPost } from "@/types/blogs.types";
-import { CategoryData } from "@/types/pricing.types";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function MarketingPage() {
-  let initialBlogs: BlogPost[] = [];
-  let initialUsers: User[] = [];
-  let initialCategories: CategoryData[] = [];
   let initialStats: StatsData | null = null;
   try {
-    const [blogList, userList, pricingCategories, statsData] = await Promise.all([
-      blogService.getBlogs(),
-      userService.getAllUsers(),
-      packageService.getPricingCategories(),
-      statsService.getStats(),
-    ]);
-    if (Array.isArray(blogList) && blogList.length > 0) {
-      initialBlogs = blogList.slice(0, 3);
-    }
-    if (Array.isArray(userList) && userList.length > 0) {
-      initialUsers = userList;
-    }
-    if (Array.isArray(pricingCategories) && pricingCategories.length > 0) {
-      initialCategories = pricingCategories;
-    }
-    if (statsData) {
-      initialStats = statsData;
-    }
+    initialStats = await statsService.getStats();
   } catch (err) {
-    console.error("Error fetching homepage data on server:", err);
+    console.error("Error fetching homepage stats on server:", err);
   }
 
   return (
@@ -78,7 +53,7 @@ export default async function MarketingPage() {
       <DesignProcessSection />
 
       <SectionContainer extendTopBorder={false} noPadding={true}>
-        <PricingPlansSection initialCategories={initialCategories} />
+        <PricingPlansSection />
       </SectionContainer>
 
       <SectionContainer extendTopBorder={false} noPadding={true}>
@@ -96,7 +71,7 @@ export default async function MarketingPage() {
       <InteractiveOrbitCtaSection />
 
       <SectionContainer extendTopBorder={false}>
-        <TeamSpecialistsSection initialUsers={initialUsers} />
+        <TeamSpecialistsSection />
       </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
@@ -110,7 +85,7 @@ export default async function MarketingPage() {
       <ClientTestimonialsSection />
 
       <SectionContainer extendTopBorder={false}>
-        <BlogInsightsSection initialBlogs={initialBlogs} />
+        <BlogInsightsSection />
       </SectionContainer>
 
       <SectionContainer extendTopBorder={false}>
