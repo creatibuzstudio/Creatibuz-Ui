@@ -49,12 +49,12 @@ export const packageService = {
           const plans: PlanItem[] = hasApiPackages
             ? (cat.packages as RawPkg[]).map((pkg) => ({
                 id: pkg.id,
-                name: pkg.name,
+                name: pkg.name?.trim() || pkg.name,
                 subtitle: "",
                 highlightFeature: pkg.description || "Feature highlights",
                 price: Number(pkg.price) || 0,
                 period: pkg.duration ? `/ ${pkg.duration}` : "/ project",
-                isPopular: !!pkg.isActive,
+                isPopular: pkg.name ? pkg.name.trim().toLowerCase().includes("growth plan") : false,
                 features:
                   Array.isArray(pkg.features) && pkg.features.length > 0
                     ? pkg.features

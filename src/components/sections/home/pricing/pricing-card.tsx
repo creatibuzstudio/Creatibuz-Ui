@@ -25,7 +25,9 @@ const cardVariants = {
 };
 
 export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
-  const isPopular = plan.isPopular;
+  const isPopular = plan.name
+    ? plan.name.trim().toLowerCase().includes("growth plan")
+    : !!plan.isPopular;
 
   return (
     <motion.div
