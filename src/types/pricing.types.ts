@@ -1,7 +1,9 @@
 export interface PlanItem {
   id: string;
   name: string;
+  title?: string;
   subtitle?: string;
+  description?: string;
   highlightFeature: string;
   price: number;
   period: string;

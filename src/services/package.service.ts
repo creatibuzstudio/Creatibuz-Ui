@@ -6,6 +6,7 @@ import { CATEGORIES_DATA } from "@/data/pricing.data";
 interface RawPkg {
   id: string;
   name: string;
+  title?: string;
   description?: string;
   price?: number | string;
   duration?: string;
@@ -47,25 +48,32 @@ export const packageService = {
           const hasApiPackages = Array.isArray(cat.packages) && cat.packages.length > 0;
 
           const plans: PlanItem[] = hasApiPackages
-            ? (cat.packages as RawPkg[]).map((pkg) => ({
+            ? (cat.packages as RawPkg[]).map((pkg) => {
+              const unit = (pkg.title?.trim() || pkg.duration?.trim() || "project").replace(/^\/\s*/, "");
+              const formattedPeriod = `/ ${unit}`;
+
+              return {
                 id: pkg.id,
                 name: pkg.name?.trim() || pkg.name,
-                subtitle: "",
-                highlightFeature: pkg.description || "Feature highlights",
+                title: pkg.title?.trim() || unit,
+                subtitle: pkg.description?.trim() || "",
+                description: pkg.description?.trim() || "",
+                highlightFeature: unit,
                 price: Number(pkg.price) || 0,
-                period: pkg.duration ? `/ ${pkg.duration}` : "/ project",
-                isPopular: pkg.name ? pkg.name.trim().toLowerCase().includes("growth plan") : false,
+                period: formattedPeriod,
+                isPopular: !!pkg.isActive,
                 features:
                   Array.isArray(pkg.features) && pkg.features.length > 0
                     ? pkg.features
                     : [
-                        "High-fidelity UI/UX",
-                        "Responsive Design",
-                        "Full Source Code",
-                        "24/7 Dedicated Support",
-                      ],
+                      "High-fidelity UI/UX",
+                      "Responsive Design",
+                      "Full Source Code",
+                      "24/7 Dedicated Support",
+                    ],
                 buttonText: "Choose This Plan",
-              }))
+              };
+            })
             : getFallbackPlansForCategory(cat.name);
 
           return {
