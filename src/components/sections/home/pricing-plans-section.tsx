@@ -36,10 +36,27 @@ export function PricingPlansSection() {
     categories[0] ||
     LOCAL_CATEGORIES[0];
 
-  const currentPlans =
+  const rawPlans =
     activeCategory?.plans && activeCategory.plans.length > 0
       ? activeCategory.plans
       : LOCAL_CATEGORIES[0].plans;
+
+  const getPlanPriority = (name: string): number => {
+    const lower = (name || "").toLowerCase();
+    if (lower.includes("starter")) return 1;
+    if (lower.includes("growth")) return 2;
+    if (lower.includes("business")) return 3;
+    return 4;
+  };
+
+  const currentPlans = [...rawPlans].sort((a, b) => {
+    const priorityA = getPlanPriority(a.name);
+    const priorityB = getPlanPriority(b.name);
+    if (priorityA !== priorityB) {
+      return priorityA - priorityB;
+    }
+    return (Number(a.price) || 0) - (Number(b.price) || 0);
+  });
 
   const handleSelectPlan = (plan: PlanItem) => {
     setSelectedPlan(plan);

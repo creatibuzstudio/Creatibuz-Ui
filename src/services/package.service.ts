@@ -47,7 +47,7 @@ export const packageService = {
         const transformed: CategoryData[] = (data as RawCat[]).map((cat) => {
           const hasApiPackages = Array.isArray(cat.packages) && cat.packages.length > 0;
 
-          const plans: PlanItem[] = hasApiPackages
+          const rawPlans: PlanItem[] = hasApiPackages
             ? (cat.packages as RawPkg[]).map((pkg) => {
               const unit = (pkg.title?.trim() || pkg.duration?.trim() || "project").replace(/^\/\s*/, "");
               const formattedPeriod = `/ ${unit}`;
@@ -75,6 +75,23 @@ export const packageService = {
               };
             })
             : getFallbackPlansForCategory(cat.name);
+
+          const getPlanPriority = (name: string): number => {
+            const lower = (name || "").toLowerCase();
+            if (lower.includes("starter")) return 1;
+            if (lower.includes("growth")) return 2;
+            if (lower.includes("business")) return 3;
+            return 4;
+          };
+
+          const plans = [...rawPlans].sort((a, b) => {
+            const priorityA = getPlanPriority(a.name);
+            const priorityB = getPlanPriority(b.name);
+            if (priorityA !== priorityB) {
+              return priorityA - priorityB;
+            }
+            return (Number(a.price) || 0) - (Number(b.price) || 0);
+          });
 
           return {
             id: cat.id,
