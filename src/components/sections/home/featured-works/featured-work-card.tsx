@@ -2,9 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/ui/section-container";
 import type { FeaturedProject } from "@/data/featured-projects.data";
 
@@ -109,7 +107,7 @@ export function FeaturedWorkCard({
             </div>
           */}
 
-          {/* Project Info & CTA Row */}
+          {/* Project Info Row */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mt-10 md:mt-14 lg:mt-16 w-full">
             <div className="flex flex-col">
               <h3 className="text-2xl md:text-3xl lg:text-[40px] max-w-3xl font-bold text-[#ADADAD] tracking-tight leading-[1.2] font-sans whitespace-pre-line">
@@ -118,20 +116,6 @@ export function FeaturedWorkCard({
               <p className="text-base md:text-xl max-w-5xl text-[#ADADAD] leading-relaxed mt-4 md:mt-6 font-display">
                 {project.description}
               </p>
-            </div>
-
-            <div className="shrink-0 pt-1">
-              <Link
-                href={`/case-studies/${project.id}`}
-                className="inline-flex items-center gap-3.5 bg-primary hover:bg-primary/90 text-white font-medium text-sm sm:text-base pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_0_35px_rgba(254,90,0,0.55)] hover:shadow-[0_0_45px_rgba(254,90,0,0.8)] hover:-translate-y-0.5 group/btn"
-              >
-                <span className="text-sm sm:text-base tracking-wide font-display">
-                  View Case Study
-                </span>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#FE5A00] flex items-center justify-center transition-transform duration-300 group-hover/btn:rotate-45 shadow-sm">
-                  <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2]" />
-                </div>
-              </Link>
             </div>
           </div>
 
