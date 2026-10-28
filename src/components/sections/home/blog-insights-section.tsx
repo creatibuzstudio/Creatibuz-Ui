@@ -1,30 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { BlogCardItem } from "@/data/blog.data";
-import { blogService } from "@/services/blog.service";
+import { BlogCardItem, DEFAULT_BLOGS } from "@/data/blog.data";
 import { BlogCard } from "./blog/blog-card";
 
 export function BlogInsightsSection() {
-  const [blogs, setBlogs] = useState<BlogCardItem[]>([]);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  // Render only the first 3 blogs in serial: 1, 3, 2
+  // 1: AI Product UI/UX Design (Left)
+  // 3: AI Dashboard Design (Middle - Blue Card)
+  // 2: How to Design AI SaaS Products (Right)
+  const blog1 =
+    DEFAULT_BLOGS.find((b) => b.slug === "ai-product-ui-ux-design-guide") ||
+    DEFAULT_BLOGS[0];
+  const blog3 =
+    DEFAULT_BLOGS.find((b) => b.slug === "ai-dashboard-design-best-practices") ||
+    DEFAULT_BLOGS[1];
+  const blog2 =
+    DEFAULT_BLOGS.find((b) => b.slug === "design-trustworthy-ai-saas-products") ||
+    DEFAULT_BLOGS[2];
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      const apiData = await blogService.getBlogsWithFallback();
-      const formatted = apiData.map((b) => ({
-        id: b.id,
-        slug: b.slug,
-        title: b.title,
-        date: b.publishedAt,
-        image: b.image,
-        alt: b.alt,
-      }));
-      setBlogs(formatted);
-    };
-    fetchBlogs();
-  }, []);
+  const initialBlogs: BlogCardItem[] = [blog1, blog3, blog2];
+
+  const [blogs] = useState<BlogCardItem[]>(initialBlogs);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div className="w-full">

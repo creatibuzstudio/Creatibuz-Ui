@@ -70,16 +70,16 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
           {post.title}
         </motion.h1>
 
-        {/* 3. Meta Info Row (Center Aligned: Author | Publish Date | Latest Update) */}
+        {/* 3. Meta Info Row (Desktop: all 3 in a row with vertical dividers; Mobile: Author on top, Publish & Update side-by-side below) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-between gap-6 sm:gap-10 md:gap-14 py-4 px-6 sm:px-8 max-w-5xl mx-auto mb-10 sm:mb-14 shadow-sm"
+          className="flex flex-col md:flex-row items-center justify-center gap-5 sm:gap-6 md:gap-10 lg:gap-14 py-4 px-4 sm:px-8 max-w-4xl mx-auto mb-10 sm:mb-14"
         >
           {/* Author */}
           <div className="flex flex-col items-center text-center">
-            <span className="text-base sm:text-lg text-zinc-500 uppercase tracking-wider mb-1">
+            <span className="text-sm sm:text-base md:text-lg text-zinc-500 uppercase tracking-wider mb-1 font-medium">
               Author
             </span>
             <div className="flex items-center gap-2">
@@ -91,34 +91,40 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
                   className="object-cover object-top"
                 />
               </div>
-              <span className="text-[20px] sm:text-2xl font-medium text-foreground/75">
+              <span className="text-[18px] sm:text-[20px] md:text-2xl font-medium text-foreground/75">
                 {post.author.name}
               </span>
             </div>
           </div>
 
-          <div className="hidden sm:block w-px h-8 bg-white/10" />
+          {/* Divider between Author and Dates: Horizontal line on mobile, Vertical line on desktop */}
+          <div className="w-48 sm:w-56 h-px bg-white/10 md:hidden" />
+          <div className="hidden md:block w-px h-8 bg-white/10" />
 
-          {/* Publish Date */}
-          <div className="flex flex-col items-center text-center">
-            <span className="text-base sm:text-lg text-zinc-500 uppercase tracking-wider mb-1">
-              Publish Date
-            </span>
-            <span className="text-[20px] sm:text-2xl font-medium text-foreground/75">
-              {post.publishedAt}
-            </span>
-          </div>
+          {/* Dates Row: side-by-side flex on mobile with vertical divider, matching inline items on desktop */}
+          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-14">
+            {/* Publish Date */}
+            <div className="flex flex-col items-center text-center">
+              <span className="text-sm sm:text-base md:text-lg text-zinc-500 uppercase tracking-wider mb-1 font-medium">
+                Publish Date
+              </span>
+              <span className="text-[18px] sm:text-[20px] md:text-2xl font-medium text-foreground/75">
+                {post.publishedAt}
+              </span>
+            </div>
 
-          <div className="hidden sm:block w-px h-8 bg-white/10" />
+            {/* Vertical Divider between Publish Date & Latest Update (both mobile & desktop) */}
+            <div className="w-px h-8 bg-white/10" />
 
-          {/* Latest Update */}
-          <div className="flex flex-col items-center text-center">
-            <span className="text-base sm:text-lg text-zinc-500 uppercase tracking-wider mb-1">
-              Latest Update
-            </span>
-            <span className="text-[20px] sm:text-2xl font-medium text-foreground/75">
-              {post.publishedAt}
-            </span>
+            {/* Latest Update */}
+            <div className="flex flex-col items-center text-center">
+              <span className="text-sm sm:text-base md:text-lg text-zinc-500 uppercase tracking-wider mb-1 font-medium">
+                Latest Update
+              </span>
+              <span className="text-[18px] sm:text-[20px] md:text-2xl font-medium text-foreground/75">
+                {post.publishedAt}
+              </span>
+            </div>
           </div>
         </motion.div>
 

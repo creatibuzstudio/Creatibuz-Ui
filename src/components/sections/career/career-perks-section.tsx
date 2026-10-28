@@ -89,7 +89,7 @@ export function CareerPerksSection() {
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-header-text tracking-tight font-sans">
             Perks of being a{" "}
             <span className="font-serif italic text-header-text">
-              Creatibuz Studio!
+              Creatibuz Studio Member!
             </span>
           </h2>
         </motion.div>
@@ -107,7 +107,7 @@ export function CareerPerksSection() {
                 delay: (idx % 3) * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="bg-white text-zinc-950 rounded-[22px] sm:rounded-[24px] p-7 sm:p-8 flex flex-col justify-start shadow-[0_12px_36px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.6)] hover:-translate-y-1.5 transition-all duration-300 select-none"
+              className="bg-white text-zinc-950 rounded-[22px] sm:rounded-[24px] p-7 sm:p-8 flex flex-col justify-start hover:shadow-[0_20px_45px_rgba(0,0,0,0.5)] hover:-translate-y-1.5 transition-all duration-300 select-none"
             >
               <div className="mb-6">
                 {renderBenefitIcon(benefit.iconName)}

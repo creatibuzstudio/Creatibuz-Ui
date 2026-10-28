@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { DEFAULT_SPECIALISTS, SpecialistItem } from "@/data/specialists.data";
 import { SpecialistCard } from "./team/specialist-card";
-import { userService, User } from "@/services/user.service";
+import { User } from "@/services/user.service";
 
 interface TeamSpecialistsSectionProps {
   initialUsers?: User[];
@@ -57,25 +57,8 @@ function processUsers(users: User[]): SpecialistItem[] {
 
 export function TeamSpecialistsSection({ initialUsers }: TeamSpecialistsSectionProps = {}) {
   const initialProcessed = processUsers(initialUsers || []);
-  const [specialists, setSpecialists] = useState<SpecialistItem[]>(() =>
-    initialProcessed.length > 0 ? initialProcessed : DEFAULT_SPECIALISTS
-  );
-
-  useEffect(() => {
-    userService
-      .getAllUsers()
-      .then((data) => {
-        if (Array.isArray(data)) {
-          const processed = processUsers(data);
-          if (processed.length > 0) {
-            setSpecialists(processed);
-          }
-        }
-      })
-      .catch(() => {
-        // preserve current specialists gracefully
-      });
-  }, []);
+  const specialists: SpecialistItem[] =
+    initialProcessed.length > 0 ? initialProcessed : DEFAULT_SPECIALISTS;
 
   return (
     <div className="w-full lg:px-16 overflow-x-clip">

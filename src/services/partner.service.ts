@@ -11,6 +11,10 @@ export interface Partner {
 
 export const partnerService = {
   getAllPartners: async (): Promise<Partner[]> => {
+    // API disconnected: returning empty array for fallback to local partner logos
+    return [];
+
+    /*
     try {
       const response = await apiClient.get("/partners");
       const data = response.data;
@@ -21,6 +25,7 @@ export const partnerService = {
       // Graceful offline fallback
       return [];
     }
+    */
   },
 };
 

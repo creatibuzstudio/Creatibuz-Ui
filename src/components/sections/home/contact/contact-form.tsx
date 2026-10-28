@@ -21,10 +21,14 @@ export function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      // API calling temporarily disconnected - preserve code for when backend is ready
+      /*
       await contactService.createContact({
         ...formData,
         budget: selectedBudget,
       });
+      */
+      await new Promise((resolve) => setTimeout(resolve, 400));
       setSubmitted(true);
       setFormData({
         fullName: "",
@@ -112,10 +116,10 @@ export function ContactForm() {
 
       {/* Budget Setup Pills */}
       <div className="space-y-3 pt-2">
-        <label className="text-[13px] md:text-base font-normal text-white/90 block mb-4">
+        <label className="text-[13px] md:text-base font-normal text-white/90 block mb-2.5 sm:mb-4">
           Budget Setup
         </label>
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-3">
           {BUDGET_OPTIONS.map((option) => {
             const isSelected = selectedBudget === option;
             return (
@@ -123,7 +127,7 @@ export function ContactForm() {
                 key={option}
                 type="button"
                 onClick={() => setSelectedBudget(option)}
-                className={`px-8 py-4 rounded-[10px] text-[13px] sm:text-[14px] font-normal transition-all cursor-pointer border ${
+                className={`px-3 py-3 sm:px-6 md:px-8 sm:py-3.5 md:py-4 rounded-[10px] text-[12px] sm:text-[14px] font-normal transition-all cursor-pointer border text-center flex items-center justify-center ${
                   isSelected
                     ? "bg-[#24262E] text-white border-white/30 shadow-xs"
                     : "bg-[#18191D] text-gray-400 border-white/10 hover:text-white hover:border-white/20"
@@ -156,6 +160,7 @@ export function ContactForm() {
         />
       </div>
 
+      <div className="flex justify-center sm:justify-start pt-2">
         <PrimaryButton
           type="submit"
           disabled={isSubmitting}
@@ -168,6 +173,7 @@ export function ContactForm() {
             ) : undefined
           }
         />
+      </div>
     </form>
   );
 }

@@ -76,21 +76,27 @@ export function DesignProcessSection() {
         },
       });
 
+      // Position upcoming cards at enterDistance and keep hidden until their entrance begins
+      for (let i = 1; i < cards.length; i++) {
+        gsap.set(cards[i], { y: enterDistance, autoAlpha: 0 });
+      }
+
       for (let i = 1; i < cards.length; i++) {
         const targetY = i * visibleHeight;
-        tl.fromTo(
+        const startTime = (i - 1) * 0.55;
+
+        // Make incoming card visible with 100% solid opacity (no transparency during animation)
+        tl.set(cards[i], { autoAlpha: 1, opacity: 1 }, startTime);
+
+        // Slide the solid card up to its stacked position
+        tl.to(
           cards[i],
           {
-            y: enterDistance,
-            opacity: 0.15,
-          },
-          {
             y: targetY,
-            opacity: 1,
             ease: "power2.out",
             duration: 1,
           },
-          (i - 1) * 0.55
+          startTime
         );
       }
     });

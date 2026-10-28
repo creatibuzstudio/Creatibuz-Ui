@@ -5,31 +5,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DEFAULT_REVIEWS } from "@/data/testimonials.data";
-import { Review, reviewService } from "@/services/review.service";
+import { Review } from "@/services/review.service";
 import { TestimonialCard } from "./testimonials/testimonial-card";
 import { VideoModal } from "./testimonials/video-modal";
 
 export function ClientTestimonialsSection() {
   const [playingVideoUrl, setPlayingVideoUrl] = useState<string | null>(null);
-  const [reviews, setReviews] = useState<Review[]>(DEFAULT_REVIEWS);
+  const reviews: Review[] = DEFAULT_REVIEWS;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const reviewList = await reviewService.getAllReviews();
-        if (reviewList && reviewList.length > 0) {
-          setReviews(reviewList);
-        }
-      } catch {
-        // Silently preserve DEFAULT_REVIEWS fallback
-      }
-    };
-
-    fetchReviews();
-  }, []);
 
   const totalReviews = reviews.length;
 
@@ -140,13 +125,13 @@ export function ClientTestimonialsSection() {
 
       {/* Header Container */}
       <div className="max-w-4xl w-full mx-auto px-6 flex flex-col items-center text-center mb-10 sm:mb-14 relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-header-text tracking-tight leading-tight flex flex-col items-center gap-2">
-          <span>
-            What SaaS Teams Say About <br />
+        <h2 className="text-[20px] min-[380px]:text-[22px] min-[440px]:text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold text-header-text tracking-tight leading-tight flex flex-col items-center gap-2">
+          <span className="whitespace-nowrap">
+            What SaaS Teams Say About
           </span>
           <span>
             <span className="">Working </span>
-            <span className="font-serif italic font-normal text-primary mt-1 text-3xl md:text-4xl lg:text-[42px]">
+            <span className="font-serif italic font-normal text-primary mt-1 text-[20px] min-[380px]:text-[22px] min-[440px]:text-2xl sm:text-3xl md:text-4xl lg:text-[42px]">
               with Creatibuz Studio
             </span>
           </span>

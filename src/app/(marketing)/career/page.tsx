@@ -9,7 +9,7 @@ import { FaqSection } from "@/components/sections/home/faq-section";
 import { ClientTestimonialsSection } from "@/components/sections/home/client-testimonials-section";
 import { SectionContainer } from "@/components/ui/section-container";
 import { FooterBoundarySparks } from "@/components/ui/footer-boundary-sparks";
-import { userService } from "@/services/user.service";
+import { LEADERSHIP_TEAM, STUDIO_TEAM_MEMBERS } from "@/data/career.data";
 
 export const metadata: Metadata = {
   title: "Career - Our Talented Creatibuz Studio Family",
@@ -19,8 +19,9 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-export default async function CareerPage() {
-  const { leadership, team } = await userService.getCareerMembersWithFallback();
+export default function CareerPage() {
+  const leadership = LEADERSHIP_TEAM;
+  const team = STUDIO_TEAM_MEMBERS;
 
   return (
     <div className="relative min-h-screen w-full bg-background text-primary-text flex flex-col justify-between overflow-hidden">

@@ -45,6 +45,10 @@ export interface CasestudyItem {
 
 export const casestudyService = {
   getAllCasestudies: async (): Promise<CasestudyItem[]> => {
+    // API disconnected: returning empty array for fallback to local featured projects
+    return [];
+
+    /*
     try {
       const response = await apiClient.get("/casestudies");
       return Array.isArray(response.data?.data)
@@ -55,24 +59,35 @@ export const casestudyService = {
     } catch {
       return [];
     }
+    */
   },
 
   getCasestudyById: async (id: string): Promise<CasestudyItem | null> => {
+    // API disconnected
+    return null;
+
+    /*
     try {
       const response = await apiClient.get(`/casestudies/${id}`);
       return response.data?.data || response.data;
     } catch {
       return null;
     }
+    */
   },
 
   getCasestudyBySlug: async (slug: string): Promise<CasestudyItem | null> => {
+    // API disconnected: returning null to trigger getFallbackProject
+    return null;
+
+    /*
     try {
       const response = await apiClient.get(`/casestudies/slug/${slug}`);
       return response.data?.data || response.data;
     } catch {
       return null;
     }
+    */
   },
 
   createCasestudy: async (data: Partial<CasestudyItem>): Promise<CasestudyItem> => {

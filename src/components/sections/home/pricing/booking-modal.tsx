@@ -43,6 +43,8 @@ export function BookingModal({ plan, isOpen, onClose }: BookingModalProps) {
     setIsSubmitting(true);
     setErrorMessage("");
     try {
+      // API calling temporarily disconnected - preserve code for when backend is ready
+      /*
       const billingCycle =
         plan.period.replace("/", "").replace("per", "").trim() || "month";
 
@@ -51,7 +53,8 @@ export function BookingModal({ plan, isOpen, onClose }: BookingModalProps) {
         billingCycle,
         packageId: plan.id,
       });
-
+      */
+      await new Promise((resolve) => setTimeout(resolve, 400));
       setIsSuccess(true);
     } catch (error) {
       console.error("Booking failed:", error);

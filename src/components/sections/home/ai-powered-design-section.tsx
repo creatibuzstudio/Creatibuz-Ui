@@ -90,7 +90,8 @@ export function AiPoweredDesignSection() {
           [ AI Powered Design ]
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-[40px] text-header-text tracking-tight leading-[1.15] text-center">
-          <span className="font-bold"> Smarter Design, </span>
+          <span className="font-bold">Smarter Design,</span>
+          <br className="sm:hidden" />{" "}
           <span className="italic font-serif text-header-text">
             Supercharged by AI.
           </span>

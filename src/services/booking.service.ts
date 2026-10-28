@@ -35,8 +35,18 @@ export const packageBookingService = {
   },
 
   createBooking: async (data: CreateBookingPayload): Promise<BookingResponse> => {
+    // API disconnected: returning mock successful booking response
+    return {
+      id: "local-booking-id",
+      ...data,
+      status: "pending",
+      createdAt: new Date().toISOString(),
+    };
+
+    /*
     const response = await apiClient.post("/package-booking", data);
     return response.data;
+    */
   },
 
   updateBooking: async (

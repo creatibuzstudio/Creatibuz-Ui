@@ -43,7 +43,7 @@ export function PricingCard({ plan, index, onSelect }: PricingCardProps) {
       }`}
     >
       {isPopular && (
-        <div className="bg-primary text-foreground text-xs font-semibold px-4 py-1 rounded-full absolute -top-3.5 left-2/3 -translate-x-1/2 shadow-lg shadow-[#F85800]/30 tracking-wide">
+        <div className="bg-primary text-foreground text-xs font-semibold px-4 py-1 rounded-full absolute -top-3.5 left-1/2 -translate-x-1/2 md:left-2/3 md:-translate-x-1/2 shadow-lg shadow-[#F85800]/30 tracking-wide">
           Most Popular
         </div>
       )}

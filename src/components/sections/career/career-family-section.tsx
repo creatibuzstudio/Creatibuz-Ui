@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { LEADERSHIP_TEAM, STUDIO_TEAM_MEMBERS } from "@/data/career.data";
 import { FounderMember, CareerTeamMember } from "@/types/career.types";
-import { userService } from "@/services/user.service";
 import { FounderCard } from "./founder-card";
 import { CareerMemberCard } from "./career-member-card";
 import { SectionContainer } from "@/components/ui/section-container";
@@ -19,31 +18,8 @@ export function CareerFamilySection({
   initialLeadership = LEADERSHIP_TEAM,
   initialTeam = STUDIO_TEAM_MEMBERS,
 }: CareerFamilySectionProps) {
-  const [leadership, setLeadership] = useState<FounderMember[]>(initialLeadership);
-  const [team, setTeam] = useState<CareerTeamMember[]>(initialTeam);
-
-  useEffect(() => {
-    let isMounted = true;
-    const loadCareerMembers = async () => {
-      try {
-        const data = await userService.getCareerMembersWithFallback();
-        if (isMounted) {
-          if (data.leadership && data.leadership.length > 0) {
-            setLeadership(data.leadership);
-          }
-          if (data.team && data.team.length > 0) {
-            setTeam(data.team);
-          }
-        }
-      } catch {
-        // Fallback to initial
-      }
-    };
-    loadCareerMembers();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  const leadership = initialLeadership;
+  const team = initialTeam;
 
   return (
     <section className="relative w-full pt-32 lg:pt-40 overflow-hidden">

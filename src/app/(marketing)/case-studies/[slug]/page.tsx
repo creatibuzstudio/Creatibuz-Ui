@@ -14,7 +14,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { SectionContainer } from "@/components/ui/section-container";
-import { casestudyService, type CasestudyItem } from "@/services/casestudy.service";
+import { type CasestudyItem } from "@/services/casestudy.service";
 import { featuredProjects, type FeaturedProject } from "@/data/featured-projects.data";
 
 // Helper to find project from local data if API returns empty
@@ -72,7 +72,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const project = (await casestudyService.getCasestudyBySlug(slug)) || getFallbackProject(slug);
+  const project = getFallbackProject(slug);
 
   if (!project) {
     return {
@@ -90,10 +90,7 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function CaseStudyDetailPage({ params }: PageProps) {
   const { slug } = await params;
 
-  let project = await casestudyService.getCasestudyBySlug(slug);
-  if (!project) {
-    project = getFallbackProject(slug);
-  }
+  let project = getFallbackProject(slug);
 
   // Fallback to first featured project if slug is "featured" or general
   if (!project && (slug === "featured" || slug === "1" || slug === "01")) {

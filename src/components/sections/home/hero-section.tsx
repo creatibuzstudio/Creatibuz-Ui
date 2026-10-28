@@ -1,40 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 import { PrimaryButton } from "@/components/ui/primary-button";
-import { bannerService } from "@/services/banner.service";
 import { defaultHeroMockupsRow1, defaultHeroMockupsRow2 } from "@/data/projects.data";
 import { HeroMarquee } from "./hero/hero-marquee";
 import { CAL_CONFIG } from "@/config/cal.config";
 
 export function HeroSection() {
-  const [row1, setRow1] = useState<string[]>(defaultHeroMockupsRow1);
-  const [row2, setRow2] = useState<string[]>(defaultHeroMockupsRow2);
-
-  useEffect(() => {
-    const fetchBanners = async () => {
-      try {
-        const banners = await bannerService.getAllBanners();
-        if (banners && banners.length > 0) {
-          const sorted = [...banners].sort((a, b) => (a.order || 0) - (b.order || 0));
-          const active = sorted.filter((b) => b.isActive !== false);
-          const urls = active.map((b) => b.photoUrl).filter(Boolean);
-
-          if (urls.length > 0) {
-            const half = Math.ceil(urls.length / 2);
-            setRow1(urls.slice(0, half));
-            setRow2(urls.slice(half));
-          }
-        }
-      } catch {
-        // Silently preserve default mockups
-      }
-    };
-    fetchBanners();
-  }, []);
+  const row1 = defaultHeroMockupsRow1;
+  const row2 = defaultHeroMockupsRow2;
 
   return (
     <div className="w-full flex flex-col bg-background">

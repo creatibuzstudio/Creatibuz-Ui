@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { siteUrl } from "@/config/site";
-import { blogService } from "@/services/blog.service";
+import { BLOG_POSTS } from "@/data/blogs.data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
@@ -50,17 +50,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  try {
-    const blogs = await blogService.getBlogsWithFallback();
-    const blogRoutes: MetadataRoute.Sitemap = blogs.map((post) => ({
-      url: `${siteUrl}/blogs/${post.slug}`,
-      lastModified: post.publishedAt || now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    }));
+  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${siteUrl}/blogs/${post.slug}`,
+    lastModified: post.publishedAt || now,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
 
-    return [...coreRoutes, ...blogRoutes];
-  } catch {
-    return coreRoutes;
-  }
+  return [...coreRoutes, ...blogRoutes];
 }

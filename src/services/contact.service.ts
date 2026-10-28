@@ -12,8 +12,17 @@ export interface ContactData {
 
 export const contactService = {
   createContact: async (data: ContactData): Promise<ContactData> => {
+    // API disconnected: returning mock successful contact response
+    return {
+      id: "local-contact-id",
+      ...data,
+      createdAt: new Date().toISOString(),
+    };
+
+    /*
     const response = await apiClient.post("/contact", data);
     return response.data;
+    */
   },
 
   getAllContacts: async (): Promise<ContactData[]> => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { statsService, type StatsData, DEFAULT_ABOUT_STATS } from "@/services/stats.service";
+import { type StatsData, DEFAULT_ABOUT_STATS } from "@/services/stats.service";
 
 interface AboutStatsProps {
   statsRef: React.RefObject<HTMLDivElement | null>;
@@ -9,7 +9,7 @@ interface AboutStatsProps {
 }
 
 export function AboutStats({ statsRef, initialStats }: AboutStatsProps) {
-  const [targetStats, setTargetStats] = useState<StatsData>(() => initialStats || DEFAULT_ABOUT_STATS);
+  const [targetStats] = useState<StatsData>(() => initialStats || DEFAULT_ABOUT_STATS);
   const [counts, setCounts] = useState(() => ({
     deliveries: initialStats?.projectDeliveries || DEFAULT_ABOUT_STATS.projectDeliveries,
     experts: initialStats?.inHouseExperts || DEFAULT_ABOUT_STATS.inHouseExperts,
@@ -17,37 +17,6 @@ export function AboutStats({ statsRef, initialStats }: AboutStatsProps) {
     partners: initialStats?.businessPartners || DEFAULT_ABOUT_STATS.businessPartners,
   }));
   const hasAnimatedRef = useRef(false);
-
-  // 1. Fetch live dynamic stats from backend API (/stats/about)
-  useEffect(() => {
-    let isMounted = true;
-    statsService
-      .getAboutStats()
-      .then((data) => {
-        if (!isMounted || !data) return;
-        const fresh: StatsData = {
-          projectDeliveries: Number(data.projectDeliveries) || DEFAULT_ABOUT_STATS.projectDeliveries,
-          inHouseExperts: Number(data.inHouseExperts) || DEFAULT_ABOUT_STATS.inHouseExperts,
-          satisfiedClients: Number(data.satisfiedClients) || DEFAULT_ABOUT_STATS.satisfiedClients,
-          businessPartners: Number(data.businessPartners) || DEFAULT_ABOUT_STATS.businessPartners,
-        };
-        setTargetStats(fresh);
-        if (hasAnimatedRef.current) {
-          setCounts({
-            deliveries: fresh.projectDeliveries,
-            experts: fresh.inHouseExperts,
-            clients: fresh.satisfiedClients,
-            partners: fresh.businessPartners,
-          });
-        }
-      })
-      .catch(() => {
-        // Preserve current values gracefully
-      });
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   // 2. Count-up animation when scrolled into view
   useEffect(() => {
@@ -116,7 +85,7 @@ export function AboutStats({ statsRef, initialStats }: AboutStatsProps) {
   return (
     <div
       ref={statsRef}
-      className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 items-center justify-between w-full pt-16 md:pt-20 lg:pt-24"
+      className="grid grid-cols-2 md:grid-cols-4 items-center justify-between w-full pt-16 md:pt-20 lg:pt-24"
     >
       {statItems.map((item) => (
         <div

@@ -1,4 +1,5 @@
 import { apiClient } from "@/lib/api-client";
+import { DEFAULT_REVIEWS } from "@/data/testimonials.data";
 
 export interface ReviewClient {
   id: string;
@@ -24,12 +25,17 @@ export interface Review {
 
 export const reviewService = {
   getAllReviews: async (): Promise<Review[]> => {
+    // API disconnected: returning default testimonials directly
+    return DEFAULT_REVIEWS;
+
+    /*
     try {
       const response = await apiClient.get("/review");
       return Array.isArray(response.data) ? response.data : response.data?.data || [];
     } catch {
       return [];
     }
+    */
   },
 
   getReviewById: async (id: string): Promise<Review | null> => {

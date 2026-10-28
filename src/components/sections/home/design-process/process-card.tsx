@@ -13,7 +13,7 @@ export function ProcessCard({ item, index }: ProcessCardProps) {
   return (
     <div
       style={{ zIndex: index + 1 }}
-      className={`process-card group ${
+      className={`process-card group isolate ${
         isFirst
           ? "relative mx-auto md:mx-0"
           : "absolute top-0 left-0 right-0 mx-auto md:relative md:top-auto md:left-auto md:right-auto md:mx-0"

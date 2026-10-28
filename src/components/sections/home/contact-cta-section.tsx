@@ -11,22 +11,22 @@ export function ContactCtaSection() {
     <section id="contact" className="w-full lg:px-16 flex justify-center">
       {/* Dark Floating Card Container with exact screenshot gradient border */}
       <div
-        className="w-full text-foreground rounded-[20px] sm:rounded-[24px] p-8 sm:p-10 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-16 relative overflow-hidden"
+        className="w-full text-foreground rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-12 lg:gap-16 relative overflow-hidden"
         style={{
           background:
             "linear-gradient(var(--card, #181A1E), var(--card, #181A1E)) padding-box, linear-gradient(225deg, #FE5A00 0%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.1) 52%, #FE5A00 100%) border-box",
           border: "1.5px solid transparent",
         }}
       >
-        {/* Left Column: Headline, Photo, Profile Info */}
+        {/* Left Column: Headline, Photo, Profile Info (Center aligned on mobile, left aligned on desktop) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full lg:w-5/12 flex flex-col items-start relative z-10"
+          className="w-full lg:w-5/12 flex flex-col items-center text-center lg:items-start lg:text-left relative z-10"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.2] mb-8 text-header-text">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight leading-[1.2] mb-6 sm:mb-8 text-header-text text-center lg:text-left">
             Enhance Your Brand <br className="hidden sm:inline" />
             Potential{" "}
             <span className="italic font-serif font-medium text-primary">
@@ -35,7 +35,7 @@ export function ContactCtaSection() {
           </h2>
 
           {/* Founder Photo */}
-          <div className="w-full max-w-[320px] aspect-[4/4.5] rounded-[16px] overflow-hidden relative mb-8 shadow-2xl bg-gray-900 border border-white/5">
+          <div className="w-full max-w-[260px] sm:max-w-[320px] aspect-[4/4.5] rounded-[16px] overflow-hidden relative mb-6 sm:mb-8 shadow-2xl bg-gray-900 border border-white/5 mx-auto lg:mx-0">
             <Image
               src="/founder.jpg"
               alt="Md Abdul Hakim"
@@ -46,10 +46,10 @@ export function ContactCtaSection() {
           </div>
 
           {/* Profile Name & Title */}
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2 text-center lg:text-left">
             Md Abdul Hakim
           </h3>
-          <p className="text-[15px] md:text-[20px] text-header-text font-normal leading-snug mb-8">
+          <p className="text-[14px] sm:text-[16px] md:text-[20px] text-header-text font-normal leading-snug mb-6 sm:mb-8 text-center lg:text-left">
             Founder & CEO -<br />
             Creatibuz Studio - Agency
           </p>
@@ -59,7 +59,7 @@ export function ContactCtaSection() {
             href="https://wa.me/+8801968657353"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-[60%] inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white font-medium text-sm transition-all duration-200 group"
+            className="w-auto min-w-[240px] inline-flex items-center justify-between px-5 py-3 sm:py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white font-medium text-sm transition-all duration-200 group mx-auto lg:mx-0"
           >
             <span className="flex items-center gap-2">
               <svg

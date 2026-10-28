@@ -4,9 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CATEGORIES_DATA as LOCAL_CATEGORIES, PlanItem } from "@/data/pricing.data";
-import { packageService } from "@/services/package.service";
 import { CategoryData } from "@/types/pricing.types";
-import { useEffect } from "react";
 import { PricingCard } from "./pricing/pricing-card";
 import { BookingModal } from "./pricing/booking-modal";
 
@@ -14,22 +12,7 @@ export function PricingPlansSection() {
   const [activeTabId, setActiveTabId] = useState<string>("website-design");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<PlanItem | null>(null);
-  const [categories, setCategories] = useState<CategoryData[]>(LOCAL_CATEGORIES);
-
-  // Fetch categories from API with fallback to local data
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const apiCategories = await packageService.getAllCategories();
-      if (apiCategories && apiCategories.length > 0) {
-        setCategories(apiCategories);
-        setActiveTabId((current) => {
-          if (apiCategories.some((c) => c.id === current)) return current;
-          return apiCategories[0].id;
-        });
-      }
-    };
-    fetchCategories();
-  }, []);
+  const [categories] = useState<CategoryData[]>(LOCAL_CATEGORIES);
 
   const activeCategory =
     categories.find((c) => c.id === activeTabId) ||

@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { blogService } from "@/services/blog.service";
 import { BLOG_POSTS } from "@/data/blogs.data";
 import {
   BlogDetailHeader,
@@ -18,12 +17,20 @@ interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
+function getPostBySlug(slug: string) {
+  const decodedSlug = decodeURIComponent(slug).toLowerCase().trim();
+  return (
+    BLOG_POSTS.find(
+      (b) => b.slug.toLowerCase().trim() === decodedSlug || b.slug === slug || b.id === slug
+    ) || null
+  );
+}
+
 export const revalidate = 60;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const blogs = await blogService.getBlogsWithFallback();
-  return blogs.map((post) => ({
+  return BLOG_POSTS.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -32,7 +39,7 @@ export async function generateMetadata({
   params,
 }: BlogDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await blogService.getBlogBySlugWithFallback(slug);
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -64,10 +71,8 @@ export async function generateMetadata({
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
-  const [post, allBlogs] = await Promise.all([
-    blogService.getBlogBySlugWithFallback(slug),
-    blogService.getBlogsWithFallback(),
-  ]);
+  const post = getPostBySlug(slug);
+  const allBlogs = BLOG_POSTS;
 
   if (!post) {
     notFound();

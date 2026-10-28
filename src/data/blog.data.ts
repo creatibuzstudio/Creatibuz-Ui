@@ -18,18 +18,18 @@ export const DEFAULT_BLOGS: BlogCardItem[] = [
   },
   {
     id: "blog-2",
-    slug: "ai-dashboard-design-best-practices",
-    title: "AI Dashboard Design: Best Practices for SaaS Teams",
-    date: "Oct 17, 2026",
-    image: "/blogs/AI Dashboard Design.png",
-    alt: "AI Dashboard Design: Best Practices for SaaS Teams",
-  },
-  {
-    id: "blog-3",
     slug: "design-trustworthy-ai-saas-products",
     title: "How to Design AI SaaS Products That Users Trust",
     date: "Oct 16, 2026",
     image: "/blogs/How to Design AI SaaS.png",
     alt: "How to Design AI SaaS Products That Users Trust",
+  },
+  {
+    id: "blog-3",
+    slug: "ai-dashboard-design-best-practices",
+    title: "AI Dashboard Design: Best Practices for SaaS Teams",
+    date: "Oct 17, 2026",
+    image: "/blogs/AI Dashboard Design.png",
+    alt: "AI Dashboard Design: Best Practices for SaaS Teams",
   },
 ];

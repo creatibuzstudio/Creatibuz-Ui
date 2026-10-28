@@ -45,12 +45,16 @@ export const getLocalTeamPhoto = (name?: string, fallbackIdx = 0): string => {
 
 export const userService = {
   getAllUsers: async (): Promise<User[]> => {
+    // API disconnected: returning empty array for fallback to local specialists
+    return [];
+    /*
     try {
       const response = await apiClient.get("/users");
       return Array.isArray(response.data) ? response.data : response.data?.data || [];
     } catch {
       return [];
     }
+    */
   },
 
   /**
@@ -64,6 +68,13 @@ export const userService = {
     leadership: FounderMember[];
     team: CareerTeamMember[];
   }> => {
+    // API disconnected: returning default data folder directly
+    return {
+      leadership: LEADERSHIP_TEAM,
+      team: STUDIO_TEAM_MEMBERS,
+    };
+
+    /*
     try {
       const users = await userService.getAllUsers();
       if (users && users.length > 0) {
@@ -114,6 +125,7 @@ export const userService = {
       leadership: LEADERSHIP_TEAM,
       team: STUDIO_TEAM_MEMBERS,
     };
+    */
   },
 
   getUserById: async (id: string): Promise<User | null> => {

@@ -60,6 +60,10 @@ export const blogService = {
    * "api first then, data folder (api theke na pele jeno data folder theke data niye blogs render hoy)"
    */
   getBlogsWithFallback: async (): Promise<BlogPost[]> => {
+    // API disconnected: returning default data folder directly
+    return BLOG_POSTS;
+
+    /*
     try {
       const apiBlogs = await blogService.getAllBlogs();
       if (apiBlogs && apiBlogs.length > 0) {
@@ -99,11 +103,20 @@ export const blogService = {
       // Ignore API failure and seamlessly fallback to local curated data
     }
     return BLOG_POSTS;
+    */
   },
 
   getBlogBySlugWithFallback: async (slug: string): Promise<BlogPost | null> => {
     const decodedSlug = decodeURIComponent(slug).toLowerCase().trim();
 
+    // API disconnected: returning default data folder directly
+    const local = BLOG_POSTS.find(
+      (b) => b.slug.toLowerCase().trim() === decodedSlug || b.slug === slug
+    );
+    if (local) return local;
+    return null;
+
+    /*
     // 1. Try API first
     try {
       const apiBlogs = await blogService.getAllBlogs();
@@ -162,12 +175,13 @@ export const blogService = {
     }
 
     // 2. Fallback to local curated blog posts
-    const local = BLOG_POSTS.find(
+    const localPost = BLOG_POSTS.find(
       (b) => b.slug.toLowerCase().trim() === decodedSlug || b.slug === slug
     );
-    if (local) return local;
+    if (localPost) return localPost;
 
     return null;
+    */
   },
 
   createBlog: async (data: Partial<BlogItem>): Promise<BlogItem> => {

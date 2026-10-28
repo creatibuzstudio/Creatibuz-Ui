@@ -39,70 +39,74 @@ const getFallbackPlansForCategory = (catName: string): PlanItem[] => {
 export const packageService = {
   /** Retrieve all package categories, fallback to local static data. */
   getAllCategories: async (): Promise<CategoryData[]> => {
-    try {
-      const response = await apiClient.get("/package-category");
-      const data = Array.isArray(response.data) ? response.data : response.data?.data;
-      if (Array.isArray(data) && data.length > 0) {
-        // Transform backend Category -> frontend CategoryData
-        const transformed: CategoryData[] = (data as RawCat[]).map((cat) => {
-          const hasApiPackages = Array.isArray(cat.packages) && cat.packages.length > 0;
+    // API disconnected: returning default data folder directly
+    const isApiConnected = false;
+    if (isApiConnected) {
+      try {
+        const response = await apiClient.get("/package-category");
+        const data = Array.isArray(response.data) ? response.data : response.data?.data;
+        if (Array.isArray(data) && data.length > 0) {
+          // Transform backend Category -> frontend CategoryData
+          const transformed: CategoryData[] = (data as RawCat[]).map((cat) => {
+            const hasApiPackages = Array.isArray(cat.packages) && cat.packages.length > 0;
 
-          const rawPlans: PlanItem[] = hasApiPackages
-            ? (cat.packages as RawPkg[]).map((pkg) => {
-              const unit = (pkg.title?.trim() || pkg.duration?.trim() || "project").replace(/^\/\s*/, "");
-              const formattedPeriod = `/ ${unit}`;
+            const rawPlans: PlanItem[] = hasApiPackages
+              ? (cat.packages as RawPkg[]).map((pkg) => {
+                const unit = (pkg.title?.trim() || pkg.duration?.trim() || "project").replace(/^\/\s*/, "");
+                const formattedPeriod = `/ ${unit}`;
 
-              return {
-                id: pkg.id,
-                name: pkg.name?.trim() || pkg.name,
-                title: pkg.title?.trim() || unit,
-                subtitle: pkg.description?.trim() || "",
-                description: pkg.description?.trim() || "",
-                highlightFeature: unit,
-                price: Number(pkg.price) || 0,
-                period: formattedPeriod,
-                isPopular: !!pkg.isActive,
-                features:
-                  Array.isArray(pkg.features) && pkg.features.length > 0
-                    ? pkg.features
-                    : [
-                      "High-fidelity UI/UX",
-                      "Responsive Design",
-                      "Full Source Code",
-                      "24/7 Dedicated Support",
-                    ],
-                buttonText: "Choose This Plan",
-              };
-            })
-            : getFallbackPlansForCategory(cat.name);
+                return {
+                  id: pkg.id,
+                  name: pkg.name?.trim() || pkg.name,
+                  title: pkg.title?.trim() || unit,
+                  subtitle: pkg.description?.trim() || "",
+                  description: pkg.description?.trim() || "",
+                  highlightFeature: unit,
+                  price: Number(pkg.price) || 0,
+                  period: formattedPeriod,
+                  isPopular: !!pkg.isActive,
+                  features:
+                    Array.isArray(pkg.features) && pkg.features.length > 0
+                      ? pkg.features
+                      : [
+                        "High-fidelity UI/UX",
+                        "Responsive Design",
+                        "Full Source Code",
+                        "24/7 Dedicated Support",
+                      ],
+                  buttonText: "Choose This Plan",
+                };
+              })
+              : getFallbackPlansForCategory(cat.name);
 
-          const getPlanPriority = (name: string): number => {
-            const lower = (name || "").toLowerCase();
-            if (lower.includes("starter")) return 1;
-            if (lower.includes("growth")) return 2;
-            if (lower.includes("business")) return 3;
-            return 4;
-          };
+            const getPlanPriority = (name: string): number => {
+              const lower = (name || "").toLowerCase();
+              if (lower.includes("starter")) return 1;
+              if (lower.includes("growth")) return 2;
+              if (lower.includes("business")) return 3;
+              return 4;
+            };
 
-          const plans = [...rawPlans].sort((a, b) => {
-            const priorityA = getPlanPriority(a.name);
-            const priorityB = getPlanPriority(b.name);
-            if (priorityA !== priorityB) {
-              return priorityA - priorityB;
-            }
-            return (Number(a.price) || 0) - (Number(b.price) || 0);
+            const plans = [...rawPlans].sort((a, b) => {
+              const priorityA = getPlanPriority(a.name);
+              const priorityB = getPlanPriority(b.name);
+              if (priorityA !== priorityB) {
+                return priorityA - priorityB;
+              }
+              return (Number(a.price) || 0) - (Number(b.price) || 0);
+            });
+
+            return {
+              id: cat.id,
+              name: cat.name,
+              plans,
+            };
           });
-
-          return {
-            id: cat.id,
-            name: cat.name,
-            plans,
-          };
-        });
-        return transformed;
+          return transformed;
+        }
+      } catch {
+        // ignore errors, fallback
       }
-    } catch {
-      // ignore errors, fallback
     }
     return CATEGORIES_DATA;
   },

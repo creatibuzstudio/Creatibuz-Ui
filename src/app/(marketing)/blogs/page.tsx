@@ -8,7 +8,7 @@ import {
 } from "@/components/sections/blogs";
 import { FaqSection } from "@/components/sections/home/faq-section";
 import { SectionContainer } from "@/components/ui/section-container";
-import { blogService } from "@/services/blog.service";
+import { BLOG_POSTS } from "@/data/blogs.data";
 
 export const metadata: Metadata = {
   title: "Blogs - Your Go-To Source: Blog Highlights & More | Creatibuz Studio",
@@ -18,10 +18,8 @@ export const metadata: Metadata = {
 
 export const revalidate = 60; // Incremental static revalidation every 60s
 
-export default async function BlogsPage() {
-  // API first with local data fallback as required:
-  // "api first then, data folder (api theke na pele jeno data folder theke data niye blogs render hoy)"
-  const blogs = await blogService.getBlogsWithFallback();
+export default function BlogsPage() {
+  const blogs = BLOG_POSTS;
 
   return (
     <div className="relative min-h-screen w-full bg-[#0C0E12] text-primary-text flex flex-col justify-between overflow-hidden">

@@ -22,8 +22,10 @@ export function WhyChooseUsSection() {
         <span className="text-primary text-base md:text-xl text-center mb-3 font-sans">
           [ Why Choose Us ]
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] text-header-text tracking-tight leading-[1.15] text-center">
-          <span className="font-bold">Creatibuz Studio Alternative?</span>
+        <h2 className="text-[20px] min-[380px]:text-[22px] min-[440px]:text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-header-text tracking-tight leading-[1.2] sm:leading-[1.15] text-center">
+          <span className="font-bold whitespace-nowrap">
+            Creatibuz Studio Alternative?
+          </span>
           <br />
           <span className="font-bold">Think </span>
           <span className="italic font-serif text-header-text">

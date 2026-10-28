@@ -96,12 +96,12 @@ export function AboutIntroSection({ initialStats }: AboutIntroSectionProps = {})
 
   return (
     <div ref={sectionRef} className="w-full bg-background flex justify-center">
-      <div className="w-full lg:px-16 flex flex-col items-start">
+      <div className="w-full lg:px-16 flex flex-col items-center md:items-start">
         <h2 className="text-primary text-2xl mb-8 font-sans">[ About Us ]</h2>
 
         <p
           ref={textRef}
-          className="text-2xl md:text-3xl lg:text-[32px] tracking-[-1px] text-primary-text text-justify hyphens-auto leading-relaxed select-none"
+          className="text-2xl md:text-3xl lg:text-[32px] tracking-[-1px] text-primary-text text-center md:text-start hyphens-auto leading-relaxed select-none"
         >
           {characters.map((character, i) => {
             // Full text illuminates across the pinned scroll,

@@ -17,6 +17,10 @@ export const DEFAULT_ABOUT_STATS: StatsData = {
 export const statsService = {
   /** Fetch specifically the About Us stats directly from /stats/about */
   getAboutStats: async (): Promise<StatsData> => {
+    // API disconnected: returning default stats directly
+    return DEFAULT_ABOUT_STATS;
+
+    /*
     try {
       const response = await apiClient.get("/stats/about");
       const d = response?.data;
@@ -46,6 +50,7 @@ export const statsService = {
       }
     }
     return DEFAULT_ABOUT_STATS;
+    */
   },
 
   getStats: async (): Promise<StatsData> => {

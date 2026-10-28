@@ -111,9 +111,9 @@ export function BlogsNewsletterOrbitSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold text-white tracking-tight leading-[1.18] font-display mb-4 sm:mb-5"
+            className="text-[19px] min-[380px]:text-[21px] min-[440px]:text-2xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold text-white tracking-tight leading-[1.25] sm:leading-[1.18] font-display mb-4 sm:mb-5"
           >
-            Stay In The Loop And Keep Up
+            <span className="whitespace-nowrap">Stay In The Loop And Keep Up</span>
             <br />
             With All Our{" "}
             <span className="font-serif italic font-normal text-white">
@@ -163,7 +163,7 @@ export function BlogsNewsletterOrbitSection() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-primary hover:bg-[#ff6a14] active:scale-[0.98] text-white text-sm sm:text-[20px] transition-all duration-200 shrink-0 shadow-[0_4px_20px_rgba(254,90,0,0.4)] disabled:opacity-60 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-primary hover:bg-[#ff6a14] active:scale-[0.98] text-white text-[18px] sm:text-[20px] transition-all duration-200 shrink-0 shadow-[0_4px_20px_rgba(254,90,0,0.4)] disabled:opacity-60 cursor-pointer"
                 >
                   <span>{isLoading ? "Subscribing..." : "Subscribe"}</span>
                   <ChevronRight className="w-7.5 h-7.5 stroke-2" />

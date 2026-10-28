@@ -11,6 +11,10 @@ export interface Banner {
 
 export const bannerService = {
   getAllBanners: async (): Promise<Banner[]> => {
+    // API disconnected: returning empty array for fallback to local mockups
+    return [];
+
+    /*
     try {
       const response = await apiClient.get("/banner");
       const data = response.data;
@@ -21,6 +25,7 @@ export const bannerService = {
       // Graceful offline fallback
       return [];
     }
+    */
   },
 };
 
